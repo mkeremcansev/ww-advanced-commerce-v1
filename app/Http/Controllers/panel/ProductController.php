@@ -1,0 +1,190 @@
+<?php
+
+namespace App\Http\Controllers\panel;
+
+use App\Helper\Helper;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductUpdateRequest;
+use App\Models\Product;
+use App\Models\ProductAttribute;
+use App\Models\ProductImage;
+use App\Models\ProductInformation;
+use App\Models\Variant;
+use Illuminate\Http\Request;
+use App\Models\VariantAttribute;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+class ProductController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('panel.product.create.index');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(ProductCreateRequest $request)
+    {
+        $request->validated();
+        DB::transaction(function () use ($request) {
+            $product = Product::create([
+                'hash' => Str::random(15),
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
+            ]);
+            $product->getOneProductAttributes()->create([
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'description' => $request->description,
+                'hash' => Str::random(15),
+                'price' => $request->price,
+                'discount' => $request->discount,
+                'sku' => Helper::sku($request->title)
+            ]);
+            foreach ($request->informations as $information) {
+                $product->getAllProductInformations()->create([
+                    'title' => $information['information_title'],
+                    'description' => $information['information_description'],
+                    'hash' => Str::random(15)
+                ]);
+            }
+            foreach ($request->list as $list) {
+                $variant = $product->getAllProductVariants()->create([
+                    'title' => $list["variant"],
+                    'hash' => Str::random(15)
+                ]);
+                foreach ($list["attribute"] as $attribute) {
+                    $variant->getAllVariantAttributes()->create([
+                        'title' => $attribute["attribute_title"],
+                        'stock' => $attribute["attribute_stock"],
+                        'price' => $attribute["attribute_price"],
+                        'hash' => Str::random(15)
+                    ]);
+                }
+            }
+            foreach ($request->images as $image) {
+                $product->getAllProductImages()->create([
+                    'image' => Helper::imageUpload($image, 'storage'),
+                    'hash' => Str::random(15),
+                ]);
+            }
+        });
+        return back()->with('success', __('words.created_action_success'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $product = Product::with('getOneProductAttributes', 'getAllProductInformations', 'getAllProductVariants.getAllVariantAttributes', 'getAllProductImages')->findOrFail($id);
+        return view('panel.product.update.index', compact('product'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ProductUpdateRequest $request, $id)
+    {
+        $request->validated();
+        DB::transaction(function () use ($request, $id) {
+            $product = Product::findOrFail($id);
+            $product->update([
+                'hash' => Str::random(15),
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
+            ]);
+            $product->getOneProductAttributes()->update([
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'description' => $request->description,
+                'hash' => Str::random(15),
+                'price' => $request->price,
+                'discount' => $request->discount,
+                'sku' => Helper::sku($request->title)
+            ]);
+            $product->getAllProductInformations()->delete();
+            foreach ($request->informations as $information) {
+                $product->getAllProductInformations()->create([
+                    'title' => $information['information_title'],
+                    'description' => $information['information_description'],
+                    'hash' => Str::random(15)
+                ]);
+            }
+            $product->getAllProductVariants()->delete();
+            foreach ($request->list as $list) {
+                $variant = $product->getAllProductVariants()->create([
+                    'title' => $list["variant"],
+                    'hash' => Str::random(15)
+                ]);
+                foreach ($list["attribute"] as $attribute) {
+                    $variant->getAllVariantAttributes()->create([
+                        'title' => $attribute["attribute_title"],
+                        'stock' => $attribute["attribute_stock"],
+                        'price' => $attribute["attribute_price"],
+                        'hash' => Str::random(15)
+                    ]);
+                }
+            }
+            if ($request->hasFile('images')) {
+                foreach ($request->images as $image) {
+                    $product->getAllProductImages()->create([
+                        'image' => Helper::imageUpload($image, 'storage'),
+                        'hash' => Str::random(15),
+                    ]);
+                }
+            }
+        });
+        return back()->with('success', __('words.updated_action_success'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

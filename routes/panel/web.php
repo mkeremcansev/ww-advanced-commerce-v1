@@ -1,14 +1,19 @@
 <?php
 
+use App\Http\Controllers\panel\CategoryController;
+use App\Http\Controllers\panel\ProductController;
+use App\Http\Controllers\panel\ProductImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Panel Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
+
+Route::prefix('/admin')->name('panel.')->group(function () {
+    Route::view('/', 'panel.homepage.index')->name('index');
+    Route::resource('/category', CategoryController::class);
+    Route::resource('/product', ProductController::class);
+    Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
+});

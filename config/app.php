@@ -177,7 +177,8 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-
+        App\Providers\ViewShareProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
     ],
 
     /*
@@ -234,7 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
-
+        'Helper' => App\Helper\Helper::class,
     ],
 
 ];
