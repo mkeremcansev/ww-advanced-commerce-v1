@@ -3,7 +3,7 @@
 }
 
 .picker__day--today:before, .picker__button--today:before {
-  border-top : 6px solid #38a9ff;
+  border-top : 6px solid var(--main-color);
 }
 
 .picker__button--clear:before {
@@ -11,7 +11,7 @@
 }
 
 .picker__day--highlighted, .picker__day--highlighted:hover, .picker--focused .picker__day--highlighted, .picker__list-item--selected, .picker__list-item--selected:hover, .picker--focused .picker__list-item--selected {
-  background-color : #38a9ff;
+  background-color : var(--main-color);
 }
 
 .picker__nav--prev:before, .picker__nav--next:before, .picker__button--close:before {

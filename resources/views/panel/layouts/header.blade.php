@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Admin panel color :  #ff5e3a // #38a9ff -->
+<!-- Admin panel color :  #ff5e3a // var(--main-color) -->
 <html id="modeChange" class="loading dark-layout" lang="{{ app()->getLocale() }}" data-textdirection="ltr">
 
 <head>

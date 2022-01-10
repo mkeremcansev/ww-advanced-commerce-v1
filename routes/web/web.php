@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\web\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -9,3 +10,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'web.homepage.index');
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('web.product.show');

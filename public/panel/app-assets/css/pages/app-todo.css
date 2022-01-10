@@ -46,11 +46,11 @@
 
 .todo-application .content-area-wrapper .sidebar .todo-sidebar .todo-app-menu .list-group .list-group-item:hover, .todo-application .content-area-wrapper .sidebar .todo-sidebar .todo-app-menu .list-group .list-group-item:focus, .todo-application .content-area-wrapper .sidebar .todo-sidebar .todo-app-menu .list-group .list-group-item.active {
   background : transparent;
-  color : #38a9ff;
+  color : var(--main-color);
 }
 
 .todo-application .content-area-wrapper .sidebar .todo-sidebar .todo-app-menu .list-group .list-group-item.active {
-  border-color : #38a9ff;
+  border-color : var(--main-color);
 }
 
 .todo-application .content-area-wrapper .ql-editor {

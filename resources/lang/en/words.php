@@ -2,6 +2,8 @@
 return [
     'homepage' => 'Ana Sayfa',
     'separator' => ' ❯ ',
+    'currency_unit' => ' ₺ ',
+    'detail' => 'Detay',
     'actions' => 'İşlemler',
     'edit' => 'Düzenle',
     'delete' => 'Sil',
@@ -18,6 +20,7 @@ return [
     'title' => 'Başlık',
     'main_category' => 'Ana Kategori',
     'category_name' => 'Kategori Adı',
+    'add_to_cart' => 'Sepete Ekle',
     'image' => 'Resim',
     'updated_image' => 'Güncel Resim',
     'not' => 'Yok',
@@ -44,4 +47,5 @@ return [
     'created_action_success' => 'Oluşturma işlemi başarıyla gerçekleşti.',
     'updated_action_success' => 'Güncelleme işlemi başarıyla gerçekleşti.',
     'deleted_action_success' => 'Silme işlemi başarıyla gerçekleşti.',
+    'code' => 'Kod',
 ];

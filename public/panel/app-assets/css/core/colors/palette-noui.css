@@ -67,15 +67,15 @@
 }
 
 .slider-primary .noUi-connect {
-  background : #38a9ff !important;
+  background : var(--main-color) !important;
 }
 
 .slider-primary.noUi-connect {
-  background : #38a9ff !important;
+  background : var(--main-color) !important;
 }
 
 .slider-primary .noUi-handle {
-  border-color : #38a9ff !important;
+  border-color : var(--main-color) !important;
 }
 
 .slider-secondary {

@@ -8,7 +8,7 @@
 ==========================================================================================*/
 window.colors = {
   solid: {
-    primary: '#38a9ff',
+    primary: 'var(--main-color)',
     secondary: '#82868b',
     success: '#28C76F',
     info: '#00cfe8',
@@ -20,7 +20,7 @@ window.colors = {
     body: '#f8f8f8'
   },
   light: {
-    primary: '#38a9ff1a',
+    primary: 'var(--main-color)1a',
     secondary: '#82868b1a',
     success: '#28C76F1a',
     info: '#00cfe81a',

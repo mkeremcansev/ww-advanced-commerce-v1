@@ -8,7 +8,7 @@
 }
 
 .shepherd-element[data-popper-placement='bottom'] .shepherd-arrow:before {
-  background-color : #38a9ff !important;
+  background-color : var(--main-color) !important;
 }
 
 .shepherd-element[data-popper-placement='top'] {
@@ -28,7 +28,7 @@
 }
 
 .shepherd-element .shepherd-content .shepherd-header {
-  background-color : #38a9ff;
+  background-color : var(--main-color);
   padding : 0.38rem 1.2rem;
   border-radius : 0.357rem 0.357rem 0 0;
 }

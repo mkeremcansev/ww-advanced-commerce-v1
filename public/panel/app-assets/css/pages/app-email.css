@@ -44,11 +44,11 @@
 
 .email-application .content-area-wrapper .sidebar .list-group .list-group-item:hover, .email-application .content-area-wrapper .sidebar .list-group .list-group-item:focus, .email-application .content-area-wrapper .sidebar .list-group .list-group-item.active {
   background : transparent;
-  color : #38a9ff;
+  color : var(--main-color);
 }
 
 .email-application .content-area-wrapper .sidebar .list-group .list-group-item.active {
-  border-color : #38a9ff;
+  border-color : var(--main-color);
 }
 
 .email-application .content-area-wrapper .content-right {

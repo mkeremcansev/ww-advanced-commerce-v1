@@ -1,5 +1,5 @@
 .pricing-card .card.popular {
-  border : 1px solid #38a9ff;
+  border : 1px solid var(--main-color);
 }
 
 .pricing-card .list-group-circle {

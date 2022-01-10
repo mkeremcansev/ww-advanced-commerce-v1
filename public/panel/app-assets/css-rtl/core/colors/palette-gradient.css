@@ -43,8 +43,8 @@
   color : #FFFFFF;
   -webkit-transition : all 0.2s ease;
           transition : all 0.2s ease;
-  background-image : -webkit-linear-gradient(137deg, #38a9ff, #9E95F5);
-  background-image :         linear-gradient(-47deg, #38a9ff, #9E95F5);
+  background-image : -webkit-linear-gradient(137deg, var(--main-color), #9E95F5);
+  background-image :         linear-gradient(-47deg, var(--main-color), #9E95F5);
   background-repeat : repeat-x;
   background-repeat : repeat;
 }
@@ -66,8 +66,8 @@
 }
 
 .bg-gradient-primary:active, .bg-gradient-primary:focus, .btn-gradient-primary:active, .btn-gradient-primary:focus {
-  background-image : -webkit-linear-gradient(137deg, #4839EB, #38a9ff);
-  background-image :         linear-gradient(-47deg, #4839EB, #38a9ff);
+  background-image : -webkit-linear-gradient(137deg, #4839EB, var(--main-color));
+  background-image :         linear-gradient(-47deg, #4839EB, var(--main-color));
   background-repeat : repeat-x;
   background-repeat : repeat;
 }

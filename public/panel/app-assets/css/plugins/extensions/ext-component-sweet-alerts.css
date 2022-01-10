@@ -33,12 +33,12 @@
 }
 
 .swal2-container .swal2-popup input.swal2-input:focus {
-  border-color : #38a9ff !important;
+  border-color : var(--main-color) !important;
   box-shadow : 0 3px 10px 0 rgba(34, 41, 47, 0.1);
 }
 
 .swal2-container .swal2-popup .swal2-progress-steps .swal2-progress-step {
-  background-color : #38a9ff;
+  background-color : var(--main-color);
 }
 
 .swal2-container .swal2-popup .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line, .swal2-container .swal2-popup .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
@@ -46,7 +46,7 @@
 }
 
 .swal2-container .swal2-popup .swal2-progress-steps .swal2-progress-step-line {
-  background-color : #38a9ff;
+  background-color : var(--main-color);
 }
 
 .swal2-container .swal2-popup pre {

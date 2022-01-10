@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="{{ asset('web/vendor/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/home-category.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/product-details.css') }}">
 </head>
-
 <body>
     <div class="backdrop"></div>
     <a class="backtop fas fa-arrow-up" href="#"></a>
@@ -94,3 +94,7 @@
             </div>
         </div>
     </header>
+    @include('web.layouts.menu.navbar')
+    @include('web.layouts.menu.sidebar')
+    @include('web.layouts.menu.cart')
+    @include('web.layouts.menu.mobile')

@@ -17,6 +17,14 @@ class Product extends Model
     {
         return $this->hasOne(ProductAttribute::class, 'product_id', 'id');
     }
+    public function getOneProductCategory()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+    public function getOneProductBrand()
+    {
+        return $this->hasOne(Brand::class, 'id', 'brand_id');
+    }
     public function getAllProductInformations()
     {
         return $this->hasMany(ProductInformation::class, 'product_id', 'id');

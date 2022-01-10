@@ -21,7 +21,7 @@
 }
 
 .blog-sidebar .blog-recent-posts .text-body-heading:hover {
-  color : #38a9ff !important;
+  color : var(--main-color) !important;
 }
 
 .blog-sidebar .blog-recent-post-title, .blog-sidebar .blog-category-title {

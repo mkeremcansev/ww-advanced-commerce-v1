@@ -1,5 +1,4 @@
-﻿@import url("../../../../css2.css");
-:root {
+﻿:root {
     --h1size: 50px;
     --h2size: 40px;
     --h3size: 24px;
@@ -29,6 +28,7 @@
     --border: #e8e8e8;
     --heading: #39404a;
     --primary: #b12fad;
+    --primary-opacity: #ffb5fd;
     --sub-heading: #565765;
     --green-chalk: #ddffd5;
     --green-dark: #072f17;
@@ -4948,6 +4948,49 @@ tbody tr td:last-child {
     color: var(--primary)
 }
 
+.detail-action-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.detail-action-group .product-action {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.detail-action-group .product-action button i {
+    width: 45px;
+    height: 45px;
+    font-size: 12px;
+    line-height: 45px;
+    border-radius: 5px
+}
+
+.detail-action-group .product-action input {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: var(--primary);
+    background: var(--chalk)
+}
+
+.detail-action-group h6 {
+    font-weight: 500;
+    color: var(--primary)
+}
+
 .cart-footer {
     padding: 20px 15px 0px;
     text-align: center;
@@ -6950,4 +6993,87 @@ tbody tr td:last-child {
 
 .custom-mt-1 {
     margin-top: .40rem !important;
+}
+.attr-detail .select-box select {
+  height: 40px;
+  width: 100%;
+}
+
+.attr-detail.attr-brand {
+  margin-top: 23px;
+}
+
+.attr-detail.attr-brand .select-box {
+  display: block;
+  margin-bottom: 20px;
+}
+.attr-detail strong{
+    margin-right: 1%;
+}
+
+.attr-detail.attr-color table {
+  margin-bottom: 15px;
+}
+.attr-detail {
+margin-bottom: 10px;
+}
+.attr-color, .attr-size {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.list-filter {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.list-filter li {
+    padding: 2px;
+  display: inline-block;
+}
+
+.size-filter.list-filter li a {
+padding: 2px 10px;
+border-radius: 5px;
+text-transform: capitalize;
+color: var(--text);
+background: var(--chalk);
+transition: all linear .3s;
+-webkit-transition: all linear .3s;
+-moz-transition: all linear .3s;
+-ms-transition: all linear .3s;
+-o-transition: all linear .3s;
+cursor: pointer !important;
+}
+
+.size-filter.list-filter li a:hover,
+.size-filter.list-filter li.active a {
+  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.detail-add-btn {
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    padding: 10px 15px;
+    margin-left: 10px !important;
+    white-space: nowrap;
+    text-transform: capitalize;
+    color: var(--white);
+    background: var(--primary);
+    text-shadow: var(--primary-tshadow);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
 }

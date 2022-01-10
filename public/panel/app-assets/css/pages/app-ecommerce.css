@@ -420,7 +420,7 @@
 }
 
 .ecommerce-application .list-view .ecommerce-card .item-options .item-wrapper .item-cost .item-price {
-  color : #38a9ff;
+  color : var(--main-color);
   margin-bottom : 0;
 }
 

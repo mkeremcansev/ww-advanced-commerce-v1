@@ -92,6 +92,7 @@
    <script src="{{ asset('web/js/venobox.js') }}"></script>
    <script src="{{ asset('web/js/slick.js') }}"></script>
    <script src="{{ asset('web/js/main.js') }}"></script>
+   @yield('script')
    </body>
 
    </html>
