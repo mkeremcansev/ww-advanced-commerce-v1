@@ -9,4 +9,9 @@ class VariantAttribute extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'stock', 'price', 'hash', 'variant_id'];
+
+    public function getOneVariantMain()
+    {
+        return $this->hasOne(Variant::class, 'id', 'variant_id');
+    }
 }

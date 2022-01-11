@@ -40,7 +40,6 @@ class ProductUpdateRequest extends FormRequest
             'list.*.attribute.*.attribute_title' => 'required|max:255',
             'list.*.attribute.*.attribute_stock' => 'required|integer',
             'list.*.attribute.*.attribute_price' => 'required|integer',
-            //
         ];
     }
 }

@@ -13,6 +13,10 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id')->with('getAllCategoriesCollection');
     }
+    public function getAllCategoriesCollections()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
     public function getAllCategoryProducts()
     {
         return $this->hasMany(Product::class, 'category_id', 'id')->where('status', 1);

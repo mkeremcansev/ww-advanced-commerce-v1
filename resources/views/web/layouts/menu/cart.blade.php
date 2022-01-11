@@ -1,100 +1,76 @@
-<aside class="cart-sidebar">
+<form action="{{ route('web.shopping.cart.update') }}" method="POST">
+    @csrf
+    <aside class="cart-sidebar">
         <div class="cart-header">
-            <div class="cart-total"><i class="fas fa-shopping-basket"></i><span>canseworks (5)</span></div><button
-                class="cart-close"><i class="icofont-close"></i></button>
+            <div class="cart-total">
+                <i class="fas fa-shopping-basket"></i>
+                <span>@lang('words.shopping_cart', ['count'=>Cart::instance('cart')->content()->count()])</span>
+            </div>
+            <button type="button" class="cart-close">
+                <i class="icofont-close"></i>
+            </button>
         </div>
-        <ul class="cart-list">
-            <li class="cart-item">
-                <div class="cart-media"><a href="#"><img src="{{ asset('web') }}/images/product/01.jpg"
-                            alt="product"></a><button class="cart-delete"><i class="far fa-trash-alt"></i></button></div>
-                <div class="cart-info-group">
-                    <div class="cart-info">
-                        <h6><a href="product-single.html">existing product name</a></h6>
-                        <p>Unit Price - $8.75</p>
+            <ul class="cart-list">
+                @if (Cart::instance('cart')->content()->count())
+                    @foreach (Cart::instance('cart')->content() as $c)
+                    @php($product = $c->model)
+                    @php($attribute = $product->getOneProductAttributes)
+                    <li class="cart-item">
+                        <div class="cart-media">
+                            <a>
+                                <img src="{{ asset($product->getOneProductImages->image) }}" alt="{{ $attribute->title }}">
+                            </a>
+                            <button class="cart-delete">
+                                <a href="{{ route('web.shopping.cart.delete', $c->rowId) }}">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </button>
+                        </div>
+                        <div class="cart-info-group">
+                            <div class="cart-info">
+                                <h6><a href="{{ route('web.product.show', $attribute->slug) }}">{{ $attribute->title }}</a></h6>
+                                @foreach ($c->options['variants'] as $o)
+                            <p><strong>{{ $o->getOneVariantMain->title }} : </strong>{{ $o->title }}</p>
+                                @endforeach
+                            </div>
+                            <div class="cart-action-group">
+                                <div class="product-action">
+                                    <button type="button" class="action-minus">
+                                        <i class="icofont-minus"></i>
+                                    </button>
+                                    <input type="hidden" name="rowId[]" value="{{ $c->rowId }}">
+                                    <input class="action-input" type="text" name="quantity[]" value="{{ $c->qty }}">
+                                    <button type="button" class="action-plus">
+                                        <i class="icofont-plus"></i>
+                                    </button>
+                                </div>
+                                <h6>{{ getMoneyOrder($c->price * $c->qty) }}</h6>
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+                @else
+                    <div class="mt-5">
+                        <h5 class="text-center">@lang('words.shopping_cart_empty')</h5>
                     </div>
-                    <div class="cart-action-group">
-                        <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
-                                    class="icofont-minus"></i></button><input class="action-input"
-                                title="Quantity Number" type="text" name="quantity" value="1"><button class="action-plus"
-                                title="Quantity Plus"><i class="icofont-plus"></i></button></div>
-                        <h6>$56.98</h6>
-                    </div>
+                @endif
+            </ul>
+        @if (Cart::instance('cart')->content()->count())
+            <div class="cart-footer">
+                <div class="mb-1">
+                    <button class="clear-and-update-btn col-lg-3">@lang('words.shopping_cart_update')</button>
+                    <a href="{{ route('web.shopping.cart.destroy') }}" class="clear-and-update-btn">@lang('words.shopping_cart_clear')</a>
                 </div>
-            </li>
-            <li class="cart-item">
-                <div class="cart-media"><a href="#"><img src="{{ asset('web') }}/images/product/02.jpg"
-                            alt="product"></a><button class="cart-delete"><i class="far fa-trash-alt"></i></button></div>
-                <div class="cart-info-group">
-                    <div class="cart-info">
-                        <h6><a href="product-single.html">existing product name</a></h6>
-                        <p>Unit Price - $8.75</p>
-                    </div>
-                    <div class="cart-action-group">
-                        <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
-                                    class="icofont-minus"></i></button><input class="action-input"
-                                title="Quantity Number" type="text" name="quantity" value="1"><button class="action-plus"
-                                title="Quantity Plus"><i class="icofont-plus"></i></button></div>
-                        <h6>$56.98</h6>
-                    </div>
-                </div>
-            </li>
-            <li class="cart-item">
-                <div class="cart-media"><a href="#"><img src="{{ asset('web') }}/images/product/03.jpg"
-                            alt="product"></a><button class="cart-delete"><i class="far fa-trash-alt"></i></button></div>
-                <div class="cart-info-group">
-                    <div class="cart-info">
-                        <h6><a href="product-single.html">existing product name</a></h6>
-                        <p>Unit Price - $8.75</p>
-                    </div>
-                    <div class="cart-action-group">
-                        <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
-                                    class="icofont-minus"></i></button><input class="action-input"
-                                title="Quantity Number" type="text" name="quantity" value="1"><button class="action-plus"
-                                title="Quantity Plus"><i class="icofont-plus"></i></button></div>
-                        <h6>$56.98</h6>
-                    </div>
-                </div>
-            </li>
-            <li class="cart-item">
-                <div class="cart-media"><a href="#"><img src="{{ asset('web') }}/images/product/04.jpg"
-                            alt="product"></a><button class="cart-delete"><i class="far fa-trash-alt"></i></button>
-                </div>
-                <div class="cart-info-group">
-                    <div class="cart-info">
-                        <h6><a href="product-single.html">existing product name</a></h6>
-                        <p>Unit Price - $8.75</p>
-                    </div>
-                    <div class="cart-action-group">
-                        <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
-                                    class="icofont-minus"></i></button><input class="action-input"
-                                title="Quantity Number" type="text" name="quantity" value="1"><button class="action-plus"
-                                title="Quantity Plus"><i class="icofont-plus"></i></button></div>
-                        <h6>$56.98</h6>
-                    </div>
-                </div>
-            </li>
-            <li class="cart-item">
-                <div class="cart-media"><a href="#"><img src="{{ asset('web') }}/images/product/05.jpg"
-                            alt="product"></a><button class="cart-delete"><i class="far fa-trash-alt"></i></button>
-                </div>
-                <div class="cart-info-group">
-                    <div class="cart-info">
-                        <h6><a href="product-single.html">existing product name</a></h6>
-                        <p>Unit Price - $8.75</p>
-                    </div>
-                    <div class="cart-action-group">
-                        <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
-                                    class="icofont-minus"></i></button><input class="action-input"
-                                title="Quantity Number" type="text" name="quantity" value="1"><button class="action-plus"
-                                title="Quantity Plus"><i class="icofont-plus"></i></button></div>
-                        <h6>$56.98</h6>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="cart-footer"><button class="coupon-btn">Do you have a coupon code?</button>
-            <form class="coupon-form"><input type="text" placeholder="Enter your coupon code"><button
-                    type="submit"><span>apply</span></button></form><a class="cart-checkout-btn" href="checkout.html"><span
-                    class="checkout-label">Proceed to Checkout</span><span class="checkout-price">$369.78</span></a>
-        </div>
+                <a class="checkout-and-go-btn" href="">
+                    <span class="checkout-label">@lang('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::subtotal())])</span>
+                </a>
+            </div>
+        @else
+            <div class="cart-footer mt-5">
+                <a class="checkout-and-go-btn" href="{{ route('web.index') }}">
+                    <span class="checkout-label">@lang('words.go_to_shopping')</span>
+                </a>
+            </div>
+        @endif
     </aside>
+</form>

@@ -4944,7 +4944,6 @@ tbody tr td:last-child {
 }
 
 .cart-action-group h6 {
-    font-weight: 500;
     color: var(--primary)
 }
 
@@ -7076,4 +7075,54 @@ cursor: pointer !important;
     -moz-transition: all linear .3s;
     -ms-transition: all linear .3s;
     -o-transition: all linear .3s;
+}
+
+.clear-and-update-btn {
+    width: 49%;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    padding: 10px 15px;
+    white-space: nowrap;
+    text-transform: capitalize;
+    color: var(--white);
+    background: var(--primary);
+    text-shadow: var(--primary-tshadow);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+.clear-and-update-btn:hover {
+    color: var(--white);
+}
+.custom-disabled{
+   cursor: not-allowed;
+   pointer-events: none;
+}
+.checkout-and-go-btn {
+    width: 99%;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    padding: 10px 15px;
+    white-space: nowrap;
+    text-transform: capitalize;
+    color: var(--white);
+    background: var(--primary);
+    text-shadow: var(--primary-tshadow);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.checkout-and-go-btn:hover {
+    color: var(--white);
 }

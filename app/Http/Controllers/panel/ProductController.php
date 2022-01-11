@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductUpdateRequest;
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductImage;
@@ -35,7 +36,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('panel.product.create.index');
+        $brands = Brand::get();
+        return view('panel.product.create.index', ['brands' => $brands]);
     }
 
     /**
@@ -46,7 +48,6 @@ class ProductController extends Controller
      */
     public function store(ProductCreateRequest $request)
     {
-        $request->validated();
         DB::transaction(function () use ($request) {
             $product = Product::create([
                 'hash' => Str::random(15),
@@ -113,7 +114,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::with('getOneProductAttributes', 'getAllProductInformations', 'getAllProductVariants.getAllVariantAttributes', 'getAllProductImages')->findOrFail($id);
-        return view('panel.product.update.index', compact('product'));
+        $brands = Brand::get();
+        return view('panel.product.update.index', ['product' => $product, 'brands' => $brands]);
     }
 
     /**
@@ -125,7 +127,6 @@ class ProductController extends Controller
      */
     public function update(ProductUpdateRequest $request, $id)
     {
-        $request->validated();
         DB::transaction(function () use ($request, $id) {
             $product = Product::findOrFail($id);
             $product->update([

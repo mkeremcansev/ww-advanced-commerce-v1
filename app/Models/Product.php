@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -32,6 +33,10 @@ class Product extends Model
     public function getAllProductImages()
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
+    public function getOneProductImages()
+    {
+        return $this->hasOne(ProductImage::class, 'product_id', 'id');
     }
     public function getAllProductVariants()
     {

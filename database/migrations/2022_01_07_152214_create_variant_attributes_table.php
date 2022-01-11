@@ -17,7 +17,7 @@ class CreateVariantAttributesTable extends Migration
             $table->id();
             $table->string('title');
             $table->integer('stock');
-            $table->float('price');
+            $table->integer('price');
             $table->string('hash');
             $table->unsignedBigInteger('variant_id');
             $table->foreign('variant_id')->references('id')->on('variants')->cascadeOnDelete();

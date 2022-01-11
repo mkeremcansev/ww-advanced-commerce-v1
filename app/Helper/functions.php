@@ -7,6 +7,11 @@ function getMoneyOrder($price)
     return number_format($price, 0, '.', '.') . __('words.currency_unit');
 }
 
+function getMoneyOrderShoppingCart($price)
+{
+    return str_replace(',', '.', $price) . __('words.currency_unit');
+}
+
 function getDiscountCalc($price, $discount)
 {
     $action = $price - $discount;

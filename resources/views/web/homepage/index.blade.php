@@ -34,11 +34,7 @@
                                     @endforeach
                                 </div>
                                 <a class="product-image" href="{{ route('web.product.show', $r->getOneProductAttributes->slug) }}">
-                                    @foreach ($r->getAllProductImages as $i)
-                                        @if($loop->first)
-                                            <img src="{{ asset($i->image) }}" class="rounded-3" alt="{{ $r->getOneProductAttributes->title }}">
-                                        @endif
-                                    @endforeach
+                                    <img src="{{ asset($r->getOneProductImages->image) }}" class="rounded-3" alt="{{ $r->getOneProductAttributes->title }}">
                                 </a>
                             </div>
                             <div class="product-content">

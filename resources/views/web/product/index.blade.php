@@ -5,13 +5,43 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $('#add-to-cart').on('click', function(){
+            let add_to_cart_btn = $('#add-to-cart')    
+            add_to_cart_btn.on('click', function(){
+                let product_hash =  '{{ $product->hash }}'
                  let variants = [];
                 $('ul .active').each(function() { 
                     variants.push($(this).attr('variant-hash')); 
                 });
                 let quantity = $('#quantity').val()
-                console.log(variants+' | '+quantity)
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route("web.shopping.cart.store") }}',
+                    data: {product_hash:product_hash, variants:variants, quantity:quantity},
+                    dataType:'json',
+                    success: function (response) {
+                        if(response.status == 'error'){
+                            iziToast.error({
+                                position: 'topRight',
+                                message: response.message
+                            })
+                        } else if(response.status == 'success'){
+                            add_to_cart_btn.addClass('custom-disabled')
+                            iziToast.success({
+                                position: 'topRight',
+                                message: response.message
+                            })
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1500);
+                        }
+                    },
+                    error: function (response) {
+                        iziToast.error({
+                            position: 'topRight',
+                            message: getValidateMessage(response)
+                        })
+                    }
+                })
             })
         })
     </script>
@@ -93,7 +123,16 @@
                                 <strong>{{ $v->title }}</strong>
                                 <ul class="list-filter size-filter font-small">
                                     @foreach ($v->getAllVariantAttributes as $a)
-                                    <li variant-hash="{{ $a->hash }}"><a>{{ $a->title }}</a></li>
+                                    @if ($a->price)
+                                        <li variant-hash="{{ $a->hash }}">
+                                            <a class="asdasd" variant-stock="{{ $a->stock }}">{{ $a->title }}
+                                                <strong>@lang('words.plus_price', ['price'=>getMoneyOrder($a->price)])</strong>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li variant-hash="{{ $a->hash }}"><a class="asdasd" variant-stock="{{ $a->stock }}">{{ $a->title }}</a></li>
+                                    @endif
+                                    
                                     @endforeach
                                 </ul>
                             </div>

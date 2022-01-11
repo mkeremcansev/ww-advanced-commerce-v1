@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +9,7 @@
     <meta name="template" content="">
     <meta name="title" content="">
     <meta name="keywords" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Category Home - Greeny</title>
     <link rel="icon" href="{{ asset('web/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/flaticon/flaticon.css') }}">
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('web/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/home-category.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/product-details.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/iziToast.min.css') }}">
 </head>
 <body>
     <div class="backdrop"></div>
@@ -80,15 +81,18 @@
                     </button>
                 </form>
                 <div class="header-widget-group">
-                    <a href="compare.html" class="header-widget" title="Compare List"><i
-                            class="fas fa-random"></i><sup>0</sup>
+                    <a href="compare.html" class="header-widget">
+                        <i class="fas fa-random"></i>
+                        <sup>0</sup>
                     </a>
-                    <a href="wishlist.html" class="header-widget" title="Wishlist"><i
-                            class="fas fa-heart"></i><sup>0</sup>
+                    <a href="wishlist.html" class="header-widget">
+                        <i class="fas fa-heart"></i>
+                        <sup>0</sup>
                     </a>
-                    <button class="header-widget header-cart" title="Cartlist"><i
-                            class="fas fa-shopping-basket"></i><sup>9+</sup><span>total
-                            price<small>$345.00</small></span>
+                    <button class="header-widget header-cart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <sup>{{ Cart::instance('cart')->content()->count() }}</sup>
+                        <span>@lang('words.total_price')<small>{{ getMoneyOrderShoppingCart(Cart::subtotal()) }}</small></span>
                     </button>
                 </div>
             </div>

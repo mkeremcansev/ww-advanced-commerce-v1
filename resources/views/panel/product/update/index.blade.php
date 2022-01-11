@@ -118,78 +118,145 @@ asdasd
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="variation" aria-labelledby="variation-tab" role="tabpanel">
-                                            <div class="card">
-                                                <div class="repeater">
-                                                    <div class="card-body">
-                                                        <div data-repeater-list="list">
-                                                            @foreach ($product->getAllProductVariants as $variant)
-                                                            <div data-repeater-item>
-                                                                <div class="row d-flex align-items-end">
-                                                                    <div class="col-md-10 col-12">
-                                                                        <div class="form-group">
-                                                                            <label for="name">@lang('words.variation_name')</label>
-                                                                            <input type="text" name="variant" class="form-control" value="{{ $variant->title }}"/>
+                                            @if ($product->getAllProductVariants()->count())
+                                                <div class="card">
+                                                    <div class="repeater">
+                                                        <div class="card-body">
+                                                            <div data-repeater-list="list">
+                                                                @foreach ($product->getAllProductVariants as $variant)
+                                                                <div data-repeater-item>
+                                                                    <div class="row d-flex align-items-end">
+                                                                        <div class="col-md-10 col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="name">@lang('words.variation_name')</label>
+                                                                                <input type="text" name="variant" class="form-control" value="{{ $variant->title }}"/>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2 col-12">
+                                                                            <div class="form-group">
+                                                                                <button data-repeater-delete type="button" class="btn btn-danger waves-effect waves-float waves-light w-100">
+                                                                                    @lang('words.delete')
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-2 col-12">
-                                                                        <div class="form-group">
-                                                                            <button data-repeater-delete type="button" class="btn btn-danger waves-effect waves-float waves-light w-100">
-                                                                                @lang('words.delete')
-                                                                            </button>
+                                                                    <div class="inner-repeater">
+                                                                        <div data-repeater-list="attribute">
+                                                                            @foreach ($variant->getAllVariantAttributes as $attribute)
+                                                                            <div data-repeater-item>
+                                                                                <div class="row d-flex align-items-end">
+                                                                                    <div class="col-md-4 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="">@lang('words.attribute_name')</label>
+                                                                                            <input type="text" class="form-control" name="attribute_title" value="{{ $attribute->title }}"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="">@lang('words.attribute_stock')</label>
+                                                                                            <input type="text" class="form-control" name="attribute_stock" value="{{ $attribute->stock }}"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="">@lang('words.attribute_price')</label>
+                                                                                            <input type="text" class="form-control" name="attribute_price" value="{{ $attribute->price }}"/>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-2 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <button class="btn btn-danger text-nowrap variant-btn-canseworks w-100" data-repeater-delete type="button">
+                                                                                                @lang('words.delete')
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            @endforeach
                                                                         </div>
+                                                                        
+                                                                        <button data-repeater-create type="button" class="btn btn-primary waves-effect waves-float waves-light w-100 mb-2 mt-2">
+                                                                            @lang('words.add_deep_attribute')
+                                                                        </button>
                                                                     </div>
                                                                 </div>
-                                                                <div class="inner-repeater">
-                                                                    
-                                                                    <div data-repeater-list="attribute">
-                                                                        @foreach ($variant->getAllVariantAttributes as $attribute)
-                                                                        <div data-repeater-item>
-                                                                            <div class="row d-flex align-items-end">
-                                                                                <div class="col-md-4 col-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="">@lang('words.attribute_name')</label>
-                                                                                        <input type="text" class="form-control" name="attribute_title" value="{{ $attribute->title }}"/>
+                                                                @endforeach
+                                                            </div>
+                                                            
+                                                            <button data-repeater-create type="button" class="btn btn-success waves-effect waves-float waves-light w-100">
+                                                                @lang('words.add_attribute')
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div class="card">
+                                                    <div class="repeater">
+                                                        <div class="card-body">
+                                                            <div data-repeater-list="list">
+                                                                <div data-repeater-item>
+                                                                    <div class="row d-flex align-items-end">
+                                                                        <div class="col-md-10 col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="name">@lang('words.variation_name')</label>
+                                                                                <input type="text" name="variant" class="form-control" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2 col-12">
+                                                                            <div class="form-group">
+                                                                                <button data-repeater-delete type="button" class="btn btn-danger waves-effect waves-float waves-light w-100">
+                                                                                    @lang('words.delete')
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="inner-repeater">
+                                                                        <div data-repeater-list="attribute">
+                                                                            <div data-repeater-item>
+                                                                                <div class="row d-flex align-items-end">
+                                                                                    <div class="col-md-4 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="">@lang('words.attribute_name')</label>
+                                                                                            <input type="text" class="form-control" name="attribute_title" />
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="col-md-3 col-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="">@lang('words.attribute_stock')</label>
-                                                                                        <input type="text" class="form-control" name="attribute_stock" value="{{ $attribute->stock }}"/>
+                                                                                    <div class="col-md-3 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="">@lang('words.attribute_stock')</label>
+                                                                                            <input type="text" class="form-control" name="attribute_stock"/>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="col-md-3 col-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="">@lang('words.attribute_price')</label>
-                                                                                        <input type="text" class="form-control" name="attribute_price" value="{{ $attribute->price }}"/>
+                                                                                    <div class="col-md-3 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="">@lang('words.attribute_price')</label>
+                                                                                            <input type="text" class="form-control" name="attribute_price"/>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
 
-                                                                                <div class="col-md-2 col-12">
-                                                                                    <div class="form-group">
-                                                                                        <button class="btn btn-danger text-nowrap variant-btn-canseworks w-100" data-repeater-delete type="button">
-                                                                                            @lang('words.delete')
-                                                                                        </button>
+                                                                                    <div class="col-md-2 col-12">
+                                                                                        <div class="form-group">
+                                                                                            <button class="btn btn-danger text-nowrap variant-btn-canseworks w-100" data-repeater-delete type="button">
+                                                                                                @lang('words.delete')
+                                                                                            </button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        @endforeach
+                                                                        <button data-repeater-create type="button" class="btn btn-primary waves-effect waves-float waves-light w-100 mb-2 mt-2">
+                                                                            @lang('words.add_deep_attribute')
+                                                                        </button>
                                                                     </div>
-                                                                    
-                                                                    <button data-repeater-create type="button" class="btn btn-primary waves-effect waves-float waves-light w-100 mb-2 mt-2">
-                                                                        @lang('words.add_deep_attribute')
-                                                                    </button>
                                                                 </div>
                                                             </div>
-                                                            @endforeach
+                                                            <button data-repeater-create type="button" class="btn btn-success waves-effect waves-float waves-light w-100">
+                                                                @lang('words.add_attribute')
+                                                            </button>
                                                         </div>
-                                                        
-                                                        <button data-repeater-create type="button" class="btn btn-success waves-effect waves-float waves-light w-100">
-                                                            @lang('words.add_attribute')
-                                                        </button>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
                                         <div class="tab-pane" id="images" aria-labelledby="images-tab" role="tabpanel">
                                             <div class="card">

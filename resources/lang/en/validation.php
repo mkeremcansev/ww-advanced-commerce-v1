@@ -177,6 +177,7 @@ return [
         'list.*.attribute.*.attribute_stock' => __('words.attribute_stock'),
         'list.*.attribute.*.attribute_price' => __('words.attribute_price'),
         'list.*.attribute' => __('words.attribute_list'),
+        'quantity' => __('words.quantity')
     ],
 
 ];
