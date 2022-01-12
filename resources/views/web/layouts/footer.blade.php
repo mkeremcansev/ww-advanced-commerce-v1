@@ -92,16 +92,8 @@
    <script src="{{ asset('web/js/venobox.js') }}"></script>
    <script src="{{ asset('web/js/slick.js') }}"></script>
    <script src="{{ asset('web/js/main.js') }}"></script>
-   <script src="{{ asset('web/js/iziToast.min.js') }}"></script>
-   @if ($m = Session::get('success'))
-       <script>
-           iziToast.success({
-               position: 'topRight',
-               message: '{{ $m }}'
-           })
-       </script>
-   @endif
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   @include('web.layouts.alert')
    @yield('script')
    </body>
-
    </html>

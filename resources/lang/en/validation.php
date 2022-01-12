@@ -177,7 +177,15 @@ return [
         'list.*.attribute.*.attribute_stock' => __('words.attribute_stock'),
         'list.*.attribute.*.attribute_price' => __('words.attribute_price'),
         'list.*.attribute' => __('words.attribute_list'),
-        'quantity' => __('words.quantity')
+        'quantity' => __('words.quantity'),
+        'rating' => __('words.rating'),
+        'content' => __('words.content'),
+        'product' => __('words.product'),
+        'email' => __('words.email_adress'),
+        'password' => __('words.password'),
+        'repeat' => __('words.repeat_password'),
+        'name' => __('words.name'),
+        'surname' => __('words.surname')
     ],
 
 ];

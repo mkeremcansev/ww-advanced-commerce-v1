@@ -26,6 +26,7 @@ function getValidateMessage(error) {
     let firstItemMessage = errors[firstItem][0]
     return firstItemMessage
 }
+window.onload = function () { document.querySelector(".preloader").style.display = "none"; }
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

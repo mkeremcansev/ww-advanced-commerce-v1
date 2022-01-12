@@ -34,7 +34,7 @@ function getProductLabel($discount, $price, $created_at, $popular = null, $most 
             'value' => false
         ],
         [
-            'status' => true,
+            'status' => $popular >= 4 ? true : false,
             'title' => 'Popüler',
             'code' => 'rate',
             'value' => false
@@ -47,4 +47,13 @@ function getProductLabel($discount, $price, $created_at, $popular = null, $most 
         ]
     ];
     return $labels;
+}
+
+function getShowMore($text)
+{
+    return substr($text, 0, 180);
+}
+
+function getRatingCalc($value)
+{
 }

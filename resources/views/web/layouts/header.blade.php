@@ -10,7 +10,7 @@
     <meta name="title" content="">
     <meta name="keywords" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>Category Home - Greeny</title>
+    <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('web/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/flaticon/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/icofont/icofont.min.css') }}">
@@ -22,9 +22,10 @@
     <link rel="stylesheet" href="{{ asset('web/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/home-category.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/product-details.css') }}">
-    <link rel="stylesheet" href="{{ asset('web/css/iziToast.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/user-auth.css') }}">
 </head>
 <body>
+    @include('web.layouts.loader')
     <div class="backdrop"></div>
     <a class="backtop fas fa-arrow-up" href="#"></a>
     <div class="header-top">
@@ -32,18 +33,18 @@
             <div class="row">
                 <div class="col-md-12 col-lg-5">
                     <div class="header-top-welcome">
-                        <p>Welcome to Ecomart in Your Dream Online Store!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-3">
                     <div class="header-top-select">
                         <div class="header-select"><i class="icofont-world"></i><select class="select">
-                                <option value="english" selected="">english</option>
+                                <option value="english" selected="">Lorem</option>
                                 <option value="bangali">bangali</option>
                                 <option value="arabic">arabic</option>
                             </select></div>
-                        <div class="header-select"><i class="icofont-money"></i><select class="select">
-                                <option value="english" selected="">doller</option>
+                        <div class="header-select"><i class="icofont-world"></i><select class="select">
+                                <option value="english" selected="">Lorem</option>
                                 <option value="bangali">pound</option>
                                 <option value="arabic">taka</option>
                             </select></div>
@@ -51,9 +52,9 @@
                 </div>
                 <div class="col-md-7 col-lg-4">
                     <ul class="header-top-list">
-                        <li><a href="offer.html">offers</a></li>
-                        <li><a href="faq.html">need help</a></li>
-                        <li><a href="contact.html">contact us</a></li>
+                        <li><a href="offer.html">Lorem</a></li>
+                        <li><a href="faq.html">Lorem</a></li>
+                        <li><a href="contact.html">Lorem</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,17 +66,18 @@
                 <div class="header-media-group">
                     <button class="header-user"><img src="{{ asset('web') }}/images/user.png" alt="user">
                     </button>
-                    <a href="index.html"><img src="{{ asset('web') }}/images/logo.png" alt="logo">
+                    <a href="index.html"><img src="" alt="logo">
                     </a>
                     <button class="header-src"><i class="fas fa-search"></i>
                     </button>
                 </div>
-                <a href="index.html" class="header-logo"><img src="{{ asset('web') }}/images/logo.png" alt="logo">
+                <a href="index.html" class="header-logo">
+                    <img src="" alt="logo">
                 </a>
                 <a href="login.html" class="header-widget" title="My Account">
-                    <img src="{{ asset('web') }}/images/user.png" alt="user"><span>join</span>
+                    <img src="{{ asset('web') }}/images/user.png" alt="user"><span>Lorem</span>
                 </a>
-                <form class="header-form"><input type="text" placeholder="Search anything...">
+                <form class="header-form"><input type="text" placeholder="Arama yapabilirsiniz...">
                     <button>
                         <i class="fas fa-search"></i>
                     </button>

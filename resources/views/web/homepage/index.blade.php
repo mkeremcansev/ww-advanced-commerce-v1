@@ -27,7 +27,7 @@
                         <div class="product-card">
                             <div class="product-media">
                                 <div class="product-label p-2">
-                                    @foreach (getProductLabel($r->getOneProductAttributes->discount, $r->getOneProductAttributes->price, $r->getOneProductAttributes->created_at) as $l)
+                                    @foreach (getProductLabel($r->getOneProductAttributes->discount, $r->getOneProductAttributes->price, $r->getOneProductAttributes->created_at, $r->getAllProductReviews->avg('rating')) as $l)
                                         @if ($l['status'])
                                             <label class="label-text {{ $l['code'] }}">{{ $l['title'].$l['value'] }}</label>
                                         @endif

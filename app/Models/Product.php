@@ -42,4 +42,8 @@ class Product extends Model
     {
         return $this->hasMany(Variant::class, 'product_id', 'id');
     }
+    public function getAllProductReviews()
+    {
+        return $this->hasMany(ProductReview::class, 'product_id', 'id')->whereStatus(1);
+    }
 }

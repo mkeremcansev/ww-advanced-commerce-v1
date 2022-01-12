@@ -15,7 +15,9 @@ class ProductController extends Controller
             'getAllProductImages',
             'getAllProductInformations',
             'getAllProductVariants.getAllVariantAttributes',
-            'getOneProductBrand'
+            'getOneProductBrand',
+            'getOneProductCategory',
+            'getAllProductReviews.getOneReviewUser'
         ])->whereHas('getOneProductAttributes', function ($q) use ($slug) {
             $q->where('slug', $slug);
         })->first();

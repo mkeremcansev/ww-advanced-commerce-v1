@@ -118,7 +118,7 @@ asdasd
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="variation" aria-labelledby="variation-tab" role="tabpanel">
-                                            @if ($product->getAllProductVariants()->count())
+                                            @if ($product->getAllProductVariants->count())
                                                 <div class="card">
                                                     <div class="repeater">
                                                         <div class="card-body">

@@ -20,7 +20,7 @@
                             <a>
                                 <img src="{{ asset($product->getOneProductImages->image) }}" alt="{{ $attribute->title }}">
                             </a>
-                            <button class="cart-delete">
+                            <button type="button" class="cart-delete">
                                 <a href="{{ route('web.shopping.cart.delete', $c->rowId) }}">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
