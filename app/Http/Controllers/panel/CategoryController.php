@@ -59,7 +59,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-        return view('panel.category.update.index', compact('category'));
+        return view('panel.category.update.index', ['category' => $category]);
     }
 
     /**

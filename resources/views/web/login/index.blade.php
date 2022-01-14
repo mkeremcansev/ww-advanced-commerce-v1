@@ -1,7 +1,5 @@
 @extends('web.layouts.extends')
-@section('title')
-    login
-@endsection
+@section('title', __('words.login'))
 @include('web.login.script.script')
 @section('content')
     <section class="user-form-part">

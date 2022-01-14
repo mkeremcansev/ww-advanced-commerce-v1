@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ShoppingCartCreateRequest;
+use App\Http\Requests\ShoppingCartStoreRequest;
 use App\Http\Requests\ShoppingCartUpdateRequest;
 use App\Models\Product;
 use App\Models\VariantAttribute;
@@ -12,10 +13,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ShoppingCartController extends Controller
 {
-    public function index()
-    {
-    }
-    public function store(ShoppingCartCreateRequest $request)
+    public function store(ShoppingCartStoreRequest $request)
     {
         $product = Product::with('getOneProductAttributes', 'getAllProductVariants')->whereHash($request->product_hash)->first();
         $price = null;

@@ -116,7 +116,7 @@
     top: 30px;
     left: 50%;
     z-index: 3;
-    width: 100px;
+    width: 165px;
     height: auto;
     visibility: hidden;
     opacity: 0;
@@ -158,7 +158,8 @@
 .product-nav-popup small {
     font-size: 14px;
     line-height: 18px;
-    display: inline-block
+    display: inline-block;
+    color: var(--text);
 }
 
 .details-content {
@@ -445,10 +446,7 @@
 }
 
 .details-action-group a span {
-    font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase
 }
 
 .details-wish.active {

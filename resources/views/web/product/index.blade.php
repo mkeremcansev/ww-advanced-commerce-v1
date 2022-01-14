@@ -1,16 +1,14 @@
 @extends('web.layouts.extends')
-@section('title')
-    asdasd
-@endsection
+@section('title', $product->getOneProductAttributes->title)
 @include('web.product.script.script')
 @section('content')
-    <section class="inner-section mt-5">
+    <section class="inner-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
-                            @foreach (getProductLabel($product->getOneProductAttributes->discount, $product->getOneProductAttributes->price, $product->getOneProductAttributes->created_at, $product->getAllProductReviews->avg('rating')) as $l)
+                            @foreach (getProductLabel($product->getOneProductAttributes->discount, $product->getOneProductAttributes->price, $product->getOneProductAttributes->created_at, round($product->getAllProductReviews->avg('rating'))) as $l)
                                 @if ($l['status'])
                                     <label class="details-label {{ $l['code'] }}">{{ $l['title'].$l['value'] }}</label>
                                 @endif
@@ -30,26 +28,50 @@
                 </div>
                 <div class="col-lg-6">
                     <ul class="product-navigation">
-                        <li class="product-nav-prev">
-                            <a href="#">
-                                <i class="icofont-arrow-left"></i>
-                                Önceki Ürün
-                                <span class="product-nav-popup">
-                                    <img src="{{ asset('web') }}/images/product/02.jpg" alt="product">
-                                    <small>green chilis</small>
-                                </span>
-                            </a>
-                        </li>
+                        @if ($prev)
+                            <li class="product-nav-prev">
+                                <a href="{{ route('web.product.show', $prev->getOneProductAttributes->slug) }}">
+                                    <i class="icofont-arrow-left"></i>
+                                    @lang('words.prev_product')
+                                    <span class="product-nav-popup text-center">
+                                        <img src="{{ asset($prev->getOneProductImages->image) }}" alt="{{ $prev->getOneProductAttributes->title }}">
+                                        <small class="mt-2">{{ $prev->getOneProductAttributes->title }}</small>
+                                    </span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="product-nav-prev">
+                                <a class="custom-cursor-pointer">
+                                    <i class="icofont-arrow-left"></i>
+                                    @lang('words.prev_product')
+                                    <span class="product-nav-popup text-center">
+                                        <small>@lang('words.not_have_product')</small>
+                                    </span>
+                                </a>
+                            </li>
+                        @endif
+                        @if ($next)
                         <li class="product-nav-next">
-                            <a href="#">
-                                Sonraki Ürün
+                            <a href="{{ route('web.product.show', $next->getOneProductAttributes->slug) }}">
+                               @lang('words.next_product')
                                 <i class="icofont-arrow-right"></i>
-                                <span class="product-nav-popup">
-                                    <img src="{{ asset('web') }}/images/product/03.jpg" alt="product">
-                                    <small>green chilis</small>
+                                <span class="product-nav-popup text-center">
+                                    <img src="{{ asset($next->getOneProductImages->image) }}" alt="{{ $next->getOneProductAttributes->title }}">
+                                    <small class="mt-2">{{ $next->getOneProductAttributes->title }}</small>
                                 </span>
                             </a>
                         </li>
+                        @else
+                        <li class="product-nav-prev">
+                            <a class="custom-cursor-pointer">
+                                @lang('words.next_product')
+                                <i class="icofont-arrow-right"></i>
+                                <span class="product-nav-popup text-center">
+                                    <small>@lang('words.not_have_product')</small>
+                                </span>
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                     <div class="details-content">
                         <h3 class="details-name">
@@ -59,9 +81,11 @@
                             <p>@lang('words.category')<span>{{ $product->getOneProductCategory->title }}</span></p>
                             <p>@lang('words.brand')<span>{{ $product->getOneProductBrand->title }}</span></p>
                         </div>
-                        <div class="details-rating"><i class="active icofont-star"></i><i
-                                class="active icofont-star"></i><i class="active icofont-star"></i><i
-                                class="active icofont-star"></i><i class="icofont-star"></i><a href="#">(3 Yorum)</a>
+                        <div class="details-rating">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <i class="@if( round($product->getAllProductReviews->avg('rating')) >= $i) active @endif  icofont-star"></i>
+                            @endfor
+                            <a href="#product-review-section">@lang('words.review_count', ['count'=>$product->getAllProductReviews->count()])</a>
                         </div>
                         <h3 class="details-price">
                             @if ($product->getOneProductAttributes->discount)
@@ -82,34 +106,43 @@
                                 <strong>{{ $v->title }}</strong>
                                 <ul class="list-filter size-filter font-small">
                                     @foreach ($v->getAllVariantAttributes as $a)
-                                    @if ($a->price)
-                                        <li class="custom-data-tooltip" data-tooltip="@lang('words.plus_price', ['price'=>getMoneyOrder($a->price)])"  variant-hash="{{ $a->hash }}">
-                                            <a variant-stock="{{ $a->stock }}">{{ $a->title }}
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li variant-hash="{{ $a->hash }}"><a class="asdasd" variant-stock="{{ $a->stock }}">{{ $a->title }}</a></li>
-                                    @endif
-                                    
+                                        @if ($a->stock)
+                                            @if ($a->price)
+                                                <li class="custom-data-tooltip" data-tooltip="@lang('words.plus_price', ['price'=>getMoneyOrder($a->price)])"  variant-hash="{{ $a->hash }}">
+                                                    <a variant-stock="{{ $a->stock }}">{{ $a->title }}
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li variant-hash="{{ $a->hash }}"><a variant-stock="{{ $a->stock }}">{{ $a->title }}</a></li>
+                                            @endif
+                                        @else
+                                                <li ><a class="custom-disabled-alert" variant-stock="{{ $a->stock }}">{{ $a->title }}</a></li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div>
                             @endforeach
-                        <div class="detail-action-group mt-4">
-                            <div class="product-action">
-                                <button class="action-minus">
-                                    <i class="icofont-minus"></i>
-                                </button>
-                                <input class="action-input" type="text" value="1" min="1" id="quantity">
-                                <button class="action-plus">
-                                    <i class="icofont-plus"></i>
+                            <div class="details-action-group mt-4">
+                                <a class="details-wish wish w-100 custom-cursor-pointer" id="add-to-wishlist">
+                                    <i class="icofont-heart"></i>
+                                    <span>@lang('words.add_to_wishlist')</span>
+                                </a>
+                            </div>
+                            <div class="detail-action-group mt-4">
+                                <div class="product-action">
+                                    <button class="action-minus">
+                                        <i class="icofont-minus"></i>
+                                    </button>
+                                    <input class="action-input" type="text" value="1" min="1" id="quantity">
+                                    <button class="action-plus">
+                                        <i class="icofont-plus"></i>
+                                    </button>
+                                </div>
+                                <button class="detail-add-btn w-100" id="add-to-cart">
+                                    <i class="fas fa-shopping-basket"></i>
+                                    @lang('words.add_to_cart')
                                 </button>
                             </div>
-                            <button class="detail-add-btn w-100" id="add-to-cart">
-                                <i class="fas fa-shopping-basket"></i>
-                                @lang('words.add_to_cart')
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -138,28 +171,30 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="product-details-frame">
-                        <h3 class="frame-title">@lang('words.reviews', ['count'=>$product->getAllProductReviews->count()])</h3>
-                        <ul class="review-list">
-                            @foreach ($product->getAllProductReviews as $r)
-                            <li class="review-item">
-                                <div class="review-media">
-                                    <h5 class="review-meta">
-                                        <a>{{ $r->getOneReviewUser->name }}</a>
-                                        <span>{{ $r->created_at->diffForHumans() }}</span>
-                                    </h5>
-                                </div>
-                                <ul class="review-rating">
-                                    <li class="icofont-ui-rating"></li>
-                                    <li class="icofont-ui-rating"></li>
-                                    <li class="icofont-ui-rating"></li>
-                                    <li class="icofont-ui-rating"></li>
-                                    <li class="icofont-ui-rating"></li>
-                                </ul>
-                                <p class="review-desc">{{ $r->content }}</p>
-                            </li>
-                            @endforeach
-                        </ul>
+                    <div class="product-details-frame" id="product-review-section">
+                        @if ($product->getAllProductReviews->count())
+                            <h3 class="frame-title">@lang('words.reviews', ['count'=>$product->getAllProductReviews->count()])</h3>
+                            <ul class="review-list">
+                                    @foreach ($product->getAllProductReviews as $r)
+                                        <li class="review-item">
+                                            <div class="review-media">
+                                                <h5 class="review-meta">
+                                                    <a>{{ $r->getOneReviewUser->name }}</a>
+                                                    <span>{{ $r->created_at->diffForHumans() }}</span>
+                                                </h5>
+                                            </div>
+                                            <ul class="review-rating">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    <li class="@if($r->rating >= $i) icofont-ui-rating @else icofont-ui-rate-blank @endif "></li>
+                                                @endfor
+                                            </ul>
+                                            <p class="review-desc">{{ $r->content }}</p>
+                                        </li>
+                                    @endforeach
+                            </ul>
+                        @else
+                                <p class="text-center">@lang('words.not_have_product_review')</p>
+                        @endif
                     </div>
                     @auth
                         <div class="product-details-frame">

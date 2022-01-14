@@ -29,19 +29,19 @@ function getProductLabel($discount, $price, $created_at, $popular = null, $most 
         ],
         [
             'status' => $created_at >= Carbon::today() ? true : false,
-            'title' => 'Yeni',
+            'title' => __('words.new'),
             'code' => 'new',
             'value' => false
         ],
         [
             'status' => $popular >= 4 ? true : false,
-            'title' => 'Popüler',
+            'title' => __('words.popular'),
             'code' => 'rate',
             'value' => false
         ],
         [
             'status' => true,
-            'title' => 'Çok Satılan',
+            'title' => __('words.best_seller'),
             'code' => 'order',
             'value' => false
         ]

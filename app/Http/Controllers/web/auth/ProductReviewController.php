@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\web\auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductReviewCreateRequest;
+use App\Http\Requests\ProductReviewStoreRequest;
 use App\Models\Product;
 use App\Models\ProductReview;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductReviewController extends Controller
 {
-    public function store(ProductReviewCreateRequest $request)
+    public function store(ProductReviewStoreRequest $request)
     {
         $product = Product::whereHash($request->product)->first();
         $review = ProductReview::where('user_id', Auth::user()->id)->where('product_id', $product->id)->count();

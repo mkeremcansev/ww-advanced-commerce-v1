@@ -10,7 +10,8 @@
     <meta name="title" content="">
     <meta name="keywords" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>@yield('title')</title>
+    <title>{{ setting('title') }} - @yield('title')</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
     <link rel="icon" href="{{ asset('web/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/flaticon/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/icofont/icofont.min.css') }}">
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('web/css/home-category.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/product-details.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/user-auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/profile.css') }}">
 </head>
 <body>
     @include('web.layouts.loader')
@@ -64,33 +66,43 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-media-group">
-                    <button class="header-user"><img src="{{ asset('web') }}/images/user.png" alt="user">
-                    </button>
-                    <a href="index.html"><img src="" alt="logo">
+                    @auth
+                        <a href="{{ route('web.account.index') }}" class="header-user">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    @else
+                        <a href="{{ route('web.user.login.index') }}" class="header-user">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    @endauth
+                    <a href="{{ route('web.index') }}"><img src="{{ asset('web/images/logo.png') }}" alt="logo">
                     </a>
                     <button class="header-src"><i class="fas fa-search"></i>
                     </button>
                 </div>
-                <a href="index.html" class="header-logo">
-                    <img src="" alt="logo">
+                <a href="{{ route('web.index') }}" class="header-logo">
+                    <img src="{{ asset('web/images/logo.png') }}" alt="logo">
                 </a>
-                <a href="login.html" class="header-widget" title="My Account">
-                    <img src="{{ asset('web') }}/images/user.png" alt="user"><span>Lorem</span>
-                </a>
-                <form class="header-form"><input type="text" placeholder="Arama yapabilirsiniz...">
+                @auth
+                    <a href="{{ route('web.account.index') }}" class="header-widget" title="My Account">
+                        <i class="fa fa-user"></i>
+                    </a>
+                @else
+                    <a href="{{ route('web.user.login.index') }}" class="header-widget" title="My Account">
+                        <i class="fa fa-user"></i>
+                    </a>
+                @endauth
+                
+                <form class="header-form"><input type="text" placeholder="@lang('words.you_can_search')">
                     <button>
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
                 <div class="header-widget-group">
-                    <a href="compare.html" class="header-widget">
-                        <i class="fas fa-random"></i>
-                        <sup>0</sup>
-                    </a>
-                    <a href="wishlist.html" class="header-widget">
+                    <button class="header-widget header-wish">
                         <i class="fas fa-heart"></i>
-                        <sup>0</sup>
-                    </a>
+                        <sup>{{ Cart::instance('wishlist')->content()->count() }}</sup>
+                    </button>
                     <button class="header-widget header-cart">
                         <i class="fas fa-shopping-basket"></i>
                         <sup>{{ Cart::instance('cart')->content()->count() }}</sup>
@@ -103,4 +115,5 @@
     @include('web.layouts.menu.navbar')
     @include('web.layouts.menu.sidebar')
     @include('web.layouts.menu.cart')
+    @include('web.layouts.menu.wish')
     @include('web.layouts.menu.mobile')

@@ -25,7 +25,15 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function getAllUserAttributePhones()
+    {
+        return $this->hasMany(UserAttribute::class, 'user_id', 'id')->whereType(1);
+    }
 
+    public function getAllUserAttributeAdresses()
+    {
+        return $this->hasMany(UserAttribute::class, 'user_id', 'id')->whereType(2);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

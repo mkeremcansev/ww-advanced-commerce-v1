@@ -1,4 +1,5 @@
 @extends('web.layouts.extends')
+@section('title', __('words.homepage'))
 @section('content')
     @include('web.homepage.layouts.category')
     <div class="section promo-part">
@@ -27,7 +28,7 @@
                         <div class="product-card">
                             <div class="product-media">
                                 <div class="product-label p-2">
-                                    @foreach (getProductLabel($r->getOneProductAttributes->discount, $r->getOneProductAttributes->price, $r->getOneProductAttributes->created_at, $r->getAllProductReviews->avg('rating')) as $l)
+                                    @foreach (getProductLabel($r->getOneProductAttributes->discount, $r->getOneProductAttributes->price, $r->getOneProductAttributes->created_at, round($r->getAllProductReviews->avg('rating'))) as $l)
                                         @if ($l['status'])
                                             <label class="label-text {{ $l['code'] }}">{{ $l['title'].$l['value'] }}</label>
                                         @endif
@@ -39,12 +40,9 @@
                             </div>
                             <div class="product-content">
                                 <div class="product-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3)</a>
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <i class="@if(round($r->getAllProductReviews->avg('rating')) >= $i) active @endif  icofont-star"></i>
+                                    @endfor
                                 </div>
                                 <h6 class="product-name">
                                     <a href="{{ route('web.product.show', $r->getOneProductAttributes->slug) }}">{{ $r->getOneProductAttributes->title }}</a>

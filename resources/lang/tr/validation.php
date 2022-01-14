@@ -185,7 +185,9 @@ return [
         'password' => __('words.password'),
         'repeat' => __('words.repeat_password'),
         'name' => __('words.name'),
-        'surname' => __('words.surname')
+        'surname' => __('words.surname'),
+        'adress' => __('words.adress'),
+        'phone' => __('words.phone_number')
     ],
 
 ];

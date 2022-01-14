@@ -10,14 +10,23 @@
                         {{ Cart::instance('cart')->content()->count() }}
                 </sup>
         </button>
-        <a href="wishlist.html" title="Wishlist">
+        <button class="wishlist-btn" title="Cartlist">
                 <i class="fas fa-heart"></i>
-                <span>Favorilerim</span>
-                <sup>0</sup>
-        </a>
-        <a href="compare.html" title="Compare List">
-                <i class="fas fa-random"></i>
-                <span>Karşılaştır</span>
-                <sup>0</sup>
-        </a>
+                <span>@lang('words.wishlist')</span>
+                <sup>
+                        {{ Cart::instance('wishlist')->content()->count() }}
+                </sup>
+        </button>
+        @auth
+                <a href="{{ route('web.account.logout.store') }}">
+                        <i class="fa fa-sign-out-alt"></i>
+                        <span>@lang('words.logout')</span>
+                </a>
+        @else
+                <a href="{{ route('web.user.login.index') }}">
+                        <i class="fa fa-user"></i>
+                        <span>@lang('words.login')</span>
+                </a>
+        @endauth
+        
     </div>

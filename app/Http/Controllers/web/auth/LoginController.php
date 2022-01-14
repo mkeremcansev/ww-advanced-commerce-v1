@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\web\auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserLoginCreateRequest;
+use App\Http\Requests\UserLoginStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function store(UserLoginCreateRequest $request)
+    public function store(UserLoginStoreRequest $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();

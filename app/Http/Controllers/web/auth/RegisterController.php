@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\web\auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRegisterCreateRequest;
+use App\Http\Requests\UserRegisterStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function store(UserRegisterCreateRequest $request)
+    public function store(UserRegisterStoreRequest $request)
     {
         $user = User::create([
             'name' => $request->name,

@@ -26,7 +26,7 @@
                             icon: 'success',
                             confirmButtonText: '@lang("words.okey")',
                         }).then((result) => {
-                            result.isConfirmed ? location.href = '{{ route("web.index") }}' : location.href = '{{ route("web.index") }}'
+                            result.isConfirmed ? location.href = '{{ route("web.user.login.index") }}' : location.href = '{{ route("web.user.login.index") }}'
                         })
                     },
                     error: function(response){

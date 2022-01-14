@@ -15,6 +15,11 @@ class CreateUserAttributesTable extends Migration
     {
         Schema::create('user_attributes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('hash');
+            $table->integer('type');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

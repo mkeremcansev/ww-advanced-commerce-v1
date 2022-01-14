@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductReviewCreateRequest extends FormRequest
+class AccountAdressStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class ProductReviewCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'product' => 'required',
-            'rating' => 'required|integer|min:1|max:5',
-            'content' => 'required'
+            'adress' => 'required|max:255',
         ];
     }
 }

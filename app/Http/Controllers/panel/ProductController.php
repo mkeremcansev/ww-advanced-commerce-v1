@@ -4,16 +4,11 @@ namespace App\Http\Controllers\panel;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Brand;
 use App\Models\Product;
-use App\Models\ProductAttribute;
-use App\Models\ProductImage;
-use App\Models\ProductInformation;
-use App\Models\Variant;
 use Illuminate\Http\Request;
-use App\Models\VariantAttribute;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -46,7 +41,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductCreateRequest $request)
+    public function store(ProductStoreRequest $request)
     {
         DB::transaction(function () use ($request) {
             $product = Product::create([

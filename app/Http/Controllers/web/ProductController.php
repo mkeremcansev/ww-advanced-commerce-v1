@@ -21,6 +21,8 @@ class ProductController extends Controller
         ])->whereHas('getOneProductAttributes', function ($q) use ($slug) {
             $q->where('slug', $slug);
         })->first();
-        return view('web.product.index', compact('product'));
+        $prev = Product::with('getOneProductAttributes', 'getOneProductImages')->where('id', '<', $product->id)->first();
+        $next = Product::with('getOneProductAttributes', 'getOneProductImages')->where('id', '>', $product->id)->first();
+        return view('web.product.index', ['product' => $product, 'prev' => $prev, 'next' => $next]);
     }
 }

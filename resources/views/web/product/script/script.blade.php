@@ -41,6 +41,33 @@
                     }
                 })
             })
+            let add_to_wishlist_btn = $('#add-to-wishlist')    
+            add_to_wishlist_btn.on('click', function(){
+                let product_hash =  '{{ $product->hash }}'
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route("web.wishlist.store") }}',
+                    data: {product_hash:product_hash},
+                    dataType:'json',
+                    success: function (response) {
+                        add_to_wishlist_btn.addClass('custom-disabled')
+                        Swal.fire({
+                            text: response.success,
+                            icon: 'success',
+                            confirmButtonText: '@lang("words.okey")',
+                        }).then((result) => {
+                            result.isConfirmed ? location.reload() : location.reload()
+                        })
+                    },
+                    error: function (response) {
+                        Swal.fire({
+                            text: getValidateMessage(response),
+                            icon: 'error',
+                            confirmButtonText: '@lang("words.okey")'
+                        })
+                    }
+                })
+            })
             let add_to_review_btn = $('#add-to-review')
             add_to_review_btn.on('click', function(){
                 let rating = $('.rating-input:checked').val();
