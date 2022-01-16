@@ -4,18 +4,16 @@
             <div class="col-lg-12">
                 <div class="navbar-content">
                     <ul class="navbar-list">
-                        @foreach ($categories as $category)
-                            @if (count($category->getAllCategoriesCollection))
+                        @foreach ($categories as $c)
+                            @if (count($c->getAllCategoriesCollection))
                                 <li class="navbar-item dropdown" id="myDropdown">
-                                    <a class="navbar-link dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown">{{ $category->title }} </a>
+                                    <a href="{{ route('web.category.products.show', $c->slug) }}" class="navbar-link dropdown-toggle" data-bs-toggle="dropdown">{{ $c->title }} </a>
                                     <ul class="dropdown-menu dropdown-position-list">
                                         @include('web.layouts.menu.category',
-                                        ['children'=>$category->getAllCategoriesCollection])</ul>
+                                        ['children'=>$c->getAllCategoriesCollection])</ul>
                                 </li>
                             @else
-                                <li class="navbar-item"> <a class="navbar-link"
-                                        href="#">{{ $category->title }}</a> </li>
+                                <li class="navbar-item"> <a class="navbar-link" href="{{ route('web.category.products.show', $c->slug) }}">{{ $c->title }}</a> </li>
                             @endif
                         @endforeach
                     </ul>

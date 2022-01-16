@@ -1878,7 +1878,6 @@ tbody tr td:last-child {
 .product-content {
     padding-top: 12px;
     text-align: center;
-    border-top: 1px solid var(--border)
 }
 
 .product-rating {
@@ -6990,7 +6989,6 @@ tbody tr td:last-child {
 
 .bottom-paginate {
     padding-top: 25px;
-    border-top: 1px solid var(--border);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -7284,4 +7282,10 @@ cursor: pointer !important;
     .custom-mt-0-6 {
         margin-top: .6rem !important;
     }
+}
+.page-item.active .page-link{
+z-index: 3;
+color: var(--white);
+background-color: var(--primary);
+border-color: var(--primary);
 }

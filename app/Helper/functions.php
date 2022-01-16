@@ -34,7 +34,7 @@ function getProductLabel($discount, $price, $created_at, $popular = null, $most 
             'value' => false
         ],
         [
-            'status' => $popular >= 4 ? true : false,
+            'status' => round((float)$popular) >= 4 ? true : false,
             'title' => __('words.popular'),
             'code' => 'rate',
             'value' => false

@@ -15,3 +15,14 @@
             })
     </script>
 @endif
+@if(count($errors) > 0)
+    @foreach($errors->all() as $error)
+        <script>
+            Swal.fire({
+                text: '{{ $error }}',
+                icon: 'error',
+                confirmButtonText: '@lang("words.okey")'
+            })
+        </script>
+    @endforeach
+@endif

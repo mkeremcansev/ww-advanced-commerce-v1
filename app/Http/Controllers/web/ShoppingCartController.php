@@ -7,6 +7,8 @@ use App\Http\Requests\ShoppingCartCreateRequest;
 use App\Http\Requests\ShoppingCartStoreRequest;
 use App\Http\Requests\ShoppingCartUpdateRequest;
 use App\Models\Product;
+use App\Models\ProductAttribute;
+use App\Models\Variant;
 use App\Models\VariantAttribute;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;

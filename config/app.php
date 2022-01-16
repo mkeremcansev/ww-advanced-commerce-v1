@@ -178,6 +178,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\ViewShareProvider::class,
+        App\Providers\ViewCacheProvider::class,
     ],
 
     /*

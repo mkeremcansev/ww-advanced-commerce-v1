@@ -116,4 +116,9 @@ return [
     'prev_product' => 'Önceki Ürün',
     'next_product' => 'Sonraki Ürün',
     'not_have_product' => 'Ürün bulunmuyor.',
+    'category_not_have_product' => 'Kategori`ye ait ürün bulunmuyor.',
+    'search' => 'Arama',
+    'search_result_not_found' => 'Aradığınız ürün bulunamadı.',
+    'discounted_products' => 'İndirimli Ürünler',
+    'popular_products' => 'Popüler Ürünler',
 ];

@@ -10,10 +10,6 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = ['hash', 'status', 'category_id', 'brand_id'];
-    public function getAllProductAttributes()
-    {
-        return $this->hasMany(ProductAttribute::class, 'product_id', 'id');
-    }
     public function getOneProductAttributes()
     {
         return $this->hasOne(ProductAttribute::class, 'product_id', 'id');
@@ -45,5 +41,9 @@ class Product extends Model
     public function getAllProductReviews()
     {
         return $this->hasMany(ProductReview::class, 'product_id', 'id')->whereStatus(1);
+    }
+    public function getAllCampaignProducts()
+    {
+        return $this->hasMany(CampaignAttribute::class, 'product_id', 'id');
     }
 }

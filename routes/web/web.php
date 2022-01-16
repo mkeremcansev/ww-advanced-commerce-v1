@@ -8,8 +8,12 @@ use App\Http\Controllers\web\auth\LoginController;
 use App\Http\Controllers\web\auth\LogoutController;
 use App\Http\Controllers\web\auth\ProductReviewController;
 use App\Http\Controllers\web\auth\RegisterController;
+use App\Http\Controllers\web\CampaignController;
+use App\Http\Controllers\web\CategoryController;
 use App\Http\Controllers\web\IndexController;
 use App\Http\Controllers\web\ProductController;
+use App\Http\Controllers\web\ProductsController;
+use App\Http\Controllers\web\SearchController;
 use App\Http\Controllers\web\ShoppingCartController;
 use App\Http\Controllers\web\WishlistController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +33,9 @@ Route::name('web.')->group(function () {
     Route::get('/shopping/cart/destroy', [ShoppingCartController::class, 'destroy'])->name('shopping.cart.destroy');
     Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::get('/wishlist/delete/{rowId}', [WishlistController::class, 'delete'])->name('wishlist.delete');
+    Route::get('/category/{slug}/products', [CategoryController::class, 'show'])->name('category.products.show');
+    Route::get('/search/products', [SearchController::class, 'store'])->name('search.products.store');
+    Route::get('/campaign/{slug}/products', [CampaignController::class, 'show'])->name('campaign.products.show');
 });
 Route::name('web.')->middleware(['auth', 'role:admin|user'])->group(function () {
     Route::post('/product/review/store', [ProductReviewController::class, 'store'])->name('product.review.store');

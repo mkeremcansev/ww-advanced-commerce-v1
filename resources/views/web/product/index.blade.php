@@ -8,7 +8,7 @@
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
-                            @foreach (getProductLabel($product->getOneProductAttributes->discount, $product->getOneProductAttributes->price, $product->getOneProductAttributes->created_at, round($product->getAllProductReviews->avg('rating'))) as $l)
+                            @foreach (getProductLabel($product->getOneProductAttributes->discount, $product->getOneProductAttributes->price, $product->getOneProductAttributes->created_at, $product->getAllProductReviews->avg('rating')) as $l)
                                 @if ($l['status'])
                                     <label class="details-label {{ $l['code'] }}">{{ $l['title'].$l['value'] }}</label>
                                 @endif
@@ -27,63 +27,17 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <ul class="product-navigation">
-                        @if ($prev)
-                            <li class="product-nav-prev">
-                                <a href="{{ route('web.product.show', $prev->getOneProductAttributes->slug) }}">
-                                    <i class="icofont-arrow-left"></i>
-                                    @lang('words.prev_product')
-                                    <span class="product-nav-popup text-center">
-                                        <img src="{{ asset($prev->getOneProductImages->image) }}" alt="{{ $prev->getOneProductAttributes->title }}">
-                                        <small class="mt-2">{{ $prev->getOneProductAttributes->title }}</small>
-                                    </span>
-                                </a>
-                            </li>
-                        @else
-                            <li class="product-nav-prev">
-                                <a class="custom-cursor-pointer">
-                                    <i class="icofont-arrow-left"></i>
-                                    @lang('words.prev_product')
-                                    <span class="product-nav-popup text-center">
-                                        <small>@lang('words.not_have_product')</small>
-                                    </span>
-                                </a>
-                            </li>
-                        @endif
-                        @if ($next)
-                        <li class="product-nav-next">
-                            <a href="{{ route('web.product.show', $next->getOneProductAttributes->slug) }}">
-                               @lang('words.next_product')
-                                <i class="icofont-arrow-right"></i>
-                                <span class="product-nav-popup text-center">
-                                    <img src="{{ asset($next->getOneProductImages->image) }}" alt="{{ $next->getOneProductAttributes->title }}">
-                                    <small class="mt-2">{{ $next->getOneProductAttributes->title }}</small>
-                                </span>
-                            </a>
-                        </li>
-                        @else
-                        <li class="product-nav-prev">
-                            <a class="custom-cursor-pointer">
-                                @lang('words.next_product')
-                                <i class="icofont-arrow-right"></i>
-                                <span class="product-nav-popup text-center">
-                                    <small>@lang('words.not_have_product')</small>
-                                </span>
-                            </a>
-                        </li>
-                        @endif
-                    </ul>
+                <ul class="product-navigation">
+                    <h3>{{ $product->getOneProductAttributes->title }} </h3>
+                </ul>
                     <div class="details-content">
-                        <h3 class="details-name">
-                            <a>{{ $product->getOneProductAttributes->title }}</a>
-                        </h3>
                         <div class="details-meta">
                             <p>@lang('words.category')<span>{{ $product->getOneProductCategory->title }}</span></p>
                             <p>@lang('words.brand')<span>{{ $product->getOneProductBrand->title }}</span></p>
                         </div>
                         <div class="details-rating">
                             @for ($i = 1; $i <= 5; $i++)
-                                <i class="@if( round($product->getAllProductReviews->avg('rating')) >= $i) active @endif  icofont-star"></i>
+                                <i class="@if( round((float)$product->getAllProductReviews->avg('rating')) >= $i) active @endif  icofont-star"></i>
                             @endfor
                             <a href="#product-review-section">@lang('words.review_count', ['count'=>$product->getAllProductReviews->count()])</a>
                         </div>
