@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'slug', 'image', 'parent_id'];
     public function getAllCategoriesCollection()
     {
         return $this->hasMany(Category::class, 'parent_id')->with('getAllCategoriesCollection');

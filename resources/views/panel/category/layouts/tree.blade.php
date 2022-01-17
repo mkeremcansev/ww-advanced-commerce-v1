@@ -8,7 +8,11 @@
                 <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('words.actions')</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                     <a class="dropdown-item text-success" href="{{ route('panel.category.edit', $c->id) }}">@lang('words.edit')</a>
-                    <a class="dropdown-item text-danger" href="">@lang('words.delete')</a>
+                    <form method="POST" action="{{ route('panel.category.destroy', $c->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="dropdown-item text-danger w-100">@lang('words.delete')</button>
+                    </form>
                 </div>
             </div>
         </td>

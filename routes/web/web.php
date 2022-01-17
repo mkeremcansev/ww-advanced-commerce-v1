@@ -10,7 +10,7 @@ use App\Http\Controllers\web\auth\ProductReviewController;
 use App\Http\Controllers\web\auth\RegisterController;
 use App\Http\Controllers\web\CampaignController;
 use App\Http\Controllers\web\CategoryController;
-use App\Http\Controllers\web\IndexController;
+use App\Http\Controllers\web\HomepageController;
 use App\Http\Controllers\web\ProductController;
 use App\Http\Controllers\web\ProductsController;
 use App\Http\Controllers\web\SearchController;
@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('web.')->group(function () {
-    Route::get('/', [IndexController::class, 'index'])->name('index');
+    Route::get('/', [HomepageController::class, 'index'])->name('index');
     Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
     Route::post('/shopping/cart/store', [ShoppingCartController::class, 'store'])->name('shopping.cart.store');
     Route::post('/shopping/cart/update', [ShoppingCartController::class, 'update'])->name('shopping.cart.update');

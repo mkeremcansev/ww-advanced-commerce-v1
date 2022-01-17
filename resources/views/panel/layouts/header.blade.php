@@ -52,13 +52,7 @@
 
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover"
     data-menu="horizontal-menu" data-col="">
-    <nav class="
-                header-navbar
-                navbar-expand-lg navbar navbar-fixed
-                align-items-center
-                navbar-shadow navbar-brand-center navbar-dark
-            "
-        data-nav="brand-center">
+    <nav class=" header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center navbar-dark" data-nav="brand-center">
         <div class="navbar-container d-flex content">
             <div class="bookmark-wrapper d-flex align-items-center">
                 <ul class="nav navbar-nav d-xl-none">
@@ -124,7 +118,7 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.category_list')</span>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.category.create') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.category_create')</span>
                                 </a>
@@ -132,8 +126,25 @@
                         </ul>
                     </li>
 
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="box"></i><span>@lang('words.product')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="{{ route('panel.product.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.product_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.product.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.product_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
-                        <a target="_blank" href="" class="nav-link d-flex align-items-center">
+                        <a target="_blank" href="{{ route('web.index') }}" class="nav-link d-flex align-items-center">
                             <i data-feather="globe"></i>
                             <span>@lang('words.preview')</span>
                         </a>

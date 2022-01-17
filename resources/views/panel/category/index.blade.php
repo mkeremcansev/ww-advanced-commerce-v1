@@ -1,6 +1,6 @@
 @extends('panel.layouts.main')
 @section('title')
-    @lang('words.category-list')
+    @lang('words.category_list')
 @endsection
 @section('script')
     @if ($message = Session::get('success'))
@@ -30,7 +30,7 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title">@lang('words.category-list')</h4>
+                                    <h4 class="card-title">@lang('words.category_list')</h4>
 
                                 </div>
                                 <div class="card-datatable">
@@ -54,7 +54,11 @@
                                                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('words.actions')</button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                                                 <a class="dropdown-item text-success" href="{{ route('panel.category.edit', $c->id) }}">@lang('words.edit')</a>
-                                                                <a class="dropdown-item text-danger" href="">@lang('words.delete')</a>
+                                                                <form method="POST" action="{{ route('panel.category.destroy', $c->id) }}">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="dropdown-item text-danger w-100">@lang('words.delete')</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </td>

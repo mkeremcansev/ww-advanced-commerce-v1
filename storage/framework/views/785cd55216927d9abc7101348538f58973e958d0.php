@@ -30,38 +30,6 @@
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="backdrop"></div>
     <a class="backtop fas fa-arrow-up" href="#"></a>
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-lg-5">
-                    <div class="header-top-welcome">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-                <div class="col-md-5 col-lg-3">
-                    <div class="header-top-select">
-                        <div class="header-select"><i class="icofont-world"></i><select class="select">
-                                <option value="english" selected="">Lorem</option>
-                                <option value="bangali">bangali</option>
-                                <option value="arabic">arabic</option>
-                            </select></div>
-                        <div class="header-select"><i class="icofont-world"></i><select class="select">
-                                <option value="english" selected="">Lorem</option>
-                                <option value="bangali">pound</option>
-                                <option value="arabic">taka</option>
-                            </select></div>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-4">
-                    <ul class="header-top-list">
-                        <li><a href="offer.html">Lorem</a></li>
-                        <li><a href="faq.html">Lorem</a></li>
-                        <li><a href="contact.html">Lorem</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
     <header class="header-part">
         <div class="container">
             <div class="header-content">
@@ -75,7 +43,8 @@
                             <i class="fa fa-user"></i>
                         </a>
                     <?php endif; ?>
-                    <a href="<?php echo e(route('web.index')); ?>"><img src="<?php echo e(asset('web/images/logo.png')); ?>" alt="logo">
+                    <a href="<?php echo e(route('web.index')); ?>">
+                        <img src="<?php echo e(asset('web/images/logo.png')); ?>" alt="logo">
                     </a>
                     <button class="header-src"><i class="fas fa-search"></i>
                     </button>
@@ -84,7 +53,7 @@
                     <img src="<?php echo e(asset('web/images/logo.png')); ?>" alt="logo">
                 </a>
                 <?php if(auth()->guard()->check()): ?>
-                    <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="My Account">
+                    <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
                         <i class="fa fa-user"></i>
                     </a>
                 <?php else: ?>

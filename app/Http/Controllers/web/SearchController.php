@@ -3,17 +3,15 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchStoreRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function store(Request $request)
+    public function store(SearchStoreRequest $request)
     {
-        $request->validate([
-            'search' => 'required'
-        ]);
-        $products = Product::orderBy('created_at', 'desc')
+        $products = Product::whereStatus(1)
             ->with([
                 'getOneProductAttributes',
                 'getAllProductReviews',

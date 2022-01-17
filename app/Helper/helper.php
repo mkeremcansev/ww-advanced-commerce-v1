@@ -24,4 +24,9 @@ class Helper
         $return = mb_strtoupper(Str::random(3), "UTF-8") . "-" . mb_strtoupper(Str::random(3), "UTF-8") . "-" . rand(100, 999);
         return $return;
     }
+
+    public static function slug(String $title)
+    {
+        return Str::slug($title) . '-' . rand(1, 9999);
+    }
 }

@@ -6,26 +6,21 @@
                     <li>
                         <a href="#top-order" class="tab-link active" data-bs-toggle="tab">
                             <i class="icofont-price"></i>
-                            <span>top order</span>
+                            <span><?php echo app('translator')->get('words.top_order'); ?></span>
                         </a>
                     </li>
-                    <?php if($p_products_count): ?>
                         <li>
                             <a href="#top-rate" class="tab-link" data-bs-toggle="tab">
                                 <i class="icofont-star"></i>
                                 <span><?php echo app('translator')->get('words.popular_products'); ?></span>
                             </a>
                         </li>
-                    <?php endif; ?>
-                    
-                    <?php if($d_products_count): ?>
                         <li>
                             <a href="#top-disc" class="tab-link" data-bs-toggle="tab">
                                 <i class="icofont-sale-discount"></i>
                                 <span><?php echo app('translator')->get('words.discounted_products'); ?></span>
                             </a>
                         </li>
-                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -64,11 +59,7 @@
                 </div>
             </div>
         </div>
-        <?php if($p_products_count): ?>
             <?php echo $__env->make('web.homepage.layouts.popular', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php endif; ?>
-        <?php if($d_products_count): ?>
             <?php echo $__env->make('web.homepage.layouts.discount', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php endif; ?>
     </div>
 </section><?php /**PATH /home/vagrant/code/eticaretim/resources/views/web/homepage/layouts/tab.blade.php ENDPATH**/ ?>

@@ -6,26 +6,21 @@
                     <li>
                         <a href="#top-order" class="tab-link active" data-bs-toggle="tab">
                             <i class="icofont-price"></i>
-                            <span>top order</span>
+                            <span>@lang('words.top_order')</span>
                         </a>
                     </li>
-                    @if ($p_products_count)
                         <li>
                             <a href="#top-rate" class="tab-link" data-bs-toggle="tab">
                                 <i class="icofont-star"></i>
                                 <span>@lang('words.popular_products')</span>
                             </a>
                         </li>
-                    @endif
-                    
-                    @if ($d_products_count)
                         <li>
                             <a href="#top-disc" class="tab-link" data-bs-toggle="tab">
                                 <i class="icofont-sale-discount"></i>
                                 <span>@lang('words.discounted_products')</span>
                             </a>
                         </li>
-                    @endif
                 </ul>
             </div>
         </div>
@@ -64,11 +59,7 @@
                 </div>
             </div>
         </div>
-        @if ($p_products_count)
             @include('web.homepage.layouts.popular')
-        @endif
-        @if ($d_products_count)
             @include('web.homepage.layouts.discount')
-        @endif
     </div>
 </section>

@@ -21,7 +21,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('panel.product.index', ['products' => $products]);
     }
 
     /**
@@ -31,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brands = Brand::get();
+        $brands = Brand::all();
         return view('panel.product.create.index', ['brands' => $brands]);
     }
 
@@ -181,6 +182,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete();
+        return back()->with('success', __('words.deleted_action_success'));
     }
 }

@@ -5,7 +5,7 @@
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="promo-img">
                     <a href="<?php echo e(route('web.campaign.products.show', $c->slug)); ?>">
-                        <img src="<?php echo e(asset('web')); ?>/images/promo/home/06.jpg" alt="promo">
+                        <img src="<?php echo e(asset('web')); ?>/images/promo/home/1.png" alt="promo">
                     </a>
                 </div>
             </div>

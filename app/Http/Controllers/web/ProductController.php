@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function show($slug)
     {
-        $product = Product::with([
+        $product = Product::whereStatus(1)->with([
             'getOneProductAttributes',
             'getAllProductImages',
             'getAllProductInformations',

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\panel;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -25,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.category.create.index');
     }
 
     /**
@@ -34,9 +37,15 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        //
+        Category::create([
+            'parent_id' => $request->parent_id,
+            'title' => $request->title,
+            'slug' => Helper::slug($request->title),
+            'image' => Helper::imageUpload($request->image, 'storage')
+        ]);
+        return back()->with('success', __('words.created_action_success'));
     }
 
     /**
@@ -69,9 +78,18 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, $id)
     {
-        //
+        $update = [
+            'parent_id' => $request->parent_id,
+            'title' => $request->title,
+            'slug' => Helper::slug($request->title)
+        ];
+        if ($request->hasFile('image')) {
+            $update['image'] = Helper::imageUpload($request->image, 'storage');
+        }
+        Category::findOrFail($id)->update($update);
+        return back()->with('success', __('words.updated_action_success'));
     }
 
     /**
@@ -82,6 +100,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::findOrFail($id)->delete();
+        return back()->with('success', __('words.deleted_action_success'));
     }
 }

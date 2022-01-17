@@ -1,32 +1,18 @@
 <?php
 
-namespace App\Providers;
+namespace App\Http\Controllers\web;
 
+use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\Product;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\ServiceProvider;
 
-class ViewCacheProvider extends ServiceProvider
+class HomepageController extends Controller
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function index()
     {
         $with = ['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews'];
         Cache::remember('r_categories', 60 * 60, function () {
@@ -47,12 +33,13 @@ class ViewCacheProvider extends ServiceProvider
         Cache::remember('p_products', 60 * 60, function () use ($with) {
             return
                 Product::with($with)->whereStatus(1)->whereHas('getAllProductReviews', function ($query) {
-                    $query->select('product_id')->groupBy('product_id')->havingRaw('avg(rating) >= 4');
+                    $query->select('product_id')->groupBy('product_id')->havingRaw('round(avg(rating)) >= 4');
                 })->limit(10)->get();
         });
         Cache::remember('r_campaigns', 60 * 60, function () {
             return
                 Campaign::whereStatus(1)->inRandomOrder()->limit(6)->get();
         });
+        return view('web.homepage.index');
     }
 }

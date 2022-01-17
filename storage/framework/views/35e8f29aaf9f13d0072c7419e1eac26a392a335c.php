@@ -66,8 +66,7 @@
            <div class="row">
                <div class="col-12">
                    <div class="footer-bottom">
-                       <p class="footer-copytext">&copy; All Copyrights Reserved by <a target="_blank"
-                               href="../../../user/mironcoder.html">Mironcoder</a></p>
+                       <p class="footer-copytext">© All Copyrights Reserved by <a href="" class="custom-general-white">Canseworks</a></p>
                        <div class="footer-card"><a href="#"><img src="<?php echo e(asset('web')); ?>/images/payment/jpg/01.jpg"
                                    alt="payment"></a><a href="#"><img
                                    src="<?php echo e(asset('web')); ?>/images/payment/jpg/02.jpg" alt="payment"></a><a

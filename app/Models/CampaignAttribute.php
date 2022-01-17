@@ -12,4 +12,8 @@ class CampaignAttribute extends Model
     {
         return $this->hasMany(Campaign::class, 'id', 'campaign_id');
     }
+    public function getOneCampaignAttributeProducts()
+    {
+        return $this->hasMany(Product::class, 'id', 'product_id');
+    }
 }

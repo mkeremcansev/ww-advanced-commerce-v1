@@ -7289,3 +7289,7 @@ color: var(--white);
 background-color: var(--primary);
 border-color: var(--primary);
 }
+
+.custom-general-white {
+    color: var(--white) !important;
+}
