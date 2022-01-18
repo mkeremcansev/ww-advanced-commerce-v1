@@ -1,4 +1,4 @@
-@extends('panel.layouts.main')
+@extends('panel.layouts.extends')
 @section('title')
     @lang('words.category_edit')
 @endsection
@@ -13,11 +13,6 @@
                 <section>
                     <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <div class="alert alert-success" role="alert">
-                                <div class="alert-body">
-                                    @lang('words.category_alert')
-                                </div>
-                            </div>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul class="pt-1 pb-1">
@@ -25,6 +20,13 @@
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
+                                </div>
+                            @endif
+                            @if ($m = Session::get('success'))
+                                <div class="alert alert-success" role="alert">
+                                    <div class="alert-body">
+                                        {{ $m }}
+                                    </div>
                                 </div>
                             @endif
                             <div class="card">

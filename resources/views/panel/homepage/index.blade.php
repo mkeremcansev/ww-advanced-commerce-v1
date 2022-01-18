@@ -1,4 +1,4 @@
-@extends('panel.layouts.main')
+@extends('panel.layouts.extends')
 @section('title')
     Ana Sayfa
 @endsection

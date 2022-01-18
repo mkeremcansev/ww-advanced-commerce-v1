@@ -5,7 +5,7 @@
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="promo-img">
                     <a href="{{ route('web.campaign.products.show', $c->slug) }}">
-                        <img src="{{ asset('web') }}/images/promo/home/1.png" alt="promo">
+                        <img src="{{ asset($c->image) }}" alt="{{ $c->title }}">
                     </a>
                 </div>
             </div>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<Product>
+  <Category>3</Category>
+  <Brand>2</Brand>
+  <Attribute>
+      <Title>Ürün 1</Title>
+      <Description>Ürün 1</Description>
+      <Price>1599</Price>
+      <Discount>1299</Discount>
+  </Attribute>
+  <Variant>
+      <Title>Color</Title>
+      <Attribute>
+          <Title>Blue</Title>
+          <Price>19</Price>
+          <Stock>10</Stock>
+      </Attribute>
+  </Variant>
+  <Variant>
+      <Title>Size</Title>
+      <Attribute>
+          <Title>XL</Title>
+          <Price>39</Price>
+          <Stock>20</Stock>
+      </Attribute>
+      <Attribute>
+          <Title>XXL</Title>
+          <Price>14</Price>
+          <Stock>24</Stock>
+      </Attribute>
+  </Variant>
+  <Information>
+      <Attribute>
+          <Title>Storage</Title>
+          <Description>128GB</Description>
+      </Attribute>
+  </Information>
+	<Image>Resim 1</Image>
+	<Image>Resim 2</Image>
+	<Image>Resim 3</Image>
+</Product>

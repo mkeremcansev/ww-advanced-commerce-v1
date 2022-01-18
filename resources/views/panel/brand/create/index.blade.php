@@ -1,6 +1,6 @@
 @extends('panel.layouts.extends')
 @section('title')
-    @lang('words.category_edit')
+    @lang('words.brand_create')
 @endsection
 @section('content')
     <div class="app-content content ">
@@ -31,25 +31,13 @@
                             @endif
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">@lang('words.category_edit')</h4>
+                                    <h4 class="card-title">@lang('words.brand_create')</h4>
                                 </div>
-                                <form method="POST" action="{{ route('panel.category.store') }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('panel.brand.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label>@lang('words.up_category')</label>
-                                            <select class="select2 form-control" name="parent_id">
-                                                <option value="">@lang('words.main_category')</option>
-                                                    @foreach ($categories as $c)
-                                                        <option value="{{ $c->id }}">{{ $c->title }}</option>
-                                                    @if (count($c->getAllCategoriesCollection) > 0)
-                                                        @include('panel.category.create.layouts.parents', ['getAllSubCategoriesCollection' => $c->getAllCategoriesCollection, 'parent_title' => $c->title])
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">@lang('words.category_name')</label>
+                                            <label for="name">@lang('words.brand_name')</label>
                                             <input type="text" class="form-control" name="title">
                                         </div>
 

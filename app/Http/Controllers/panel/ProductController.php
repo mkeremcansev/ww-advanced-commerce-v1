@@ -110,7 +110,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::with('getOneProductAttributes', 'getAllProductInformations', 'getAllProductVariants.getAllVariantAttributes', 'getAllProductImages')->findOrFail($id);
-        $brands = Brand::get();
+        $brands = Brand::all();
         return view('panel.product.update.index', ['product' => $product, 'brands' => $brands]);
     }
 

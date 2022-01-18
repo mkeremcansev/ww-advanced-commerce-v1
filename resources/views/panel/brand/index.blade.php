@@ -1,6 +1,6 @@
 @extends('panel.layouts.extends')
 @section('title')
-    @lang('words.category_list')
+    @lang('words.brand_list')
 @endsection
 @section('script')
     @if ($message = Session::get('success'))
@@ -27,7 +27,7 @@
             <div class="content-body">
                 <section id="responsive-datatable">
                     <div class="row justify-content-center">
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                             @if ($m = Session::get('success'))
                                 <div class="alert alert-success" role="alert">
                                     <div class="alert-body">
@@ -37,7 +37,7 @@
                             @endif
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title">@lang('words.category_list')</h4>
+                                    <h4 class="card-title">@lang('words.brand_list')</h4>
                                 </div>
                                 <div class="card-datatable">
                                     <table id="category_list_table" class="dt-responsive table">
@@ -45,33 +45,30 @@
                                             <tr>
                                                 <th></th>
                                                 <th>@lang('words.image')</th>
-                                                <th>@lang('words.category_name')</th>
+                                                <th>@lang('words.brand_name')</th>
                                                 <th>@lang('words.actions')</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($categories as $c)
+                                            @foreach ($brands as $b)
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="150" src="{{ asset($c->image) }}" alt="{{ $c->title }}"></td>
-                                                    <td>{{ $c->title }}</td>
+                                                    <td><img width="100" src="{{ asset($b->image) }}" alt=""></td>
+                                                    <td>{{ $b->title }}</td>
                                                     <td>
                                                         <div class="btn-group">
                                                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('words.actions')</button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                <a class="dropdown-item text-success" href="{{ route('panel.category.edit', $c->id) }}">@lang('words.edit')</a>
-                                                                <form method="POST" action="{{ route('panel.category.destroy', $c->id) }}">
+                                                                <a class="dropdown-item text-success" href="{{ route('panel.brand.edit', $b->id) }}">@lang('words.edit')</a>
+                                                                <form action="{{ route('panel.brand.destroy', $b->id) }}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="dropdown-item text-danger w-100">@lang('words.delete')</button>
+                                                                    <button class="dropdown-item text-danger w-100" href="">@lang('words.delete')</button>
                                                                 </form>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                @if (count($c->getAllCategoriesCollection) > 0)
-                                                    @include('panel.category.layouts.tree', ['getAllSubCategoriesCollection'=>$c->getAllCategoriesCollection, 'parent_title' => $c->title])
-                                                @endif
                                             @endforeach
                                         </tbody>
                                     </table>

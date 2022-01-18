@@ -143,6 +143,40 @@
                         </ul>
                     </li>
 
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="git-merge"></i><span>@lang('words.brand')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="{{ route('panel.brand.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.brand_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.brand.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.brand_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="activity"></i><span>@lang('words.campaign')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="{{ route('panel.campaign.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.campaign_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.campaign.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.campaign_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a target="_blank" href="{{ route('web.index') }}" class="nav-link d-flex align-items-center">
                             <i data-feather="globe"></i>

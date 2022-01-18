@@ -1,4 +1,4 @@
-@extends('panel.layouts.main')
+@extends('panel.layouts.extends')
 @section('title')
 @lang('words.product_edit')
 @endsection
@@ -38,10 +38,10 @@
                                     </ul>
                                 </div>
                             @endif
-                            @if ($message = Session::get('success'))
+                            @if ($m = Session::get('success'))
                                 <div class="alert alert-success" role="alert">
                                     <div class="alert-body">
-                                        {{ $message }}
+                                        {{ $m }}
                                     </div>
                                 </div>
                             @endif
@@ -78,7 +78,7 @@
                                             <div class="card">
                                                     <div class="card-body">
                                                         <div class="form-group">
-                                                            <label for="name">@lang('words.name')</label>
+                                                            <label for="name">@lang('words.product_name')</label>
                                                             <input type="text" class="form-control" name="title" value="{{ $product->getOneProductAttributes->title }}">
                                                         </div>
                                                         <div class="form-group">
