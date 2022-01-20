@@ -2,23 +2,8 @@
 @section('title')
     @lang('words.product_list')
 @endsection
-@section('script')
-    @if ($message = Session::get('success'))
-        <script>
-            toastr.success('', "{{ $message }}", {
-                positionClass: "toast-bottom-right"
-            })
-        </script>
-    @elseif($message = Session::get('error'))
-        <script>
-            toastr.error('', "{{ $message }}", {
-                positionClass: "toast-bottom-right"
-            })
-        </script>
-    @endif
-@endsection
 @section('content')
-    <div class="app-content content ">
+    <div class="app-content content">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
@@ -68,7 +53,6 @@
                                                             <li class="text-danger">
                                                                 <del>{{ getMoneyOrder($product->price) }}</del>
                                                             </li>
-                                                          
                                                             <li>{{ getMoneyOrder($product->discount) }}</li>
                                                         @else
                                                             <span>{{ getMoneyOrder($product->price) }}</span>

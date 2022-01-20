@@ -4,29 +4,31 @@
                <div class="col-sm-6 col-xl-3">
                    <div class="footer-widget"><a class="footer-logo" href="#"><img
                                src="{{ asset('web') }}/images/logo.png" alt="logo"></a>
-                       <p class="footer-desc">Adipisci asperiores ipsum ipsa repellat consequatur repudiandae quisquam
-                           assumenda dolor perspiciatis sit ipsum dolor amet.</p>
+                       <p class="footer-desc">{{ setting('description') }}</p>
                        <ul class="footer-social">
-                           <li><a class="icofont-facebook" href="#"></a></li>
-                           <li><a class="icofont-twitter" href="#"></a></li>
-                           <li><a class="icofont-linkedin" href="#"></a></li>
-                           <li><a class="icofont-instagram" href="#"></a></li>
-                           <li><a class="icofont-pinterest" href="#"></a></li>
+                           <li><a class="icofont-facebook" href="{{ setting('facebook') }}"></a></li>
+                           <li><a class="icofont-twitter" href="{{ setting('twitter') }}"></a></li>
+                           <li><a class="icofont-instagram" href="{{ setting('instagram') }}"></a></li>
                        </ul>
                    </div>
                </div>
                <div class="col-sm-6 col-xl-3">
                    <div class="footer-widget contact">
-                       <h3 class="footer-title">contact us</h3>
+                       <h3 class="footer-title">@lang('words.contact')</h3>
                        <ul class="footer-contact">
                            <li><i class="icofont-ui-email"></i>
-                               <p><span>support@greeny.com</span><span>carrer@greeny.com</span></p>
+                               <p>
+                                   <span>{{ setting('mail') }}</span>
+                                </p>
                            </li>
-                           <li><i class="icofont-ui-touch-phone"></i>
-                               <p><span>+120 279 532 13</span><span>+120 279 532 14</span></p>
+                           <li><i class="icofont-phone"></i>
+                               <p>
+                                   <span>{{ setting('phone') }}</span>
+                                </p>
                            </li>
-                           <li><i class="icofont-location-pin"></i>
-                               <p>1Hd- 50, 010 Avenue, NY 90001 United States</p>
+                           <li>
+                               <i class="icofont-location-pin"></i>
+                               <p>{{ setting('adress') }}</p>
                            </li>
                        </ul>
                    </div>

@@ -48,3 +48,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .custom-list-style-none{
 	list-style: none !important;
 }
+
+.custom-rating-orange {
+	color: orange !important;
+}

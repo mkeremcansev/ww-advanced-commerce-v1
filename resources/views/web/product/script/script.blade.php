@@ -69,6 +69,7 @@
                 })
             })
             let add_to_review_btn = $('#add-to-review')
+            let review_content = $('#review_content')
             add_to_review_btn.on('click', function(){
                 let rating = $('.rating-input:checked').val();
                 let content = $('#review_content').val();
@@ -86,6 +87,7 @@
                                 confirmButtonText: '@lang("words.okey")',
                             })
                         } else if(response.status == 'success'){
+                            review_content.val('')
                             add_to_review_btn.addClass('custom-disabled')
                             Swal.fire({
                                 text: response.message,

@@ -151,6 +151,7 @@
                         @endif
                     </div>
                     @auth
+                    @if(!$product->getAllProductAuthReviews->contains('user_id',Auth::user()->id))
                         <div class="product-details-frame">
                             <div class="review-form">
                                 <div class="row">
@@ -181,6 +182,8 @@
                                 </div>
                             </div>
                         </div>
+                    @endif
+                        
                     @endauth
                     
                 </div>

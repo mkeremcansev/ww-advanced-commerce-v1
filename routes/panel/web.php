@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\panel\AdminController;
 use App\Http\Controllers\panel\BrandController;
 use App\Http\Controllers\panel\CampaignController;
 use App\Http\Controllers\panel\CategoryController;
+use App\Http\Controllers\panel\MemberController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
+use App\Http\Controllers\panel\SettingController;
+use App\Http\Controllers\panel\UserReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,11 +24,20 @@ Route::prefix('/admin')->name('panel.')->group(function () {
     Route::resource('/brand', BrandController::class);
     Route::resource('/campaign', CampaignController::class);
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
+    Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
+    Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/{id}/delete', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::get('/member', [MemberController::class, 'index'])->name('member.index');
+    Route::get('/member/{id}/delete', [MemberController::class, 'destroy'])->name('member.destroy');
+    Route::get('/user/review/{id}', [UserReviewController::class, 'show'])->name('user.review.show');
+    Route::get('/user/review/{id}/{status}/update', [UserReviewController::class, 'update'])->name('user.review.update');
+    Route::get('/user/review/{id}/delete', [UserReviewController::class, 'destroy'])->name('user.review.destroy');
     // Route::get('/xml', function () {
     //     $file = simplexml_load_file(public_path('panel/file.xml'));
     //     echo "Kategori -> " . $file->Category;
     //     echo "<br>";
-    //     echo "Marka -> " . $file->Category;
+    //     echo "Marka -> " . $file->Brand;
     //     echo "<br>";
     //     echo "Ürün adı ->" . $file->Attribute->Title;
     //     echo "<br>";

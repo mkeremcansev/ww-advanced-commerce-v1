@@ -14,6 +14,14 @@
                 confirmButtonText: '@lang("words.okey")'
             })
     </script>
+@elseif($m = Session::get('status'))
+    <script>
+            Swal.fire({
+                text: '{{ $m }}',
+                icon: 'success',
+                confirmButtonText: '@lang("words.okey")'
+            })
+    </script>
 @endif
 @if(count($errors) > 0)
     @foreach($errors->all() as $error)

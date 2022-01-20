@@ -4,6 +4,7 @@ use App\Http\Controllers\web\auth\AccountAdressController;
 use App\Http\Controllers\web\auth\AccountAttributeController;
 use App\Http\Controllers\web\auth\AccountPasswordController;
 use App\Http\Controllers\web\auth\AccountPhoneController;
+use App\Http\Controllers\web\auth\ForgotPasswordController;
 use App\Http\Controllers\web\auth\LoginController;
 use App\Http\Controllers\web\auth\LogoutController;
 use App\Http\Controllers\web\auth\ProductReviewController;
@@ -37,7 +38,7 @@ Route::name('web.')->group(function () {
     Route::get('/search/products', [SearchController::class, 'store'])->name('search.products.store');
     Route::get('/campaign/{slug}/products', [CampaignController::class, 'show'])->name('campaign.products.show');
 });
-Route::name('web.')->middleware(['auth', 'role:admin|user'])->group(function () {
+Route::name('web.')->middleware(['auth', 'role:admin|member'])->group(function () {
     Route::post('/product/review/store', [ProductReviewController::class, 'store'])->name('product.review.store');
     Route::view('/account', 'web.account.index')->name('account.index');
     Route::post('/account/password/change/update', [AccountPasswordController::class, 'update'])->name('account.password.change.update');
@@ -51,4 +52,10 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::post('/user/login/store', [LoginController::class, 'store'])->name('user.login.store');
     Route::view('/register', 'web.register.index')->name('user.register.index');
     Route::post('/user/register/store', [RegisterController::class, 'store'])->name('user.register.store');
+});
+Route::middleware(['guest'])->name('web.')->group(function () {
+    Route::view('/forgot/password', 'vendor.notifications.password.forgot')->name('forgot.password.index');
+    Route::post('/forgot/password/store', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
+    Route::get('/forgot/password/call/{token}', [ForgotPasswordController::class, 'call'])->name('forgot.password.call');
+    Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });

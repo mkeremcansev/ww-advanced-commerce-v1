@@ -26,28 +26,19 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/themes/dark-layout.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/themes/bordered-layout.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/themes/semi-dark-layout.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/css/core/menu/menu-types/horizontal-menu.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/css/plugins/extensions/ext-component-toastr.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/core/menu/menu-types/horizontal-menu.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/plugins/extensions/ext-component-toastr.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Panel/assets/css/style.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/forms/select/select2.min.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/forms/select/select2.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/pages/page-profile.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/pickers/pickadate/pickadate.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/css/plugins/forms/pickers/form-flat-pickr.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/css/plugins/forms/pickers/form-pickadate.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/pickers/pickadate/pickadate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/plugins/forms/pickers/form-flat-pickr.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/plugins/forms/pickers/form-pickadate.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/pages/page-knowledge-base.css') }}">
 </head>
 
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover"
@@ -57,8 +48,9 @@
             <div class="bookmark-wrapper d-flex align-items-center">
                 <ul class="nav navbar-nav d-xl-none">
                     <li class="nav-item">
-                        <a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon"
-                                data-feather="menu"></i></a>
+                        <a class="nav-link menu-toggle" href="javascript:void(0);">
+                            <i class="ficon" data-feather="menu"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -107,6 +99,18 @@
                             <i data-feather="home"></i>
                             <span>@lang('words.homepage')</span>
                         </a>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="settings"></i><span>@lang('words.general')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.setting.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.settings')</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown">
@@ -172,6 +176,23 @@
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.campaign.create') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.campaign_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="user"></i><span>@lang('words.user')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="{{ route('panel.admin.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.admin_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.member.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.member_list')</span>
                                 </a>
                             </li>
                         </ul>

@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{ setting('title') }} - @yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
-    <link rel="icon" href="{{ asset('web/images/favicon.png') }}">
+    <link rel="icon" href="{{ asset(setting('favicon')) }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/flaticon/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/icofont/icofont.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/fontawesome/fontawesome.min.css') }}">
@@ -44,20 +44,20 @@
                         </a>
                     @endauth
                     <a href="{{ route('web.index') }}">
-                        <img src="{{ asset('web/images/logo.png') }}" alt="logo">
+                        <img src="{{ asset(setting('logo')) }}" alt="{{ setting('title') }}">
                     </a>
                     <button class="header-src"><i class="fas fa-search"></i>
                     </button>
                 </div>
                 <a href="{{ route('web.index') }}" class="header-logo">
-                    <img src="{{ asset('web/images/logo.png') }}" alt="logo">
+                    <img src="{{ asset(setting('logo')) }}" alt="{{ setting('title') }}">
                 </a>
                 @auth
                     <a href="{{ route('web.account.index') }}" class="header-widget" title="@lang('words.my_account')">
                         <i class="fa fa-user"></i>
                     </a>
                 @else
-                    <a href="{{ route('web.user.login.index') }}" class="header-widget" title="My Account">
+                    <a href="{{ route('web.user.login.index') }}" class="header-widget" title="@lang('words.my_account')">
                         <i class="fa fa-user"></i>
                     </a>
                 @endauth

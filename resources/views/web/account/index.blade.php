@@ -88,7 +88,6 @@
                             @else
                                 <p class="text-center mb-1">@lang('words.not_have_data')</p>
                             @endif
-                            
                         </div>
                     </div>
                 </div>

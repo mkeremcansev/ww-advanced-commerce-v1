@@ -1,6 +1,6 @@
 @extends('web.layouts.extends')
 @section('title')
-    asdasd
+    @lang('words.category')
 @endsection
 @section('content')
         <section class="inner-section shop-part">

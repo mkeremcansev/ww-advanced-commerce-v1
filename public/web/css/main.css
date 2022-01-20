@@ -4873,7 +4873,6 @@ tbody tr td:last-child {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
-    border-bottom: 1px solid var(--border)
 }
 
 .cart-item:hover .cart-media button {

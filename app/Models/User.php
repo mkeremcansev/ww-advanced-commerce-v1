@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\ForgotPasswordQueued;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,6 +34,16 @@ class User extends Authenticatable
     public function getAllUserAttributeAdresses()
     {
         return $this->hasMany(UserAttribute::class, 'user_id', 'id')->whereType(2);
+    }
+
+    public function getAllUserReviews()
+    {
+        return $this->hasMany(ProductReview::class, 'user_id', 'id');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ForgotPasswordQueued($token));
     }
     /**
      * The attributes that should be hidden for serialization.

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\panel;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CampaignStoreRequest;
+use App\Http\Requests\CampaignUpdateRequest;
 use App\Models\Campaign;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -40,18 +42,12 @@ class CampaignController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CampaignStoreRequest $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'products' => 'required|array|min:1',
-            'products.*' => 'required|integer',
-            'image' => 'required|mimes:png,jpg,jpeg'
-        ]);
         DB::transaction(function () use ($request) {
             $campaign = Campaign::create([
                 'title' => $request->title,
-                'slug' => Helper::slug($request->title),
+                'slug' => Str::slug($request->title),
                 'image' => Helper::imageUpload($request->image, 'storage'),
                 'hash' => Str::random(15)
             ]);
@@ -84,7 +80,7 @@ class CampaignController extends Controller
      */
     public function edit($id)
     {
-        $campaign = Campaign::findOrFail($id);
+        $campaign = Campaign::with('getAllCampaignAttributes')->findOrFail($id);
         $products = Product::with('getOneProductAttributes')->whereStatus(1)->get();
         return view('panel.campaign.update.index', ['campaign' => $campaign, 'products' => $products]);
     }
@@ -96,19 +92,13 @@ class CampaignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CampaignUpdateRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'products' => 'required|array|min:1',
-            'products.*' => 'required|integer',
-            'image' => 'nullable|mimes:png,jpg,jpeg'
-        ]);
         DB::transaction(function () use ($request, $id) {
             $campaign = Campaign::findOrFail($id);
             $update = [
                 'title' => $request->title,
-                'slug' => Helper::slug($request->title),
+                'slug' => Str::slug($request->title),
                 'hash' => Str::random(15)
             ];
             if ($request->hasFile('image')) {

@@ -21,7 +21,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with([
+            'getOneProductAttributes',
+            'getAllProductVariants.getAllVariantAttributes',
+            'getOneProductImages',
+            'getOneProductCategory',
+            'getOneProductBrand',
+        ])->get();
         return view('panel.product.index', ['products' => $products]);
     }
 

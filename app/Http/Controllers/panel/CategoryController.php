@@ -8,6 +8,7 @@ use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -42,7 +43,7 @@ class CategoryController extends Controller
         Category::create([
             'parent_id' => $request->parent_id,
             'title' => $request->title,
-            'slug' => Helper::slug($request->title),
+            'slug' => Str::slug($request->title),
             'image' => Helper::imageUpload($request->image, 'storage')
         ]);
         return back()->with('success', __('words.created_action_success'));
@@ -83,7 +84,7 @@ class CategoryController extends Controller
         $update = [
             'parent_id' => $request->parent_id,
             'title' => $request->title,
-            'slug' => Helper::slug($request->title)
+            'slug' => Str::slug($request->title)
         ];
         if ($request->hasFile('image')) {
             $update['image'] = Helper::imageUpload($request->image, 'storage');

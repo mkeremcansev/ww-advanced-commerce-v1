@@ -42,6 +42,10 @@ class Product extends Model
     {
         return $this->hasMany(ProductReview::class, 'product_id', 'id')->whereStatus(1);
     }
+    public function getAllProductAuthReviews()
+    {
+        return $this->hasMany(ProductReview::class, 'product_id', 'id');
+    }
     public function getAllCampaignProducts()
     {
         return $this->hasMany(CampaignAttribute::class, 'product_id', 'id');

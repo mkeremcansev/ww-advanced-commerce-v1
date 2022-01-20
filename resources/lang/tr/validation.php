@@ -161,7 +161,7 @@ return [
     */
 
     'attributes' => [
-        'title' => __('words.name'),
+        'title' => __('words.title'),
         'category_id' => __('words.category'),
         'brand_id' => __('words.brand'),
         'description' => __('words.description'),
