@@ -23,8 +23,9 @@
                                 </div>
                                 <div class="form-button">
                                     <button type="button" id="add-to-login">@lang('words.login')</button>
-                                    <p>@lang('words.forgot_your_password')
-                                        <a href="reset-password.html">@lang('words.forgot_password')</a>
+                                    <p>
+                                        @lang('words.forgot_your_password')
+                                        <a href="{{ route('web.forgot.password.index') }}">@lang('words.forgot_password')</a>
                                     </p>
                                 </div>
                             </form>

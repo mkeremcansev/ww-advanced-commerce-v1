@@ -118,7 +118,7 @@ h2 {
     font-size: var(--h2size);
     line-height: var(--h2height);
     letter-spacing: -0.3px;
-    text-transform: capitalize
+    /* text-transform: capitalize */
 }
 
 h3 {

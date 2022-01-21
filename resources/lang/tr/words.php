@@ -173,4 +173,7 @@ return [
     'hello_name' => 'Merhaba, :name.',
     'password_reset' => 'Şifreni Sıfırla',
     'password_reset_message' => ':company hizmetlerini kullandığın için teşekkür ederiz. Şifreni sıfırlamak için aşağıdaki ":button" butonuna tıklaman yeterli.',
+    'send' => 'Gönder',
+    'forgot_password_p' => 'E-Posta adresine şifre sıfırlama bağlantısı göndermek için aşağıdaki formu kullanabilirsin.',
+    'forgot_password_reset_p' => 'Şifreni sıfırlamak için aşağıdaki formu kullanabilirsin.',
 ];

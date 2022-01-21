@@ -50,8 +50,7 @@
                                             <p>{{ $u->title }}</p>
                                             <ul>
                                                 <li>
-                                                    <button type="button" onclick="destroyUserAttribute('{{ $u->hash }}');" class="trash icofont-ui-delete" title="@lang('words.delete')">
-                                                    </button>
+                                                    <button type="button" onclick="destroyUserAttribute('{{ $u->hash }}');" class="trash icofont-ui-delete" title="@lang('words.delete')"></button>
                                                 </li>
                                             </ul>
                                         </div>

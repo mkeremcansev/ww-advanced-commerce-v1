@@ -9,8 +9,8 @@
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
                 <div class="user-form-card">
                     <div class="user-form-title">
-                        <h2>worried?</h2>
-                        <p>No Problem! Just Follow The Simple Way</p>
+                        <h2>@lang('words.forgot_password')</h2>
+                        <p>@lang('words.forgot_password_reset_p')</p>
                     </div>
                     <form class="user-form" method="POST" action="{{ route('web.forgot.password.update', ['token'=>$token]) }}">
                         @csrf
@@ -27,7 +27,7 @@
                     </form>
                 </div>
                 <div class="user-form-remind">
-                    <p>Go Back To<a href="login.html">login here</a></p>
+                    <p>@lang('words.already_have_an_account')<a href="{{ route('web.user.login.index') }}">@lang('words.login')</a></p>
                 </div>
             </div>
         </div>
