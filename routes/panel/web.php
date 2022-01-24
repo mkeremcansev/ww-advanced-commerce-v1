@@ -7,6 +7,7 @@ use App\Http\Controllers\panel\CategoryController;
 use App\Http\Controllers\panel\MemberController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
+use App\Http\Controllers\panel\ProductStatusController;
 use App\Http\Controllers\panel\SettingController;
 use App\Http\Controllers\panel\UserReviewController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::prefix('/admin')->name('panel.')->group(function () {
     Route::get('/user/review/{id}', [UserReviewController::class, 'show'])->name('user.review.show');
     Route::get('/user/review/{id}/{status}/update', [UserReviewController::class, 'update'])->name('user.review.update');
     Route::get('/user/review/{id}/delete', [UserReviewController::class, 'destroy'])->name('user.review.destroy');
+    Route::post('/product/status/update', [ProductStatusController::class, 'update'])->name('product.status.update');
     // Route::get('/xml', function () {
     //     $file = simplexml_load_file(public_path('panel/file.xml'));
     //     echo "Kategori -> " . $file->Category;

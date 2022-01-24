@@ -63,7 +63,7 @@
                 @endauth
                 
                 <form class="header-form" method="GET" action="{{ route('web.search.products.store') }}">
-                    <input type="text" name="search" placeholder="@lang('words.you_can_search')">
+                    <input type="text" name="search" id="search_input_typing" placeholder="">
                     <button type="submit">
                         <i class="fas fa-search"></i>
                     </button>

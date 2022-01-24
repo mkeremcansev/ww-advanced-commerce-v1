@@ -53,7 +53,3 @@ function getShowMore($text)
 {
     return substr($text, 0, 180);
 }
-
-function getRatingCalc($value)
-{
-}

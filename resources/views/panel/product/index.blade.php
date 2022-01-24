@@ -2,6 +2,18 @@
 @section('title')
     @lang('words.product_list')
 @endsection
+@section('script')
+    <script>
+            function productStatus(id){
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route("panel.product.status.update") }}',
+                    data: {id:id},
+                    dataType: 'json'
+                })
+            }
+    </script>
+@endsection
 @section('content')
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -71,11 +83,13 @@
                                                         @endforeach
                                                     </td>
                                                     <td>
-                                                        @if ($p->status)
-                                                            <span class="text-success">@lang('words.active')</span>
-                                                        @else
-                                                            <span class="text-danger">@lang('words.passive')</span>
-                                                        @endif
+                                                        <div class="custom-control custom-control-success custom-switch ml-auto">
+                                                            <input type="checkbox" onchange="productStatus({{ $p->id }});" class="custom-control-input" id="products_status-{{ $p->id }}" @if($p->status) checked @endif/>
+                                                                <label class="custom-control-label" for="products_status-{{ $p->id }}">
+                                                                    <span class="switch-icon-left"><i data-feather="check"></i></span>
+                                                                    <span class="switch-icon-right"><i data-feather="x"></i></span>
+                                                                </label>
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="btn-group">

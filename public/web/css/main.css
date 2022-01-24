@@ -4172,7 +4172,7 @@ tbody tr td:last-child {
     -webkit-transition: all linear .3s;
     -moz-transition: all linear .3s;
     -ms-transition: all linear .3s;
-    -o-transition: all linear .3s
+    -o-transition: all linear .3s;
 }
 
 .header-form:focus-within {

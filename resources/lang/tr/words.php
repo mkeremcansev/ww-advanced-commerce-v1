@@ -32,6 +32,7 @@ return [
     'description' => 'Açıklama',
     'content' => 'İçerik',
     'add_review' => 'Yorum Yap',
+    'get_variant_main' => ':variant : ',
     'verify_and_save' => 'Onayla ve kaydet',
     'title' => 'Başlık',
     'main_category' => 'Ana Kategori',
