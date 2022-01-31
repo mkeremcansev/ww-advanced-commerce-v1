@@ -11,33 +11,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
         rel="stylesheet" />
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/css/plugins/extensions/ext-component-tree.css') }}">
+        href="{{ asset('panel/app-assets/css/plugins/extensions/ext-component-tree.css') }}">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/extensions/jstree.min.css') }}">
+        href="{{ asset('panel/app-assets/vendors/css/extensions/jstree.min.css') }}">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/fonts/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/vendors.min.css') }}" />
+        href="{{ asset('panel/app-assets/fonts/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/vendors.min.css') }}" />
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('Panel/app-assets/vendors/css/extensions/toastr.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/bootstrap.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/bootstrap-extended.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/colors.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/components.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/themes/dark-layout.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/themes/bordered-layout.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/themes/semi-dark-layout.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/core/menu/menu-types/horizontal-menu.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/plugins/extensions/ext-component-toastr.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/assets/css/style.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/forms/select/select2.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/pages/page-profile.css') }}" />
+        href="{{ asset('panel/app-assets/vendors/css/extensions/toastr.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/bootstrap.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/bootstrap-extended.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/colors.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/components.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/themes/dark-layout.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/themes/bordered-layout.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/themes/semi-dark-layout.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/core/menu/menu-types/horizontal-menu.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/plugins/extensions/ext-component-toastr.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/assets/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/forms/select/select2.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/pages/page-profile.css') }}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/pickers/pickadate/pickadate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/plugins/forms/pickers/form-flat-pickr.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Panel/app-assets/css/plugins/forms/pickers/form-pickadate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/pickers/pickadate/pickadate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/plugins/forms/pickers/form-flat-pickr.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/plugins/forms/pickers/form-pickadate.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/pages/page-knowledge-base.css') }}">
 </head>
 
@@ -69,7 +69,7 @@
                             </span>
                         </div>
                         <span class="avatar"><img class="round"
-                                src="{{ asset('Panel/app-assets/images/portrait/small/avatar-s-11.jpg') }}"
+                                src="{{ asset('panel/app-assets/images/portrait/small/avatar-s-11.jpg') }}"
                                 alt="avatar" height="40" width="40" />
                             <span class="avatar-status-online"> </span>
                         </span>
@@ -117,8 +117,7 @@
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="layers"></i><span>@lang('words.category')</span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="{{ route('panel.category.index') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.category.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.category_list')</span>
                                 </a>
@@ -134,8 +133,7 @@
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="box"></i><span>@lang('words.product')</span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="{{ route('panel.product.index') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.product.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.product_list')</span>
                                 </a>
@@ -151,8 +149,7 @@
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="git-merge"></i><span>@lang('words.brand')</span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="{{ route('panel.brand.index') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.brand.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.brand_list')</span>
                                 </a>
@@ -165,11 +162,26 @@
                     </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span>@lang('words.page')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.page.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.page_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.page.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.page_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="activity"></i><span>@lang('words.campaign')</span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="{{ route('panel.campaign.index') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.campaign.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.campaign_list')</span>
                                 </a>
@@ -185,14 +197,29 @@
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="user"></i><span>@lang('words.user')</span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="{{ route('panel.admin.index') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.admin.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.admin_list')</span>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.member.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.member_list')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="refresh-cw"></i><span>@lang('words.review')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.review.active.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.active_review_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.review.passive.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.passive_review_list')</span>
                                 </a>
                             </li>
                         </ul>

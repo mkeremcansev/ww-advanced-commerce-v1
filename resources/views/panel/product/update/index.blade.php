@@ -2,19 +2,7 @@
 @section('title')
 @lang('words.product_edit')
 @endsection
-@section('script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.min.js" integrity="sha512-foIijUdV0fR0Zew7vmw98E6mOWd9gkGWQBWaoA1EOFAx+pY+N8FmmtIYAVj64R98KeD2wzZh1aHK0JSpKmRH8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    var $repeater = $('.repeater').repeater({
-        repeaters: [{
-            selector: '.inner-repeater',
-            repeaters: [{
-                selector: '.deep-inner-repeater'
-            }]
-        }]
-    });
-</script>
-@endsection
+@include('panel.product.update.script.script')
 @section('content')
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -28,7 +16,7 @@
                 @csrf
                 <section>
                     <div class="row justify-content-center">
-                        <div class="col-xl-7 col-lg-12">
+                        <div class="col-xl-9 col-lg-12">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul class="pt-1 pb-1">
@@ -112,7 +100,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="description">@lang('words.description')</label>
-                                                            <textarea type="text" class="form-control ckeditor" name="description">{{ $product->getOneProductAttributes->description }}</textarea>
+                                                            <textarea type="text" class="form-control" name="description" id="tiny">{{ $product->getOneProductAttributes->description }}</textarea>
                                                         </div>
                                                     </div>
                                             </div>
@@ -269,8 +257,8 @@
                                                             @foreach ($product->getAllProductImages as $image)
                                                                 <div class="col-md-3 col-6">
                                                                     <img width="220px" src="{{ asset($image->image) }}" class="img-fluid rounded mb-1"/>
-                                                                        <div class="text-center">
-                                                                            <a href="{{ route('panel.product.image.destroy', $image->id) }}" class="btn btn-danger waves-effect waves-float waves-light mb-1">@lang('words.delete')</a>
+                                                                        <div>
+                                                                            <button href="{{ route('panel.product.image.destroy', $image->id) }}" class="btn btn-danger waves-effect waves-float waves-light mb-1">@lang('words.delete')</button>
                                                                         </div>
                                                                 </div>
                                                             @endforeach

@@ -91,6 +91,53 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-12">
+                <div class="account-card">
+                    <div class="account-title">
+                        <h4>@lang('words.my_reviews')</h4>
+                    </div>
+                    <div class="account-content">
+                        <div class="row">
+                            @if (Auth::user()->getAllUserReviews->count())
+                                @foreach (Auth::user()->getAllUserReviews as $r)
+                                    <div class="col-md-6 col-lg-4 alert fade show">
+                                        <div class="profile-card address">
+                                                @if ($r->status)
+                                                <h6 class="text-center text-success">
+                                                    <a target="_blank" href="{{ route('web.product.show',$r->getOneReviewProduct->slug) }}">
+                                                        {{ $r->getOneReviewProduct->title }}
+                                                    </a>
+                                                    @lang('words.review_status_seperator', ['status'=>__('words.active')])
+                                                </h6>
+                                                @else
+                                                <h6 class="text-center text-danger">
+                                                    <a target="_blank" href="{{ route('web.product.show',$r->getOneReviewProduct->slug) }}">
+                                                        {{ $r->getOneReviewProduct->title }}
+                                                    </a>
+                                                    @lang('words.review_status_seperator', ['status'=>__('words.passive')])
+                                                </h6>
+                                                @endif
+                                            <p>{{ $r->content }}</p>
+                                            <ul class="user-action">
+                                                <li>
+                                                    <button type="button" onclick="destroyUserReview('{{ $r->hash }}');" class="trash icofont-ui-delete" title="@lang('words.delete')"></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <ul class="review-rating text-center">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                <li class="@if($r->rating >= $i) icofont-ui-rating @else icofont-ui-rate-blank @endif "></li>
+                                            @endfor
+                                        </ul>
+                                    </div>
+                                @endforeach
+                            @else
+                                <p class="text-center mb-1">@lang('words.not_have_data')</p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

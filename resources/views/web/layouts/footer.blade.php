@@ -35,21 +35,12 @@
                </div>
                <div class="col-sm-6 col-xl-3">
                    <div class="footer-widget">
-                       <h3 class="footer-title">quick Links</h3>
+                       <h3 class="footer-title">@lang('words.pages')</h3>
                        <div class="footer-links">
                            <ul>
-                               <li><a href="#">My Account</a></li>
-                               <li><a href="#">Order History</a></li>
-                               <li><a href="#">Order Tracking</a></li>
-                               <li><a href="#">Best Seller</a></li>
-                               <li><a href="#">New Arrivals</a></li>
-                           </ul>
-                           <ul>
-                               <li><a href="#">Location</a></li>
-                               <li><a href="#">Affiliates</a></li>
-                               <li><a href="#">Contact</a></li>
-                               <li><a href="#">Carrer</a></li>
-                               <li><a href="#">Faq</a></li>
+                               @foreach ($pages as $p)
+                                <li><a href="{{ route('web.page.info.show', $p->slug) }}">{{ $p->title }}</a></li>
+                               @endforeach
                            </ul>
                        </div>
                    </div>

@@ -17,6 +17,7 @@ class CreateProductReviewsTable extends Migration
             $table->id();
             $table->longText('content');
             $table->integer('rating');
+            $table->string('hash');
             $table->integer('status')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

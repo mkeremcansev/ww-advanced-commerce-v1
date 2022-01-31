@@ -151,41 +151,39 @@
                         @endif
                     </div>
                     @auth
-                    @if(!$product->getAllProductAuthReviews->contains('user_id',Auth::user()->id))
-                        <div class="product-details-frame">
-                            <div class="review-form">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="star-rating">
-                                            <input type="radio" class="rating-input" name="rating" id="star-1" value="5">
-                                            <label for="star-1"></label>
-                                            <input type="radio" class="rating-input" name="rating" id="star-2" value="4">
-                                            <label for="star-2"></label>
-                                            <input type="radio" class="rating-input" name="rating" id="star-3" value="3">
-                                            <label for="star-3"></label>
-                                            <input type="radio" class="rating-input" name="rating" id="star-4" value="2">
-                                            <label for="star-4"></label>
-                                            <input type="radio" class="rating-input" name="rating" id="star-5" value="1">
-                                            <label for="star-5"></label>
+                        @if(!$product->getAllProductAuthReviews->contains('user_id',Auth::user()->id) AND Auth::user()->email_verified_at)
+                            <div class="product-details-frame">
+                                <div class="review-form">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="star-rating">
+                                                <input type="radio" class="rating-input" name="rating" id="star-1" value="5">
+                                                <label for="star-1"></label>
+                                                <input type="radio" class="rating-input" name="rating" id="star-2" value="4">
+                                                <label for="star-2"></label>
+                                                <input type="radio" class="rating-input" name="rating" id="star-3" value="3">
+                                                <label for="star-3"></label>
+                                                <input type="radio" class="rating-input" name="rating" id="star-4" value="2">
+                                                <label for="star-4"></label>
+                                                <input type="radio" class="rating-input" name="rating" id="star-5" value="1">
+                                                <label for="star-5"></label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <textarea class="form-control" id="review_content" placeholder="@lang('words.content')"></textarea>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="review_content" placeholder="@lang('words.content')"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="button" id="add-to-review" class="btn btn-inline">
-                                            <span>@lang('words.add_review')</span>
-                                        </button>
+                                        <div class="col-lg-12">
+                                            <button type="button" id="add-to-review" class="btn btn-inline">
+                                                <span>@lang('words.add_review')</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
-                        
+                        @endif
                     @endauth
-                    
                 </div>
             </div>
         </div>

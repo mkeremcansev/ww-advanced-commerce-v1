@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
@@ -30,6 +31,7 @@ class ViewShareProvider extends ServiceProvider
     {
         if (!$this->app->runningInConsole()) {
             view()->share('categories', Category::where('parent_id', null)->with('getAllCategoriesCollection')->get());
+            view()->share('pages', Page::get());
         }
     }
 }

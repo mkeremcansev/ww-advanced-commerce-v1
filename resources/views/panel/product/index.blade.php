@@ -2,18 +2,7 @@
 @section('title')
     @lang('words.product_list')
 @endsection
-@section('script')
-    <script>
-            function productStatus(id){
-                $.ajax({
-                    method: 'POST',
-                    url: '{{ route("panel.product.status.update") }}',
-                    data: {id:id},
-                    dataType: 'json'
-                })
-            }
-    </script>
-@endsection
+@include('panel.product.script.script')
 @section('content')
     <div class="app-content content">
         <div class="content-overlay"></div>

@@ -24,7 +24,7 @@
                 </ul>
             </div>
         </div>
-        <div class="tab-pane fade show active" id="top-order">
+        {{-- <div class="tab-pane fade show active" id="top-order">
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                 <div class="col">
                     <div class="product-card">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
             @include('web.homepage.layouts.popular')
             @include('web.homepage.layouts.discount')
     </div>

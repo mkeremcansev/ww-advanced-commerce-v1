@@ -27,7 +27,7 @@
                 @csrf
             <section>
                 <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-12">
+                    <div class="col-xl-9 col-lg-12">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul class="pt-1 pb-1">
@@ -116,7 +116,7 @@
 
                                                     <div class="form-group">
                                                         <label for="description">@lang('words.description')</label>
-                                                        <textarea type="text" class="form-control ckeditor" name="description"></textarea>
+                                                        <textarea type="text" class="form-control" name="description" id="tiny"></textarea>
                                                     </div>
                                                 </div>
                                         </div>

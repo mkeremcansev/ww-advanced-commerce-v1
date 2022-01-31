@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\AccountVerifyQueued;
 use App\Notifications\ForgotPasswordQueued;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
@@ -44,6 +45,10 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ForgotPasswordQueued($token));
+    }
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new AccountVerifyQueued);
     }
     /**
      * The attributes that should be hidden for serialization.

@@ -48,7 +48,7 @@
                                                                 <form action="{{ route('panel.brand.destroy', $b->id) }}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button class="dropdown-item text-danger w-100" href="">@lang('words.delete')</button>
+                                                                    <button class="dropdown-item text-danger w-100">@lang('words.delete')</button>
                                                                 </form>
                                                             </div>
                                                         </div>

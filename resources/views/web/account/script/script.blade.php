@@ -24,6 +24,30 @@
                     }
                 })
             }
+            function destroyUserReview(hash) {
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route("web.account.review.destroy") }}',
+                    data: {hash:hash},
+                    dataType: 'json',
+                    success: function(response){
+                        Swal.fire({
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: '@lang("words.okey")',
+                        }).then((result) => {
+                            result.isConfirmed ? location.reload() : location.reload()
+                        })
+                    },
+                    error: function(response){
+                        Swal.fire({
+                            text: getValidateMessage(response),
+                            icon: 'error',
+                            confirmButtonText: '@lang("words.okey")'
+                        })
+                    }
+                })
+            }
         $(document).ready(function(){
             let add_to_user_phone =  $('#add-to-user-phone')
             add_to_user_phone.on('click', function(){

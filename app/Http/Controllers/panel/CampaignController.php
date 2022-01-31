@@ -47,7 +47,7 @@ class CampaignController extends Controller
         DB::transaction(function () use ($request) {
             $campaign = Campaign::create([
                 'title' => $request->title,
-                'slug' => Str::slug($request->title),
+                'slug' => Helper::slug($request->title),
                 'image' => Helper::imageUpload($request->image, 'storage'),
                 'hash' => Str::random(15)
             ]);
@@ -98,7 +98,7 @@ class CampaignController extends Controller
             $campaign = Campaign::findOrFail($id);
             $update = [
                 'title' => $request->title,
-                'slug' => Str::slug($request->title),
+                'slug' => Helper::slug($request->title),
                 'hash' => Str::random(15)
             ];
             if ($request->hasFile('image')) {

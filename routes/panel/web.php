@@ -1,14 +1,17 @@
 <?php
 
+use App\Http\Controllers\panel\ActiveAndPassiveReviewController;
 use App\Http\Controllers\panel\AdminController;
 use App\Http\Controllers\panel\BrandController;
 use App\Http\Controllers\panel\CampaignController;
 use App\Http\Controllers\panel\CategoryController;
 use App\Http\Controllers\panel\MemberController;
+use App\Http\Controllers\panel\PageController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
 use App\Http\Controllers\panel\ProductStatusController;
 use App\Http\Controllers\panel\SettingController;
+use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\UserReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +27,7 @@ Route::prefix('/admin')->name('panel.')->group(function () {
     Route::resource('/product', ProductController::class);
     Route::resource('/brand', BrandController::class);
     Route::resource('/campaign', CampaignController::class);
+    Route::resource('/page', PageController::class);
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');
@@ -35,6 +39,11 @@ Route::prefix('/admin')->name('panel.')->group(function () {
     Route::get('/user/review/{id}/{status}/update', [UserReviewController::class, 'update'])->name('user.review.update');
     Route::get('/user/review/{id}/delete', [UserReviewController::class, 'destroy'])->name('user.review.destroy');
     Route::post('/product/status/update', [ProductStatusController::class, 'update'])->name('product.status.update');
+    Route::get('/review/active', [ActiveAndPassiveReviewController::class, 'active'])->name('review.active.index');
+    Route::get('/review/passive', [ActiveAndPassiveReviewController::class, 'passive'])->name('review.passive.index');
+    Route::get('/review/delete/{id}', [ActiveAndPassiveReviewController::class, 'destroy'])->name('review.destroy');
+    Route::post('/review/status/update', [ActiveAndPassiveReviewController::class, 'update'])->name('review.status.update');
+    Route::post('/text/image/store', [TextImageController::class, 'store'])->name('text.image.store');
     // Route::get('/xml', function () {
     //     $file = simplexml_load_file(public_path('panel/file.xml'));
     //     echo "Kategori -> " . $file->Category;

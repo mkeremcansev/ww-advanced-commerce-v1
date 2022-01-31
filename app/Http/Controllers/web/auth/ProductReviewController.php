@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProductReviewController extends Controller
 {
@@ -21,11 +22,11 @@ class ProductReviewController extends Controller
                 'message' => __('words.have_a_user_review')
             ]);
         } else {
-            ProductReview::create([
+            $product->getAllProductReviews()->create([
                 'content' => $request->content,
+                'hash' => Str::random(15),
                 'rating' => $request->rating,
                 'user_id' => Auth::user()->id,
-                'product_id' => $product->id,
             ]);
             return response()->json([
                 'status' => 'success',

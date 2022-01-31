@@ -1,7 +1,9 @@
    <script>
         let words = [
-            @foreach (Cache::get('r_categories') as $rc)
-                "{{ $rc->title }}".replace(/&amp;/g, '&'),
+            @foreach ($categories as $r)
+                @foreach ($r->getAllCategoriesCollection as $c)
+                    "{{ $c->title }}".replace(/&amp;/g, '&'),
+                @endforeach
             @endforeach
         ];
         let i = 0;
@@ -11,8 +13,8 @@
         let word = words[i].split("");
         const loopTyping = function() {
             if (word.length > 0) {
-            let elem = document.getElementById('search_input_typing');
-            elem.setAttribute('placeholder', elem.getAttribute('placeholder') + word.shift());
+            let text = document.getElementById('search_input_typing');
+            text.setAttribute('placeholder', text.getAttribute('placeholder') + word.shift());
             } else {
                 setTimeout(function(){
                     deletingEffect();
