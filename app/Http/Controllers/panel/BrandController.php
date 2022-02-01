@@ -4,6 +4,8 @@ namespace App\Http\Controllers\panel;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BrandStoreRequest;
+use App\Http\Requests\BrandUpdateRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -37,12 +39,8 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandStoreRequest $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'image' => 'required|mimes:png,jpg,jpeg'
-        ]);
         Brand::create([
             'title' => $request->title,
             'image' => Helper::imageUpload($request->image, 'storage'),
@@ -81,12 +79,8 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BrandUpdateRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'image' => 'nullable|mimes:png,jpg,jpeg'
-        ]);
         $update = [
             'title' => $request->title,
             'hash' => Str::random(15)

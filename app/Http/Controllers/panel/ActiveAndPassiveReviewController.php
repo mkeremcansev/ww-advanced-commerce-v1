@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ActiveAndPassiveReviewUpdateRequest;
 use App\Models\ProductReview;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ActiveAndPassiveReviewController extends Controller
         return view('panel.review.passive.index', ['reviews' => $reviews]);
     }
 
-    public function update(Request $request)
+    public function update(ActiveAndPassiveReviewUpdateRequest $request)
     {
         $review = ProductReview::findOrFail($request->id);
         $status = $review->status  ? 0 : 1;

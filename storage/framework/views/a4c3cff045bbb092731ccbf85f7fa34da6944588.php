@@ -49,7 +49,7 @@
                                                                 <form action="<?php echo e(route('panel.brand.destroy', $b->id)); ?>" method="POST">
                                                                     <?php echo csrf_field(); ?>
                                                                     <?php echo method_field('DELETE'); ?>
-                                                                    <button class="dropdown-item text-danger w-100" href=""><?php echo app('translator')->get('words.delete'); ?></button>
+                                                                    <button class="dropdown-item text-danger w-100"><?php echo app('translator')->get('words.delete'); ?></button>
                                                                 </form>
                                                             </div>
                                                         </div>

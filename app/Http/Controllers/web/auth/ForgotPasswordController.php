@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\web\auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ForgotPasswordStoreRequest;
+use App\Http\Requests\ForgotPasswordUpdateRequest;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,11 +13,8 @@ use Illuminate\Auth\Events\PasswordReset;
 
 class ForgotPasswordController extends Controller
 {
-    public function store(Request $request)
+    public function store(ForgotPasswordStoreRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email'
-        ]);
         $status = Password::sendResetLink(
             $request->only('email')
         );
@@ -29,13 +28,8 @@ class ForgotPasswordController extends Controller
         return view('vendor.notifications.password.reset', ['token' => $token]);
     }
 
-    public function update(Request $request)
+    public function update(ForgotPasswordUpdateRequest $request)
     {
-        $request->validate([
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:8|confirmed',
-        ]);
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {

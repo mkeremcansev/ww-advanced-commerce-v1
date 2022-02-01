@@ -12,7 +12,7 @@ class WishlistController extends Controller
 {
     public function store(WishlistStoreRequest $request)
     {
-        $product = Product::whereStatus(1)->with('getOneProductAttributes')->whereHash($request->product_hash)->first();
+        $product = Product::whereStatus(1)->with('getOneProductAttributes')->whereHash($request->product_hash)->firstOrFail();
         $price = null;
         $product->getOneProductAttributes->discount
             ? $price = $product->getOneProductAttributes->discount

@@ -17,7 +17,10 @@ class ShoppingCartController extends Controller
 {
     public function store(ShoppingCartStoreRequest $request)
     {
-        $product = Product::whereStatus(1)->with('getOneProductAttributes', 'getAllProductVariants')->whereHash($request->product_hash)->first();
+        $product = Product::whereStatus(1)
+            ->with('getOneProductAttributes', 'getAllProductVariants')
+            ->whereHash($request->product_hash)
+            ->firstOrFail();
         $price = null;
         $product->getOneProductAttributes->discount
             ? $price = $product->getOneProductAttributes->discount

@@ -14,7 +14,7 @@ class ProductReviewController extends Controller
 {
     public function store(ProductReviewStoreRequest $request)
     {
-        $product = Product::whereHash($request->product)->first();
+        $product = Product::whereHash($request->product)->firstOrFail();
         $review = ProductReview::where('user_id', Auth::user()->id)->where('product_id', $product->id)->count();
         if ($review) {
             return response()->json([

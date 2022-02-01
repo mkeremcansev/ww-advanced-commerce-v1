@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function show($slug)
     {
-        $page = Page::whereSlug($slug)->first();
+        $page = Page::whereSlug($slug)->firstOrFail();
         return view('web.page.index', ['page' => $page]);
     }
 }

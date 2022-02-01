@@ -4,6 +4,8 @@ namespace App\Http\Controllers\panel;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageStoreRequest;
+use App\Http\Requests\PageUpdateRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
@@ -36,12 +38,8 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PageStoreRequest $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-        ]);
         Page::create([
             'title' => $request->title,
             'slug' => Helper::slug($request->title),
@@ -80,12 +78,8 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PageUpdateRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-        ]);
         Page::findOrFail($id)->update([
             'title' => $request->title,
             'description' => $request->description,

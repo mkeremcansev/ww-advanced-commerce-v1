@@ -21,7 +21,7 @@ class ProductController extends Controller
             'getAllProductAuthReviews'
         ])->whereHas('getOneProductAttributes', function ($q) use ($slug) {
             $q->where('slug', $slug);
-        })->first();
+        })->firstOrFail();
         return view('web.product.index', ['product' => $product]);
     }
 }
