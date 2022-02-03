@@ -8,17 +8,10 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset(setting('favicon'))); ?>" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
-        rel="stylesheet" />
-    <link rel="stylesheet" type="text/css"
-        href="<?php echo e(asset('panel/app-assets/css/plugins/extensions/ext-component-tree.css')); ?>">
-    <link rel="stylesheet" type="text/css"
-        href="<?php echo e(asset('panel/app-assets/vendors/css/extensions/jstree.min.css')); ?>">
-    <link rel="stylesheet" type="text/css"
-        href="<?php echo e(asset('panel/app-assets/fonts/font-awesome/css/font-awesome.min.css')); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/fonts/font-awesome/css/font-awesome.min.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/vendors/css/vendors.min.css')); ?>" />
-    <link rel="stylesheet" type="text/css"
-        href="<?php echo e(asset('panel/app-assets/vendors/css/extensions/toastr.min.css')); ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/vendors/css/extensions/toastr.min.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/bootstrap.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/bootstrap-extended.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/colors.css')); ?>" />
@@ -38,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/plugins/forms/pickers/form-flat-pickr.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/plugins/forms/pickers/form-pickadate.css')); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/pages/page-knowledge-base.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/pages/page-knowledge-base.css')); ?>">
 </head>
 
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover"
@@ -108,6 +101,12 @@
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.setting.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.settings'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.theme.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.theme'); ?></span>
                                 </a>
                             </li>
                         </ul>

@@ -64,7 +64,7 @@
                     <button class="clear-and-update-btn col-lg-3"><?php echo app('translator')->get('words.shopping_cart_update'); ?></button>
                     <a href="<?php echo e(route('web.shopping.cart.destroy')); ?>" class="clear-and-update-btn"><?php echo app('translator')->get('words.shopping_cart_clear'); ?></a>
                 </div>
-                <a class="checkout-and-go-btn" href="">
+                <a class="checkout-and-go-btn" href="<?php echo e(route('web.checkout.index')); ?>">
                     <span class="checkout-label"><?php echo app('translator')->get('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::subtotal())]); ?></span>
                 </a>
             </div>

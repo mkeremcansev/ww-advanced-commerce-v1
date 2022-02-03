@@ -36,11 +36,56 @@
                             <form id="setting_form" method="POST" action="{{ route('panel.setting.update') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="title">@lang('words.title')</label>
-                                        <input type="text" class="form-control" name="title" value="{{ setting('title') }}">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="title">@lang('words.title')</label>
+                                                <input type="text" class="form-control" name="title" value="{{ setting('title') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="facebook">@lang('words.facebook')</label>
+                                                <input type="text" class="form-control" name="facebook" value="{{ setting('facebook') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="instagram">@lang('words.instagram')</label>
+                                                <input type="text" class="form-control" name="instagram" value="{{ setting('instagram') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="twitter">@lang('words.twitter')</label>
+                                                <input type="text" class="form-control" name="twitter" value="{{ setting('twitter') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="mail">@lang('words.email_adress')</label>
+                                                <input type="text" class="form-control" name="mail" value="{{ setting('mail') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="phone">@lang('words.phone_number')</label>
+                                                <input type="text" class="form-control" name="phone" value="{{ setting('phone') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="logo">@lang('words.logo')</label>
+                                                <input type="file" class="form-control" name="logo">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="favicon">@lang('words.favicon')</label>
+                                                <input type="file" class="form-control" name="favicon">
+                                            </div>
+                                        </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="description">@lang('words.description')</label>
                                         <textarea type="text" class="form-control" name="description">{{ setting('description') }}</textarea>
@@ -56,41 +101,6 @@
                                         <textarea type="text" class="form-control" name="adress">{{ setting('adress') }}</textarea>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="facebook">@lang('words.facebook')</label>
-                                        <input type="text" class="form-control" name="facebook" value="{{ setting('facebook') }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="instagram">@lang('words.instagram')</label>
-                                        <input type="text" class="form-control" name="instagram" value="{{ setting('instagram') }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="twitter">@lang('words.twitter')</label>
-                                        <input type="text" class="form-control" name="twitter" value="{{ setting('twitter') }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="mail">@lang('words.email_adress')</label>
-                                        <input type="text" class="form-control" name="mail" value="{{ setting('mail') }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="phone">@lang('words.phone_number')</label>
-                                        <input type="text" class="form-control" name="phone" value="{{ setting('phone') }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="logo">@lang('words.logo')</label>
-                                        <input type="file" class="form-control" name="logo">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="favicon">@lang('words.favicon')</label>
-                                        <input type="file" class="form-control" name="favicon">
-                                    </div>
-
                                     <button type="submit" class="btn btn-primary waves-effect waves-float waves-light mt-2 mb-2 float-right">@lang('words.save')</button>
                                 </div>
                             </form>
@@ -102,17 +112,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4 col-6">
+                                    <div class="col-md-6 col-6">
                                         <h4 class="card-title">@lang('words.updated_logo')</h4>
                                         <a href="javascript:void(0)">
-                                            <img width="150" src="{{ asset(setting('logo')) }}"
+                                            <img src="{{ asset(setting('logo')) }}"
                                                 class="img-fluid rounded mb-1" />
                                         </a>
                                     </div>
-                                    <div class="col-md-4 col-6">
+                                    <div class="col-md-6 col-6">
                                         <h4 class="card-title">@lang('words.updated_favicon')</h4>
                                         <a href="javascript:void(0)">
-                                            <img width="20" src="{{ asset(setting('favicon')) }}"
+                                            <img src="{{ asset(setting('favicon')) }}"
                                                 class="img-fluid rounded mb-1" />
                                         </a>
                                     </div>

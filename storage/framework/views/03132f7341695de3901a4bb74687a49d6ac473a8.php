@@ -104,7 +104,7 @@
                                         <div class="profile-card address">
                                                 <?php if($r->status): ?>
                                                 <h6 class="text-center text-success">
-                                                    <a target="_blank" href="<?php echo e(route('web.product.show',$r->getOneReviewProduct->slug)); ?>">
+                                                    <a target="_blank" class="custom-primary-text" href="<?php echo e(route('web.product.show',$r->getOneReviewProduct->slug)); ?>">
                                                         <?php echo e($r->getOneReviewProduct->title); ?>
 
                                                     </a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\web\auth\AccountPasswordController;
 use App\Http\Controllers\web\auth\AccountPhoneController;
 use App\Http\Controllers\web\auth\AccountReviewController;
 use App\Http\Controllers\web\auth\AccountVerificationController;
+use App\Http\Controllers\web\auth\CheckoutController;
 use App\Http\Controllers\web\auth\ForgotPasswordController;
 use App\Http\Controllers\web\auth\LoginController;
 use App\Http\Controllers\web\auth\LogoutController;
@@ -16,11 +17,9 @@ use App\Http\Controllers\web\CategoryController;
 use App\Http\Controllers\web\HomepageController;
 use App\Http\Controllers\web\PageController;
 use App\Http\Controllers\web\ProductController;
-use App\Http\Controllers\web\ProductsController;
 use App\Http\Controllers\web\SearchController;
 use App\Http\Controllers\web\ShoppingCartController;
 use App\Http\Controllers\web\WishlistController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +57,8 @@ Route::name('web.')->middleware(['auth', 'verified', 'role:admin|member'])->grou
     Route::post('/account/attribute/destroy', [AccountAttributeController::class, 'destroy'])->name('account.attribute.destroy');
     Route::post('/account/review/destroy', [AccountReviewController::class, 'destroy'])->name('account.review.destroy');
     Route::get('/account/logout/store', [LogoutController::class, 'store'])->name('account.logout.store');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
 });
 Route::name('web.')->middleware('guest')->group(function () {
     Route::view('/login', 'web.login.index')->name('user.login.index');

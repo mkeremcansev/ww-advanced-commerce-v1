@@ -609,7 +609,7 @@
 .review-rating li {
     font-size: 16px;
     margin-right: 5px;
-    color: var(--yellow);
+    color: var(--primary);
     display: inline-block
 }
 

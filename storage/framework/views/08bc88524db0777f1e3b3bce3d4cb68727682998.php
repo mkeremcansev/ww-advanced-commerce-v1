@@ -31,8 +31,6 @@
 <script src="<?php echo e(asset('panel/app-assets/vendors/js/pickers/pickadate/legacy.js')); ?>"></script>
 <script src="<?php echo e(asset('panel/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')); ?>"></script>
 <script src="<?php echo e(asset('panel/app-assets/js/scripts/forms/pickers/form-pickers.js')); ?>"></script>
-<script src="<?php echo e(asset('panel/app-assets/vendors/js/extensions/jstree.min.js')); ?>"></script>
-<script src="<?php echo e(asset('panel/app-assets/js/scripts/extensions/ext-component-tree.js')); ?>"></script>
 <script src="<?php echo e(asset('panel/app-assets/js/scripts/pages/page-account-settings.js')); ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 <script src="<?php echo e(asset('panel/app-assets/js/scripts/pages/page-knowledge-base.js')); ?>"></script>

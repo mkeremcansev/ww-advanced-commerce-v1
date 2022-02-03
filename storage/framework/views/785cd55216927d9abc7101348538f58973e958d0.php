@@ -13,6 +13,7 @@
     <title><?php echo e(setting('title')); ?> - <?php echo $__env->yieldContent('title'); ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
     <link rel="icon" href="<?php echo e(asset(setting('favicon'))); ?>">
+    <?php echo $__env->make('web.layouts.style.style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <link rel="stylesheet" href="<?php echo e(asset('web/fonts/flaticon/flaticon.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/fonts/icofont/icofont.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/fonts/fontawesome/fontawesome.min.css')); ?>">
@@ -53,9 +54,15 @@
                     <img src="<?php echo e(asset(setting('logo'))); ?>" alt="<?php echo e(setting('title')); ?>">
                 </a>
                 <?php if(auth()->guard()->check()): ?>
-                    <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
+                <div class="header-widget-group">
+                   <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
                         <i class="fa fa-user"></i>
                     </a>
+                    <a href="<?php echo e(route('web.account.logout.store')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.logout'); ?>">
+                        <i class="fa fa-sign-out-alt"></i>
+                    </a>
+                </div>
+                    
                 <?php else: ?>
                     <a href="<?php echo e(route('web.user.login.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
                         <i class="fa fa-user"></i>

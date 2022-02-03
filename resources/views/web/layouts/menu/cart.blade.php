@@ -63,7 +63,7 @@
                     <button class="clear-and-update-btn col-lg-3">@lang('words.shopping_cart_update')</button>
                     <a href="{{ route('web.shopping.cart.destroy') }}" class="clear-and-update-btn">@lang('words.shopping_cart_clear')</a>
                 </div>
-                <a class="checkout-and-go-btn" href="">
+                <a class="checkout-and-go-btn" href="{{ route('web.checkout.index') }}">
                     <span class="checkout-label">@lang('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::subtotal())])</span>
                 </a>
             </div>

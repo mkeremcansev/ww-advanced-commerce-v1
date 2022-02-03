@@ -27,6 +27,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
     ];
+
+    // protected $with = ['getAllUserReviews.getOneReviewProduct', 'getAllUserAttributePhones', 'getAllUserAttributeAdresses'];
+
     public function getAllUserAttributePhones()
     {
         return $this->hasMany(UserAttribute::class, 'user_id', 'id')->whereType(1);
@@ -40,6 +43,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getAllUserReviews()
     {
         return $this->hasMany(ProductReview::class, 'user_id', 'id');
+    }
+
+    public function getAllUserOrders()
+    {
+        return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
     public function sendPasswordResetNotification($token)

@@ -104,7 +104,7 @@
                                         <div class="profile-card address">
                                                 @if ($r->status)
                                                 <h6 class="text-center text-success">
-                                                    <a target="_blank" href="{{ route('web.product.show',$r->getOneReviewProduct->slug) }}">
+                                                    <a target="_blank" class="custom-primary-text" href="{{ route('web.product.show',$r->getOneReviewProduct->slug) }}">
                                                         {{ $r->getOneReviewProduct->title }}
                                                     </a>
                                                     @lang('words.review_status_seperator', ['status'=>__('words.active')])
