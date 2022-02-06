@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Coupon;
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
@@ -24,7 +25,7 @@ class CouponController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.coupon.create.index');
     }
 
     /**
@@ -35,7 +36,17 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'code' => 'required|max:255|unique:coupons',
+            'price' => 'required|integer',
+            'usage' => 'required|integer'
+        ]);
+        Coupon::create([
+            'code' => $request->code,
+            'price' => $request->price,
+            'usage' => $request->usage,
+        ]);
+        return back()->with('success', __('words.created_action_success'));
     }
 
     /**

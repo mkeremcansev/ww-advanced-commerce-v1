@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('web/css/product-details.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/user-auth.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/orderlist.css') }}">
 </head>
 <body>
     @include('web.layouts.loader')
@@ -83,7 +84,7 @@
                     <button class="header-widget header-cart">
                         <i class="fas fa-shopping-basket"></i>
                         <sup>{{ Cart::instance('cart')->content()->count() }}</sup>
-                        <span>@lang('words.total_price')<small>{{ getMoneyOrderShoppingCart(Cart::subtotal()) }}</small></span>
+                        <span>@lang('words.total_price')<small>{{ getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal()) }}</small></span>
                     </button>
                 </div>
             </div>

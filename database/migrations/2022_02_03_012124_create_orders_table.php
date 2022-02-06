@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('phone');
             $table->longText('adress');
+            $table->string('coupon')->nullable();
             $table->string('total');
             $table->integer('status')->default(0);
             $table->timestamps();

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['hash', 'user_id', 'phone', 'adress', 'total', 'status'];
+    protected $fillable = ['hash', 'user_id', 'phone', 'adress', 'coupon', 'total', 'status'];
 
     public function getAllOrderAttributes()
     {

@@ -63,9 +63,16 @@
                     <button class="clear-and-update-btn col-lg-3">@lang('words.shopping_cart_update')</button>
                     <a href="{{ route('web.shopping.cart.destroy') }}" class="clear-and-update-btn">@lang('words.shopping_cart_clear')</a>
                 </div>
-                <a class="checkout-and-go-btn" href="{{ route('web.checkout.index') }}">
-                    <span class="checkout-label">@lang('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::subtotal())])</span>
-                </a>
+                @if (Session::get('coupon'))
+                    <a class="checkout-and-go-btn" href="{{ route('web.checkout.index') }}">
+                        <span class="checkout-label">@lang('words.go_to_pay_coupon', ['price'=>getMoneyOrder(getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) - Session::get('coupon')['price']), 'code'=>Session::get('coupon')['code']])</span>
+                    </a>
+                @else
+                    <a class="checkout-and-go-btn" href="{{ route('web.checkout.index') }}">
+                        <span class="checkout-label">@lang('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal())])</span>
+                    </a>
+                @endif
+                
             </div>
         @else
             <div class="cart-footer mt-5">

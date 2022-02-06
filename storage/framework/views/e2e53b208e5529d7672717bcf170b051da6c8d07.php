@@ -64,15 +64,16 @@
                                         <?php if($a->stock): ?>
                                             <?php if($a->price): ?>
                                                 <li class="custom-data-tooltip" data-tooltip="<?php echo app('translator')->get('words.plus_price', ['price'=>getMoneyOrder($a->price)]); ?>"  variant-hash="<?php echo e($a->hash); ?>">
-                                                    <a variant-stock="<?php echo e($a->stock); ?>"><?php echo e($a->title); ?>
+                                                    <a class="variant-attr" variant-stock="<?php echo e($a->stock); ?>">
+                                                        <?php echo e($a->title); ?>
 
                                                     </a>
                                                 </li>
                                             <?php else: ?>
-                                                <li variant-hash="<?php echo e($a->hash); ?>"><a variant-stock="<?php echo e($a->stock); ?>"><?php echo e($a->title); ?></a></li>
+                                                <li variant-hash="<?php echo e($a->hash); ?>"><a class="variant-attr" variant-stock="<?php echo e($a->stock); ?>"><?php echo e($a->title); ?></a></li>
                                             <?php endif; ?>
                                         <?php else: ?>
-                                                <li ><a class="custom-disabled-alert" variant-stock="<?php echo e($a->stock); ?>"><?php echo e($a->title); ?></a></li>
+                                                <li><a class="custom-disabled-alert" variant-stock="<?php echo e($a->stock); ?>"><?php echo e($a->title); ?></a></li>
                                         <?php endif; ?>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>

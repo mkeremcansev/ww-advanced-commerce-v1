@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('web/css/product-details.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/user-auth.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/profile.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('web/css/orderlist.css')); ?>">
 </head>
 <body>
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -83,7 +84,7 @@
                     <button class="header-widget header-cart">
                         <i class="fas fa-shopping-basket"></i>
                         <sup><?php echo e(Cart::instance('cart')->content()->count()); ?></sup>
-                        <span><?php echo app('translator')->get('words.total_price'); ?><small><?php echo e(getMoneyOrderShoppingCart(Cart::subtotal())); ?></small></span>
+                        <span><?php echo app('translator')->get('words.total_price'); ?><small><?php echo e(getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal())); ?></small></span>
                     </button>
                 </div>
             </div>

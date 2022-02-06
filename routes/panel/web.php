@@ -5,6 +5,7 @@ use App\Http\Controllers\panel\AdminController;
 use App\Http\Controllers\panel\BrandController;
 use App\Http\Controllers\panel\CampaignController;
 use App\Http\Controllers\panel\CategoryController;
+use App\Http\Controllers\panel\CouponController;
 use App\Http\Controllers\panel\HomepageController;
 use App\Http\Controllers\panel\MemberController;
 use App\Http\Controllers\panel\PageController;
@@ -30,6 +31,7 @@ Route::prefix('/admin')->name('panel.')->group(function () {
     Route::resource('/brand', BrandController::class);
     Route::resource('/campaign', CampaignController::class);
     Route::resource('/page', PageController::class);
+    Route::resource('/coupon', CouponController::class);
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');

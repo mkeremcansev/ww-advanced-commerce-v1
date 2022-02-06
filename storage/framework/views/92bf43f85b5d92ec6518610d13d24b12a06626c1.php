@@ -34,6 +34,7 @@
     --primary-opacity: <?php echo e(setting('secondary')); ?>;
     --sub-heading: #565765;
     --green-chalk: #4b803f;
+     --green-chalk-1: #accaa5;
     --green-dark: #072f17;
     --gray-chalk: #cccccc;
     --intro-bg: #f8fffa;

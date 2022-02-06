@@ -112,7 +112,7 @@
                                                 </h6>
                                                 <?php else: ?>
                                                 <h6 class="text-center text-danger">
-                                                    <a target="_blank" href="<?php echo e(route('web.product.show',$r->getOneReviewProduct->slug)); ?>">
+                                                    <a target="_blank" class="custom-primary-text" href="<?php echo e(route('web.product.show',$r->getOneReviewProduct->slug)); ?>">
                                                         <?php echo e($r->getOneReviewProduct->title); ?>
 
                                                     </a>

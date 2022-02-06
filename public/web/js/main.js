@@ -30,7 +30,35 @@ function getValidateMessage(error) {
     let firstItemMessage = errors[firstItem][0]
     return firstItemMessage
 }
-window.onload = function () { document.querySelector(".preloader").style.display = "none"; }
+$('.action-plus, .action-minus').on('click', function () {
+    const stock = $('.variant-attr')
+    let qty = $('#quantity').val()
+    stock.map(response => {
+        let t_stock = parseInt(stock[response].attributes[1].value)
+        if (qty > t_stock) {
+            stock[response].classList.add('custom-disabled-alert')
+            stock[response].parentElement.classList.remove('custom-data-tooltip')
+        } else {
+            stock[response].classList.remove('custom-disabled-alert')
+            stock[response].parentElement.classList.add('custom-data-tooltip')
+        }
+    })
+})
+window.onload = function () {
+    document.querySelector(".preloader").style.display = "none";
+    const stock = $('.variant-attr')
+    let qty = $('#quantity').val()
+    stock.map(response => {
+        let t_stock = parseInt(stock[response].attributes[1].nodeValue)
+        if (qty > t_stock) {
+            stock[response].classList.add('custom-disabled-alert')
+            stock[response].parentElement.classList.remove('custom-data-tooltip')
+        } else {
+            stock[response].classList.remove('custom-disabled-alert')
+            stock[response].parentElement.classList.add('custom-data-tooltip')
+        }
+    })
+}
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

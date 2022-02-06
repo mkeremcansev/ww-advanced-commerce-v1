@@ -64,9 +64,16 @@
                     <button class="clear-and-update-btn col-lg-3"><?php echo app('translator')->get('words.shopping_cart_update'); ?></button>
                     <a href="<?php echo e(route('web.shopping.cart.destroy')); ?>" class="clear-and-update-btn"><?php echo app('translator')->get('words.shopping_cart_clear'); ?></a>
                 </div>
-                <a class="checkout-and-go-btn" href="<?php echo e(route('web.checkout.index')); ?>">
-                    <span class="checkout-label"><?php echo app('translator')->get('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::subtotal())]); ?></span>
-                </a>
+                <?php if(Session::get('coupon')): ?>
+                    <a class="checkout-and-go-btn" href="<?php echo e(route('web.checkout.index')); ?>">
+                        <span class="checkout-label"><?php echo app('translator')->get('words.go_to_pay_coupon', ['price'=>getMoneyOrder(getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) - Session::get('coupon')['price']), 'code'=>Session::get('coupon')['code']]); ?></span>
+                    </a>
+                <?php else: ?>
+                    <a class="checkout-and-go-btn" href="<?php echo e(route('web.checkout.index')); ?>">
+                        <span class="checkout-label"><?php echo app('translator')->get('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal())]); ?></span>
+                    </a>
+                <?php endif; ?>
+                
             </div>
         <?php else: ?>
             <div class="cart-footer mt-5">

@@ -4,7 +4,7 @@ use Carbon\Carbon;
 
 function getMoneyOrder($price)
 {
-    return number_format($price, 0, '.', '.') . __('words.currency_unit');
+    return number_format($price, 2, '.', '.') . __('words.currency_unit');
 }
 
 function getCheckoutMoneyOrder($price)
