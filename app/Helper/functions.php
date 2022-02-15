@@ -23,7 +23,7 @@ function getDiscountCalc($price, $discount)
     $result = $action * 100 / $price;
     return  '%' . round($result);
 }
-function getProductLabel($discount, $price, $created_at, $popular = null, $most = null)
+function getProductLabel($discount, $price, $created_at, $popular = null)
 {
     $labels = [
         [
@@ -43,12 +43,6 @@ function getProductLabel($discount, $price, $created_at, $popular = null, $most 
             'title' => __('words.popular'),
             'code' => 'rate',
             'value' => false
-        ],
-        [
-            'status' => true,
-            'title' => __('words.best_seller'),
-            'code' => 'order',
-            'value' => false
         ]
     ];
     return $labels;
@@ -57,4 +51,27 @@ function getProductLabel($discount, $price, $created_at, $popular = null, $most 
 function getShowMore($text)
 {
     return substr($text, 0, 180);
+}
+
+function orderAccountStatus($status)
+{
+    $order = [
+        [
+            'status' => $status >= 0 ? true : null,
+            'text' => __('words.order_saved')
+        ],
+        [
+            'status' => $status >= 1 ?  true : null,
+            'text' => __('words.order_prepared')
+        ],
+        [
+            'status' => $status >= 2 ? true : null,
+            'text' => __('words.order_shepped')
+        ],
+        [
+            'status' => $status >= 3 ?  true : null,
+            'text' => __('words.order_delivered')
+        ]
+    ];
+    return $order;
 }

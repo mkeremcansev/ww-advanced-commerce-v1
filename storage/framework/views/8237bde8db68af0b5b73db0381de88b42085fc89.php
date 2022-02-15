@@ -30,10 +30,10 @@
                             <div class="cart-info">
                                 <h6><a href="<?php echo e(route('web.product.show', $attribute->slug)); ?>"><?php echo e($attribute->title); ?></a></h6>
                                 <?php $__currentLoopData = $c->options['variants']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $o): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <p>
-                                    <strong><?php echo app('translator')->get('words.get_variant_main', ['variant'=>$o->getOneVariantMain->title]); ?></strong><?php echo e($o->title); ?>
+                                    <p>
+                                        <strong><?php echo app('translator')->get('words.get_variant_main', ['variant'=>$o->getOneVariantMain->title]); ?></strong><?php echo e($o->title); ?>
 
-                                </p>
+                                    </p>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="cart-action-group">

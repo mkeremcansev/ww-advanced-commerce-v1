@@ -1,11 +1,11 @@
 // FOR FAQS
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
     var panels = $(".faq-ans").hide();
 
     panels.first().show();
 
-    $(".faq-que").click(function() {
+    $(".faq-que").click(function () {
 
         var $this = $(this);
 
@@ -17,17 +17,13 @@ jQuery(document).ready(function($) {
 });
 
 // FOR ORDER LIST
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
-    var panels = $(".orderlist-body").hide();
+    $(".orderlist-body").hide();
 
-    panels.first().show();
-
-    $(".orderlist-head").click(function() {
+    $(".orderlist-head").click(function () {
 
         var $this = $(this);
-
-        panels.slideUp();
         $this.next().slideDown();
 
     });
