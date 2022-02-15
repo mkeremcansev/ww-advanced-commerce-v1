@@ -38,22 +38,31 @@ class CheckoutController extends Controller
                 }
             }
         }
-        DB::transaction(function () use ($request) {
-            $total = Session::get('coupon')
-                ? getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) - Session::get('coupon')['price']
-                : getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) - 0;
-            $coupon = Session::get('coupon')
-                ? Session::get('coupon')['code']
-                : null;
-            if (Session::get('coupon')) {
-                Coupon::whereCode(Session::get('coupon')['code'])->where('usage', '>', 0)->decrement('usage', 1);
+        $coupon = null;
+        if (Session::has('coupon')) {
+            $coupon = Coupon::whereCode(Session::get('coupon')['code'])->where('usage', '>', 0)->first();
+            if (!$coupon) {
+                Session::forget('coupon');
+                return response()->json([
+                    'status' => 202,
+                    'message' => __('words.not_have_coupon_usage'),
+                ]);
             }
+        }
+        DB::transaction(function () use ($request, $coupon) {
+            $subtotal = getCheckoutMoneyOrder(Cart::instance('cart')->subtotal());
+            $total = $coupon
+                ? $subtotal - $coupon->price
+                :  $subtotal - 0;
+            $code = $coupon
+                ? $coupon->code
+                : null;
             $order = Order::create([
                 'hash' => Str::random(15),
                 'user_id' => Auth::user()->id,
                 'phone' => $request->phone,
                 'adress' => $request->adress,
-                'coupon' => $coupon,
+                'coupon' => $code,
                 'total' => $total
             ]);
             foreach (Cart::instance('cart')->content() as $c) {
@@ -66,6 +75,7 @@ class CheckoutController extends Controller
                     'variants' => $c->options['variants'],
                 ]);
             }
+            $coupon ? $coupon->decrement('usage', 1) : null;
         });
         return response()->json([
             'status' => 200,

@@ -9,4 +9,5 @@ class OrderAttribute extends Model
 {
     use HasFactory;
     protected $fillable = ['user_id', 'hash', 'product', 'price', 'quantity', 'total', 'variants'];
+    protected $casts = ['variants' => 'object'];
 }

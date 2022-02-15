@@ -30,9 +30,9 @@
                             <div class="cart-info">
                                 <h6><a href="{{ route('web.product.show', $attribute->slug) }}">{{ $attribute->title }}</a></h6>
                                 @foreach ($c->options['variants'] as $o)
-                                <p>
-                                    <strong>@lang('words.get_variant_main', ['variant'=>$o->getOneVariantMain->title])</strong>{{ $o->title }}
-                                </p>
+                                    <p>
+                                        <strong>@lang('words.get_variant_main', ['variant'=>$o->getOneVariantMain->title])</strong>{{ $o->title }}
+                                    </p>
                                 @endforeach
                             </div>
                             <div class="cart-action-group">

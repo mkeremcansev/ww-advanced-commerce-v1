@@ -20,7 +20,15 @@
                             go_to_payment.addClass('custom-disabled')
                             location.href = '<?php echo e(route("web.index")); ?>'
                         }
-                            
+                        else if(response.status == 202){
+                            Swal.fire({
+                                text: response.message,
+                                icon: 'error',
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
+                            }).then((result) => {
+                                result.isConfirmed ? location.reload() : location.reload()
+                            })
+                        }
                     },
                     error: function(response){
                         Swal.fire({
