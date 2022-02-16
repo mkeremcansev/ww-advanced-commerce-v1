@@ -83,4 +83,4 @@
             </div>
         <?php endif; ?>
     </aside>
-</form><?php /**PATH /home/vagrant/code/eticaretim/resources/views/web/layouts/menu/cart.blade.php ENDPATH**/ ?>
+</form><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/layouts/menu/cart.blade.php ENDPATH**/ ?>

@@ -21,4 +21,4 @@
             <?php echo $__env->make('web.homepage.layouts.popular', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php echo $__env->make('web.homepage.layouts.discount', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
-</section><?php /**PATH /home/vagrant/code/eticaretim/resources/views/web/homepage/layouts/tab.blade.php ENDPATH**/ ?>
+</section><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/homepage/layouts/tab.blade.php ENDPATH**/ ?>
