@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://eticaretim.ssh'),
+    'url' => env('APP_URL', 'http://eticaretim.test'),
 
     'asset_url' => env('ASSET_URL', null),
 

@@ -1,18 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Doğrulama Mesajları
-    |--------------------------------------------------------------------------
-    |
-    | Aşağıdaki öğeler doğrulama sınıfı tarafından kullanılan varsayılan hata
-    | mesajlarını içermektedir. `size` gibi bazı kuralların birden çok çeşidi
-    | bulunmaktadır. Her biri ayrı ayrı düzenlenebilir.
-    |
-    */
-
     'accepted' => ':attribute kabul edilmelidir.',
     'active_url' => ':attribute geçerli bir URL olmalıdır.',
     'after' => ':attribute değeri :date tarihinden sonra olmalıdır.',

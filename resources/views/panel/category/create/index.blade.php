@@ -1,6 +1,6 @@
 @extends('panel.layouts.extends')
 @section('title')
-    @lang('words.category_edit')
+    @lang('words.category_create')
 @endsection
 @section('content')
     <div class="app-content content">
@@ -31,7 +31,7 @@
                             @endif
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">@lang('words.category_edit')</h4>
+                                    <h4 class="card-title">@lang('words.category_create')</h4>
                                 </div>
                                 <form method="POST" action="{{ route('panel.category.store') }}" enctype="multipart/form-data">
                                     @csrf
