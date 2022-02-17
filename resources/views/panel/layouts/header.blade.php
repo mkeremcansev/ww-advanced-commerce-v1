@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/plugins/forms/pickers/form-flat-pickr.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/plugins/forms/pickers/form-pickadate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/pages/page-knowledge-base.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/pages/app-invoice.css') }}">
 </head>
 
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover"
@@ -219,6 +220,18 @@
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.review.passive.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.passive_review_list')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="dollar-sign"></i><span>@lang('words.order')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.order.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.order_list')</span>
                                 </a>
                             </li>
                         </ul>

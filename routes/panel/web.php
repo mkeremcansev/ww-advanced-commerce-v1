@@ -8,6 +8,7 @@ use App\Http\Controllers\panel\CategoryController;
 use App\Http\Controllers\panel\CouponController;
 use App\Http\Controllers\panel\HomepageController;
 use App\Http\Controllers\panel\MemberController;
+use App\Http\Controllers\panel\OrderController;
 use App\Http\Controllers\panel\PageController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\panel\SettingController;
 use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\ThemeController;
 use App\Http\Controllers\panel\UserReviewController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +51,9 @@ Route::prefix('/admin')->name('panel.')->group(function () {
     Route::get('/review/passive', [ActiveAndPassiveReviewController::class, 'passive'])->name('review.passive.index');
     Route::get('/review/delete/{id}', [ActiveAndPassiveReviewController::class, 'destroy'])->name('review.destroy');
     Route::post('/review/status/update', [ActiveAndPassiveReviewController::class, 'update'])->name('review.status.update');
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::post('/order/status/update', [OrderController::class, 'update'])->name('order.status.update');
+    Route::get('/order/{id}/detail', [OrderController::class, 'show'])->name('order.show');
     Route::post('/text/image/store', [TextImageController::class, 'store'])->name('text.image.store');
     Route::get('/maintenance/down', [HomepageController::class, 'down'])->name('maintenance.on');
     Route::get('/maintenance/up', [HomepageController::class, 'up'])->name('maintenance.off');

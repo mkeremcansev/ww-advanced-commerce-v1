@@ -33,7 +33,7 @@ function getProductLabel($discount, $price, $created_at, $popular = null)
             'value' => getDiscountCalc($price, $discount)
         ],
         [
-            'status' => $created_at >= Carbon::today() ? true : false,
+            'status' => $created_at >= Carbon::now()->subDays(7) ? true : false,
             'title' => __('words.new'),
             'code' => 'new',
             'value' => false

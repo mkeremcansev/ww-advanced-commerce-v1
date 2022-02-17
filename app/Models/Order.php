@@ -14,4 +14,8 @@ class Order extends Model
     {
         return $this->hasMany(OrderAttribute::class, 'order_id', 'id');
     }
+
+    public function getOneUsers(){
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

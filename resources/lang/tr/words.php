@@ -225,4 +225,8 @@ return [
     'order_date' => 'Sipariş Tarihi',
     'order_adress' => 'Sipariş Adresi',
     'order_phone' => 'Sipariş Telefon',
+    'order_list'=>'Sipariş Listesi',
+    'order_detail'=>'Sipariş Detay',
+    'order'=>'Sipariş',
+    'name_surname'=>':name :surname',
 ];
