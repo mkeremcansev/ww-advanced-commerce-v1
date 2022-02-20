@@ -29,4 +29,14 @@ class Helper
     {
         return Str::slug($title) . '-' . rand(1, 9999);
     }
+
+    public static function name($string){
+        $data = Str::of($string)->explode(' ');
+        $data->pop();
+        return $data->implode(' ');
+    }
+
+    public static function surname($string){
+        return Str::of($string)->explode(' ')->last();
+    }
 }

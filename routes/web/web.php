@@ -11,6 +11,8 @@ use App\Http\Controllers\web\auth\CouponController;
 use App\Http\Controllers\web\auth\ForgotPasswordController;
 use App\Http\Controllers\web\auth\LoginController;
 use App\Http\Controllers\web\auth\LogoutController;
+use App\Http\Controllers\web\auth\OAuthFacebookController;
+use App\Http\Controllers\web\auth\OAuthGoogleController;
 use App\Http\Controllers\web\auth\ProductReviewController;
 use App\Http\Controllers\web\auth\RegisterController;
 use App\Http\Controllers\web\CampaignController;
@@ -48,6 +50,7 @@ Route::name('web.')->group(function () {
     Route::get('/search/products', [SearchController::class, 'store'])->name('search.products.store');
     Route::get('/campaign/{slug}/products', [CampaignController::class, 'show'])->name('campaign.products.show');
     Route::get('page/{slug}/info', [PageController::class, 'show'])->name('page.info.show');
+    Route::get('/account/logout/store', [LogoutController::class, 'store'])->name('account.logout.store');
 });
 Route::name('web.')->middleware(['auth', 'verified', 'role:admin|member'])->group(function () {
     Route::post('/product/review/store', [ProductReviewController::class, 'store'])->name('product.review.store');
@@ -58,7 +61,6 @@ Route::name('web.')->middleware(['auth', 'verified', 'role:admin|member'])->grou
     Route::post('/account/adress/store', [AccountAdressController::class, 'store'])->name('account.adress.store');
     Route::post('/account/attribute/destroy', [AccountAttributeController::class, 'destroy'])->name('account.attribute.destroy');
     Route::post('/account/review/destroy', [AccountReviewController::class, 'destroy'])->name('account.review.destroy');
-    Route::get('/account/logout/store', [LogoutController::class, 'store'])->name('account.logout.store');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/coupon/store', [CouponController::class, 'store'])->name('coupon.store');
     Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
@@ -68,6 +70,10 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::post('/user/login/store', [LoginController::class, 'store'])->name('user.login.store');
     Route::view('/register', 'web.register.index')->name('user.register.index');
     Route::post('/user/register/store', [RegisterController::class, 'store'])->name('user.register.store');
+    Route::get('/user/oauth/facebook/redirect', [OAuthFacebookController::class, 'index'])->name('user.oauth.facebook.index');
+    Route::get('/user/oauth/google/callback', [OAuthGoogleController::class, 'store'])->name('user.oauth.facebook.store');
+    Route::get('/user/oauth/google/redirect', [OAuthGoogleController::class, 'index'])->name('user.oauth.google.index');
+    Route::get('/user/oauth/facebook/callback', [OAuthFacebookController::class, 'store'])->name('user.oauth.google.store');
     Route::view('/forgot/password', 'vendor.notifications.password.forgot')->name('forgot.password.index');
     Route::post('/forgot/password/store', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
     Route::get('/forgot/password/call/{token}', [ForgotPasswordController::class, 'call'])->name('forgot.password.call');

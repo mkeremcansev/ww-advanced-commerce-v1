@@ -23,9 +23,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'surname',
-        'phone',
         'email',
         'password',
+        'oauth_id',
+        'oauth_type',
     ];
 
     // protected $with = ['getAllUserReviews.getOneReviewProduct', 'getAllUserAttributePhones', 'getAllUserAttributeAdresses'];

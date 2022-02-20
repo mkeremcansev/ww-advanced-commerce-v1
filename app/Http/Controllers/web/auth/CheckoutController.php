@@ -26,18 +26,21 @@ class CheckoutController extends Controller
 
     public function store(CheckoutStoreRequest $request)
     {
-        foreach (Cart::instance('cart')->content() as $c) {
-            foreach ($c->options['variants'] as $v) {
-                if (VariantAttribute::whereHash($v->hash)->where('stock', '<', $c->qty)->count()) {
-                    return response()->json([
-                        'status' => 201,
-                        'message' => __('words.product_not_have_stock', ['qty' => $c->qty])
-                    ]);
-                } else {
-                    VariantAttribute::whereHash($v->hash)->decrement('stock', $c->qty);
+        DB::beginTransaction();
+            foreach (Cart::instance('cart')->content() as $c) {
+                foreach($c->options['variants'] as $v){
+                    $variant = VariantAttribute::whereHash($v->hash)->first();
+                    if($variant->stock < $c->qty){
+                        DB::rollBack();
+                        return response()->json([
+                            'status' => 201,
+                            'message' => __('words.product_not_have_stock', ['qty' => $c->qty])
+                        ]);
+                    } 
+                    $variant->decrement('stock', $c->qty);
                 }
             }
-        }
+        DB::commit();
         $coupon = null;
         if (Session::has('coupon')) {
             $coupon = Coupon::whereCode(Session::get('coupon')['code'])->where('usage', '>', 0)->first();
@@ -77,6 +80,7 @@ class CheckoutController extends Controller
             }
             $coupon ? $coupon->decrement('usage', 1) : null;
         });
+        Cart::instance('cart')->destroy();
         return response()->json([
             'status' => 200,
         ]);

@@ -229,4 +229,6 @@ return [
     'order_detail'=>'Sipariş Detay',
     'order'=>'Sipariş',
     'name_surname'=>':name :surname',
+    'login_with_facebook'=>'Facebook ile giriş yap',
+    'login_with_google'=>'Google ile giriş yap',
 ];

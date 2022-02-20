@@ -32,6 +32,14 @@
                         </div>
                     </div>
                     <div class="user-form-remind">
+                        <a class="checkout-and-go-btn mt-1 mb-3" href="<?php echo e(route('web.user.oauth.facebook.index')); ?>">
+                            <i class="fab fa-facebook"></i>
+                            <span class="checkout-label"><?php echo app('translator')->get('words.login_with_facebook'); ?></span>
+                        </a>
+                        <a class="checkout-and-go-btn mt-1 mb-3" href="<?php echo e(route('web.user.oauth.google.index')); ?>">
+                            <i class="fab fa-google"></i>
+                            <span class="checkout-label"><?php echo app('translator')->get('words.login_with_google'); ?></span>
+                        </a>
                         <p><?php echo app('translator')->get('words.dont_have_account'); ?><a href="<?php echo e(route('web.user.register.index')); ?>"><?php echo app('translator')->get('words.register'); ?></a></p>
                     </div>
                 </div>

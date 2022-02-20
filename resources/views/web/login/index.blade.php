@@ -32,6 +32,14 @@
                         </div>
                     </div>
                     <div class="user-form-remind">
+                        <a class="checkout-and-go-btn mt-1 mb-3" href="{{ route('web.user.oauth.facebook.index') }}">
+                            <i class="fab fa-facebook"></i>
+                            <span class="checkout-label">@lang('words.login_with_facebook')</span>
+                        </a>
+                        <a class="checkout-and-go-btn mt-1 mb-3" href="{{ route('web.user.oauth.google.index') }}">
+                            <i class="fab fa-google"></i>
+                            <span class="checkout-label">@lang('words.login_with_google')</span>
+                        </a>
                         <p>@lang('words.dont_have_account')<a href="{{ route('web.user.register.index') }}">@lang('words.register')</a></p>
                     </div>
                 </div>
