@@ -2,13 +2,14 @@
 <?php $__env->startSection('title', $product->getOneProductAttributes->title); ?>
 <?php echo $__env->make('web.product.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->startSection('content'); ?>
+<?php ($p = $product->getOneProductAttributes); ?>
     <section class="inner-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
-                            <?php $__currentLoopData = getProductLabel($product->getOneProductAttributes->discount, $product->getOneProductAttributes->price, $product->getOneProductAttributes->created_at, $product->getAllProductReviews->avg('rating')); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = getProductLabel($p->discount, $p->price, $product->created_at, $product->getAllProductReviews->avg('rating')); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if($l['status']): ?>
                                     <label class="details-label <?php echo e($l['code']); ?>"><?php echo e($l['title'].$l['value']); ?></label>
                                 <?php endif; ?>
@@ -16,19 +17,19 @@
                         </div>
                         <ul class="details-preview">
                             <?php $__currentLoopData = $product->getAllProductImages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><img src="<?php echo e(asset($i->image)); ?>" alt="<?php echo e($product->getOneProductAttributes->title); ?>"></li>
+                                <li><img src="<?php echo e(asset($i->image)); ?>" alt="<?php echo e($p->title); ?>"></li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                         <ul class="details-thumb">
                             <?php $__currentLoopData = $product->getAllProductImages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><img src="<?php echo e(asset($i->image)); ?>" alt="<?php echo e($product->getOneProductAttributes->title); ?>"></li>
+                                <li><img src="<?php echo e(asset($i->image)); ?>" alt="<?php echo e($p->title); ?>"></li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">
                 <ul class="product-navigation">
-                    <h3><?php echo e($product->getOneProductAttributes->title); ?> </h3>
+                    <h3><?php echo e($p->title); ?> </h3>
                 </ul>
                     <div class="details-content">
                         <div class="details-meta">
@@ -42,16 +43,16 @@
                             <a href="#product-review-section"><?php echo app('translator')->get('words.review_count', ['count'=>$product->getAllProductReviews->count()]); ?></a>
                         </div>
                         <h3 class="details-price">
-                            <?php if($product->getOneProductAttributes->discount): ?>
-                                <del><?php echo e(getMoneyOrder($product->getOneProductAttributes->price)); ?></del>
-                                <span><?php echo e(getMoneyOrder($product->getOneProductAttributes->discount)); ?></span>
+                            <?php if($p->discount): ?>
+                                <del><?php echo e(getMoneyOrder($p->price)); ?></del>
+                                <span><?php echo e(getMoneyOrder($p->discount)); ?></span>
                             <?php else: ?>
-                                <span><?php echo e(getMoneyOrder($product->getOneProductAttributes->price)); ?></span>
+                                <span><?php echo e(getMoneyOrder($p->price)); ?></span>
                             <?php endif; ?>
                         </h3>
                         <p class="details-desc">
                             <div class="mb-4">
-                                <?php echo getShowMore($product->getOneProductAttributes->description).'...'; ?>
+                                <?php echo getShowMore($p->description).'...'; ?>
 
                                 <a class="main-text-color" href="#informations"><?php echo app('translator')->get('words.show_more'); ?></a>
                             </div>
@@ -112,7 +113,7 @@
                     <div class="product-details-frame">
                         <h3 class="frame-title"><?php echo app('translator')->get('words.description'); ?></h3>
                         <div class="tab-descrip">
-                            <?php echo $product->getOneProductAttributes->description; ?>
+                            <?php echo $p->description; ?>
 
                         </div>
                     </div>

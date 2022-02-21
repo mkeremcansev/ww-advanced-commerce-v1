@@ -22,7 +22,7 @@ class HomepageController extends Controller
             return Product::with($with)->whereStatus(1)->inRandomOrder()->limit(10)->get();
         });
         Cache::remember('n_products', 60 * 60, function () use ($with) {
-            return Product::with($with)->whereStatus(1)->where('created_at', '>=', Carbon::today())->limit(10)->get();
+            return Product::with($with)->whereStatus(1)->where('created_at', '>=', Carbon::now()->subDays(7))->limit(10)->get();
         });
         Cache::remember('d_products', 60 * 60, function () use ($with) {
             return

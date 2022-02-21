@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ShoppingCartCreateRequest;
 use App\Http\Requests\ShoppingCartStoreRequest;
 use App\Http\Requests\ShoppingCartUpdateRequest;
 use App\Models\Product;
-use App\Models\ProductAttribute;
-use App\Models\Variant;
 use App\Models\VariantAttribute;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
 
 class ShoppingCartController extends Controller
 {
@@ -56,6 +54,9 @@ class ShoppingCartController extends Controller
         foreach ($request->rowId as $key => $r) {
             Cart::instance('cart')->update($r, $request->quantity[$key]);
         }
+        Session::has('coupon') && (int)Session::get('coupon')['price'] > (int)getCheckoutMoneyOrder(Cart::instance('cart')->subtotal())
+        ? Session::forget('coupon')
+        : null;
         return back()->with('success', __('words.updated_action_success'));
     }
     public function delete($rowId)

@@ -13,4 +13,8 @@ class Variant extends Model
     {
         return $this->hasMany(VariantAttribute::class, 'variant_id', 'id');
     }
+    public function getOneProductAttributes()
+    {
+        return $this->hasOne(ProductAttribute::class, 'product_id', 'product_id');
+    }
 }

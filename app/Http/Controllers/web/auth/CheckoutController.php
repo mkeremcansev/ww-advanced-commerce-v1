@@ -34,9 +34,9 @@ class CheckoutController extends Controller
                         DB::rollBack();
                         return response()->json([
                             'status' => 201,
-                            'message' => __('words.product_not_have_stock', ['qty' => $c->qty])
+                            'message' => __('words.product_not_have_stock', ['qty' => $c->qty, 'variant'=>$variant->title, 'product'=>$variant->getOneVariantMain->getOneProductAttributes->title])
                         ]);
-                    } 
+                    }
                     $variant->decrement('stock', $c->qty);
                 }
             }
@@ -80,6 +80,7 @@ class CheckoutController extends Controller
             }
             $coupon ? $coupon->decrement('usage', 1) : null;
         });
+        Session::forget('coupon');
         Cart::instance('cart')->destroy();
         return response()->json([
             'status' => 200,

@@ -2,13 +2,14 @@
 @section('title', $product->getOneProductAttributes->title)
 @include('web.product.script.script')
 @section('content')
+@php($p = $product->getOneProductAttributes)
     <section class="inner-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
-                            @foreach (getProductLabel($product->getOneProductAttributes->discount, $product->getOneProductAttributes->price, $product->getOneProductAttributes->created_at, $product->getAllProductReviews->avg('rating')) as $l)
+                            @foreach (getProductLabel($p->discount, $p->price, $product->created_at, $product->getAllProductReviews->avg('rating')) as $l)
                                 @if ($l['status'])
                                     <label class="details-label {{ $l['code'] }}">{{ $l['title'].$l['value'] }}</label>
                                 @endif
@@ -16,19 +17,19 @@
                         </div>
                         <ul class="details-preview">
                             @foreach ($product->getAllProductImages as $i)
-                                <li><img src="{{ asset($i->image) }}" alt="{{ $product->getOneProductAttributes->title }}"></li>
+                                <li><img src="{{ asset($i->image) }}" alt="{{ $p->title }}"></li>
                             @endforeach
                         </ul>
                         <ul class="details-thumb">
                             @foreach ($product->getAllProductImages as $i)
-                                <li><img src="{{ asset($i->image) }}" alt="{{ $product->getOneProductAttributes->title }}"></li>
+                                <li><img src="{{ asset($i->image) }}" alt="{{ $p->title }}"></li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">
                 <ul class="product-navigation">
-                    <h3>{{ $product->getOneProductAttributes->title }} </h3>
+                    <h3>{{ $p->title }} </h3>
                 </ul>
                     <div class="details-content">
                         <div class="details-meta">
@@ -42,16 +43,16 @@
                             <a href="#product-review-section">@lang('words.review_count', ['count'=>$product->getAllProductReviews->count()])</a>
                         </div>
                         <h3 class="details-price">
-                            @if ($product->getOneProductAttributes->discount)
-                                <del>{{ getMoneyOrder($product->getOneProductAttributes->price) }}</del>
-                                <span>{{ getMoneyOrder($product->getOneProductAttributes->discount) }}</span>
+                            @if ($p->discount)
+                                <del>{{ getMoneyOrder($p->price) }}</del>
+                                <span>{{ getMoneyOrder($p->discount) }}</span>
                             @else
-                                <span>{{ getMoneyOrder($product->getOneProductAttributes->price) }}</span>
+                                <span>{{ getMoneyOrder($p->price) }}</span>
                             @endif
                         </h3>
                         <p class="details-desc">
                             <div class="mb-4">
-                                {!! getShowMore($product->getOneProductAttributes->description).'...' !!}
+                                {!! getShowMore($p->description).'...' !!}
                                 <a class="main-text-color" href="#informations">@lang('words.show_more')</a>
                             </div>
                         </p>
@@ -110,7 +111,7 @@
                     <div class="product-details-frame">
                         <h3 class="frame-title">@lang('words.description')</h3>
                         <div class="tab-descrip">
-                            {!! $product->getOneProductAttributes->description !!}
+                            {!! $p->description !!}
                         </div>
                     </div>
                     <div class="product-details-frame">
