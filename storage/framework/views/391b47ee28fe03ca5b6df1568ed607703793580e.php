@@ -13,7 +13,7 @@
                             <div class="product-card">
                                 <div class="product-media">
                                     <div class="product-label p-2">
-                                        <?php $__currentLoopData = getProductLabel($product->discount, $product->price, $product->created_at, $p->getAllProductReviews->avg('rating')); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php $__currentLoopData = getProductLabel($product->discount, $product->price, $p->created_at, $p->getAllProductReviews->avg('rating')); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <?php if($l['status']): ?>
                                                 <label class="label-text <?php echo e($l['code']); ?>"><?php echo e($l['title'].$l['value']); ?></label>
                                             <?php endif; ?>

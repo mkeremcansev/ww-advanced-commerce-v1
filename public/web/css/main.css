@@ -7281,3 +7281,6 @@ border-color: var(--primary);
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
+.os_govde{
+    margin: 0px auto 0px auto !important;
+}

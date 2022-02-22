@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 
 class OAuthGoogleController extends Controller
 {
-    CONST DRIVER_TYPE = 'google';
+    const DRIVER_TYPE = 'google';
 
     public function index(){
         return Socialite::driver(static::DRIVER_TYPE)->redirect();

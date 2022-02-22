@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <h1><?php echo e(Session::get('payment_token')); ?></h1>
                     <?php $__currentLoopData = Auth::user()->getAllUserOrders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $o): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="orderlist">
                         <div class="orderlist-head">

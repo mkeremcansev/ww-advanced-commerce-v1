@@ -233,4 +233,8 @@ return [
     'name_surname'=>':name :surname',
     'login_with_facebook'=>'Facebook ile giriş yap',
     'login_with_google'=>'Google ile giriş yap',
+    'coupon_code'=>'Kupon kodu :code',
+    'coupon_code_price'=>'Fiyat :price',
+    'coupon_code_none'=>'Kupon kodu yok',
+    'coupon_code_price_none'=>'Fiyat yok',
 ];

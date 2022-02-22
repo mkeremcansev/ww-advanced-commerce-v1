@@ -55,15 +55,14 @@
                     <img src="{{ asset(setting('logo')) }}" alt="{{ setting('title') }}">
                 </a>
                 @auth
-                <div class="header-widget-group">
-                   <a href="{{ route('web.account.index') }}" class="header-widget" title="@lang('words.my_account')">
-                        <i class="fa fa-user"></i>
-                    </a>
-                    <a href="{{ route('web.account.logout.store') }}" class="header-widget" title="@lang('words.logout')">
-                        <i class="fa fa-sign-out-alt"></i>
-                    </a>
-                </div>
-                    
+                    <div class="header-widget-group">
+                        <a href="{{ route('web.account.index') }}" class="header-widget" title="@lang('words.my_account')">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <a href="{{ route('web.account.logout.store') }}" class="header-widget" title="@lang('words.logout')">
+                            <i class="fa fa-sign-out-alt"></i>
+                        </a>
+                    </div>
                 @else
                     <a href="{{ route('web.user.login.index') }}" class="header-widget" title="@lang('words.my_account')">
                         <i class="fa fa-user"></i>

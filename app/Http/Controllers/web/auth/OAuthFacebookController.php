@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 
 class OAuthFacebookController extends Controller
 {
-    CONST DRIVER_TYPE = 'facebook';
+    const DRIVER_TYPE = 'facebook';
 
     public function index(){
         return Socialite::driver(static::DRIVER_TYPE)->redirect();

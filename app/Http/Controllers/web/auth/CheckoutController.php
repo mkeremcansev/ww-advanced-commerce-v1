@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\web\auth;
 
+use App\Helper\Paytr;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckoutStoreRequest;
 use App\Models\Coupon;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
+    public $token;
+
     public function index()
     {
         return
@@ -79,11 +82,17 @@ class CheckoutController extends Controller
                 ]);
             }
             $coupon ? $coupon->decrement('usage', 1) : null;
+            $this->token = Paytr::create($order->total, $order->id, $order->adress, $order->phone);
         });
         Session::forget('coupon');
         Cart::instance('cart')->destroy();
+        Session::flash('payment_token', $this->token);
         return response()->json([
-            'status' => 200,
+            'status' => 200
         ]);
+    }
+
+    public function update(Request $request){
+        Paytr::update($request);
     }
 }

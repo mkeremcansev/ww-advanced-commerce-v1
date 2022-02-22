@@ -57,19 +57,19 @@ function orderAccountStatus($status)
 {
     $order = [
         [
-            'status' => $status >= 0 ? true : null,
+            'status' => $status >= 1 ? true : null,
             'text' => __('words.order_saved')
         ],
         [
-            'status' => $status >= 1 ?  true : null,
+            'status' => $status >= 2 ?  true : null,
             'text' => __('words.order_prepared')
         ],
         [
-            'status' => $status >= 2 ? true : null,
+            'status' => $status >= 3 ? true : null,
             'text' => __('words.order_shepped')
         ],
         [
-            'status' => $status >= 3 ?  true : null,
+            'status' => $status >= 4 ?  true : null,
             'text' => __('words.order_delivered')
         ]
     ];

@@ -51,10 +51,10 @@
                                                     <td><?php echo e($o->phone); ?></td>
                                                     <td>
                                                             <select class="form-control" onchange="orderStatus(<?php echo e($o->id); ?>, this.value)">
-                                                                <option value="0" <?php if($o->status == 0): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_saved'); ?></option>
-                                                                <option value="1" <?php if($o->status == 1): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_prepared'); ?></option>
-                                                                <option value="2" <?php if($o->status == 2): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_shepped'); ?></option>
-                                                                <option value="3" <?php if($o->status == 3): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_delivered'); ?></option>
+                                                                <option value="1" <?php if($o->status == 1): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_saved'); ?></option>
+                                                                <option value="2" <?php if($o->status == 2): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_prepared'); ?></option>
+                                                                <option value="3" <?php if($o->status == 3): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_shepped'); ?></option>
+                                                                <option value="4" <?php if($o->status == 4): ?> selected <?php endif; ?>><?php echo app('translator')->get('words.order_delivered'); ?></option>
                                                             </select>
                                                     </td>
                                                     <td>

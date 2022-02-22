@@ -25,7 +25,7 @@ class Helper
         return $return;
     }
 
-    public static function slug(String $title)
+    public static function slug(string $title)
     {
         return Str::slug($title) . '-' . rand(1, 9999);
     }

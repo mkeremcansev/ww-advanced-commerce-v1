@@ -55,15 +55,14 @@
                     <img src="<?php echo e(asset(setting('logo'))); ?>" alt="<?php echo e(setting('title')); ?>">
                 </a>
                 <?php if(auth()->guard()->check()): ?>
-                <div class="header-widget-group">
-                   <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
-                        <i class="fa fa-user"></i>
-                    </a>
-                    <a href="<?php echo e(route('web.account.logout.store')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.logout'); ?>">
-                        <i class="fa fa-sign-out-alt"></i>
-                    </a>
-                </div>
-                    
+                    <div class="header-widget-group">
+                        <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <a href="<?php echo e(route('web.account.logout.store')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.logout'); ?>">
+                            <i class="fa fa-sign-out-alt"></i>
+                        </a>
+                    </div>
                 <?php else: ?>
                     <a href="<?php echo e(route('web.user.login.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
                         <i class="fa fa-user"></i>

@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <h1>{{ Session::get('payment_token') }}</h1>
                     @foreach (Auth::user()->getAllUserOrders as $o)
                     <div class="orderlist">
                         <div class="orderlist-head">

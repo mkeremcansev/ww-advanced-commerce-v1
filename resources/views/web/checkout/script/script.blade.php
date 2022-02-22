@@ -17,8 +17,7 @@
                                 confirmButtonText: '@lang("words.okey")'
                             })
                         } else if(response.status == 200){
-                            go_to_payment.addClass('custom-disabled')
-                            location.href = '{{ route("web.index") }}'
+                            location.href = '{{ route("web.payment.create") }}'
                         }
                         else if(response.status == 202){
                             Swal.fire({
