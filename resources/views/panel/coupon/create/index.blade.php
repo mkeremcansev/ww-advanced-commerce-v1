@@ -38,7 +38,7 @@
                                 <div class="card-body">
 
                                     <div class="form-group">
-                                        <label for="title">@lang('words.coupon_code')</label>
+                                        <label for="title">@lang('words.coupon_code_1')</label>
                                         <input type="text" class="form-control" name="code">
                                     </div>
 

@@ -1,6 +1,6 @@
 
 <?php $__env->startSection('title'); ?>
-<?php echo app('translator')->get('words.coupon_create'); ?>
+<?php echo app('translator')->get('words.coupon_edit'); ?>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <div class="app-content content">
@@ -32,25 +32,26 @@
                         <?php endif; ?>
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><?php echo app('translator')->get('words.coupon_create'); ?></h4>
+                                <h4 class="card-title"><?php echo app('translator')->get('words.coupon_edit'); ?></h4>
                             </div>
-                            <form method="POST" action="<?php echo e(route('panel.coupon.store')); ?>">
+                            <form method="POST" action="<?php echo e(route('panel.coupon.update', $coupon->id)); ?>">
                                 <?php echo csrf_field(); ?>
+                                <?php echo method_field('PUT'); ?>
                                 <div class="card-body">
 
                                     <div class="form-group">
                                         <label for="title"><?php echo app('translator')->get('words.coupon_code_1'); ?></label>
-                                        <input type="text" class="form-control" name="code">
+                                        <input type="text" class="form-control" name="code" value="<?php echo e($coupon->code); ?>">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="title"><?php echo app('translator')->get('words.price'); ?></label>
-                                        <input type="text" class="form-control" name="price">
+                                        <input type="text" class="form-control" name="price" value="<?php echo e($coupon->price); ?>">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="title"><?php echo app('translator')->get('words.usage_count'); ?></label>
-                                        <input type="text" class="form-control" name="usage">
+                                        <input type="text" class="form-control" name="usage" value="<?php echo e($coupon->usage); ?>">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary waves-effect waves-float waves-light mt-2 mb-2 float-right"><?php echo app('translator')->get('words.save'); ?></button>
@@ -64,4 +65,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('panel.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/panel/coupon/create/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('panel.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/panel/coupon/update/index.blade.php ENDPATH**/ ?>

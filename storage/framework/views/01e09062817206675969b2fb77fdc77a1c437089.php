@@ -54,31 +54,6 @@
                 </h4>
             </ul>
             <ul class="nav navbar-nav align-items-center ml-auto">
-                <li class="nav-item dropdown dropdown-user">
-                    <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none">
-                            <span class="user-name font-weight-bolder">
-
-                            </span>
-                        </div>
-                        <span class="avatar"><img class="round"
-                                src="<?php echo e(asset('panel/app-assets/images/portrait/small/avatar-s-11.jpg')); ?>"
-                                alt="avatar" height="40" width="40" />
-                            <span class="avatar-status-online"> </span>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" href="page-profile.html">
-                            <i class="mr-50" data-feather="user"></i>
-                            <?php echo app('translator')->get('words.my-account'); ?>
-                        </a>
-                        <a class="dropdown-item" href="">
-                            <i class="mr-50" data-feather="power"></i>
-                            <?php echo app('translator')->get('words.logout'); ?>
-                        </a>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>
@@ -188,6 +163,22 @@
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.campaign.create')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.campaign_create'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="code"></i><span><?php echo app('translator')->get('words.coupon'); ?></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.coupon.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.coupon_list'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.coupon.create')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.coupon_create'); ?></span>
                                 </a>
                             </li>
                         </ul>

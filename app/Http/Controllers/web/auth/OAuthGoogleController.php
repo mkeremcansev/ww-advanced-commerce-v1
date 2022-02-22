@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web\auth;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OAuthGoogleRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class OAuthGoogleController extends Controller
         return Socialite::driver(static::DRIVER_TYPE)->redirect();
     }
 
-    public function store(Request $request){
+    public function store(OAuthGoogleRequest $request){
         $s = Socialite::driver(static::DRIVER_TYPE)->user();
         $u = User::where('oauth_id', $s->id)->where('oauth_type', static::DRIVER_TYPE)->first();
         if($u) {

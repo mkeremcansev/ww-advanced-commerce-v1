@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web\auth;
 use App\Helper\Paytr;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckoutStoreRequest;
+use App\Http\Requests\CheckoutUpdateRequest;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\VariantAttribute;
@@ -92,7 +93,7 @@ class CheckoutController extends Controller
         ]);
     }
 
-    public function update(Request $request){
+    public function update(CheckoutUpdateRequest $request){
         Paytr::update($request);
     }
 }

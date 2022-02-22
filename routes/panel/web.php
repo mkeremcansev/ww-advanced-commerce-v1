@@ -17,7 +17,6 @@ use App\Http\Controllers\panel\SettingController;
 use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\ThemeController;
 use App\Http\Controllers\panel\UserReviewController;
-use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('/admin')->name('panel.')->group(function () {
+Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::view('/', 'panel.homepage.index')->name('index');
     Route::resource('/category', CategoryController::class);
     Route::resource('/product', ProductController::class);

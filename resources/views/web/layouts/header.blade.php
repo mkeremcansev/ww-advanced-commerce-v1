@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('web/css/user-auth.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/orderlist.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/error.css') }}">
 </head>
 <body>
     @include('web.layouts.loader')
@@ -56,6 +57,11 @@
                 </a>
                 @auth
                     <div class="header-widget-group">
+                        @role('admin')
+                        <a href="{{ route('panel.index') }}" class="header-widget" title="@lang('words.admin_panel')">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        @endrole
                         <a href="{{ route('web.account.index') }}" class="header-widget" title="@lang('words.my_account')">
                             <i class="fa fa-user"></i>
                         </a>
@@ -64,7 +70,7 @@
                         </a>
                     </div>
                 @else
-                    <a href="{{ route('web.user.login.index') }}" class="header-widget" title="@lang('words.my_account')">
+                    <a href="{{ route('web.user.login.index') }}" class="header-widget" title="@lang('words.login')">
                         <i class="fa fa-user"></i>
                     </a>
                 @endauth

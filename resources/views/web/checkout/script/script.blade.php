@@ -1,7 +1,9 @@
 @section('script')
     <script>
         let go_to_payment = $('#go-to-payment')
-        go_to_payment.on('click', function(){
+        go_to_payment.on('click', function(e){
+            e.preventDefault()
+            go_to_payment.addClass('custom-disabled')
             let adress = $('#adress').val()
             let phone = $('#phone').val()
             $.ajax({
@@ -11,12 +13,14 @@
                     dataType: 'json',
                     success: function(response){
                         if(response.status == 201){
+                            go_to_payment.removeClass('custom-disabled')
                             Swal.fire({
                                 text: response.message,
                                 icon: 'error',
                                 confirmButtonText: '@lang("words.okey")'
                             })
                         } else if(response.status == 200){
+                            go_to_payment.addClass('custom-disabled')
                             location.href = '{{ route("web.payment.create") }}'
                         }
                         else if(response.status == 202){
@@ -30,6 +34,7 @@
                         }
                     },
                     error: function(response){
+                        go_to_payment.removeClass('custom-disabled')
                         Swal.fire({
                             text: getValidateMessage(response),
                             icon: 'error',

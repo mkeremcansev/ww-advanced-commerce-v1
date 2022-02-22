@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web\auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CheckoutCouponStoreRequest;
 use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -10,11 +11,8 @@ use Illuminate\Support\Facades\Session;
 
 class CouponController extends Controller
 {
-    public function store(Request $request)
+    public function store(CheckoutCouponStoreRequest $request)
     {
-        $request->validate([
-            'code' => 'required'
-        ]);
         $coupon = Coupon::where('usage', '>', 0)
             ->whereStatus(1)
             ->whereCode($request->code)

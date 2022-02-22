@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrderUpdateRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class OrderController extends Controller
         return view('panel.order.index', ['orders'=>$orders]);
     }
 
-    public function update(Request $request){
+    public function update(OrderUpdateRequest $request){
         Order::findOrFail($request->id)->update([
             'status'=>$request->status
         ]);

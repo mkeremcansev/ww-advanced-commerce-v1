@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('web/css/user-auth.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/profile.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/orderlist.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('web/css/error.css')); ?>">
 </head>
 <body>
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -56,6 +57,11 @@
                 </a>
                 <?php if(auth()->guard()->check()): ?>
                     <div class="header-widget-group">
+                        <?php if(auth()->check() && auth()->user()->hasRole('admin')): ?>
+                        <a href="<?php echo e(route('panel.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.admin_panel'); ?>">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <?php endif; ?>
                         <a href="<?php echo e(route('web.account.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
                             <i class="fa fa-user"></i>
                         </a>
@@ -64,7 +70,7 @@
                         </a>
                     </div>
                 <?php else: ?>
-                    <a href="<?php echo e(route('web.user.login.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.my_account'); ?>">
+                    <a href="<?php echo e(route('web.user.login.index')); ?>" class="header-widget" title="<?php echo app('translator')->get('words.login'); ?>">
                         <i class="fa fa-user"></i>
                     </a>
                 <?php endif; ?>

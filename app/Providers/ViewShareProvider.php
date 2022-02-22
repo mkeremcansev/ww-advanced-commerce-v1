@@ -2,12 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Page;
-use App\Models\Product;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class ViewShareProvider extends ServiceProvider

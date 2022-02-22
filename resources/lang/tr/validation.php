@@ -176,7 +176,8 @@ return [
         'surname' => __('words.surname'),
         'adress' => __('words.adress'),
         'phone' => __('words.phone_number'),
-        'search' => __('words.search')
+        'search' => __('words.search'),
+        'code'=>__('words.code')
     ],
 
 ];

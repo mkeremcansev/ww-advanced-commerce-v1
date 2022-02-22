@@ -1,7 +1,7 @@
    <footer class="footer-part">
        <div class="container">
            <div class="row">
-               <div class="col-sm-6 col-xl-3">
+               <div class="col-sm-6 col-xl-4">
                    <div class="footer-widget"><a class="footer-logo" href="#"><img
                                src="{{ asset('web') }}/images/logo.png" alt="logo"></a>
                        <p class="footer-desc">{{ setting('description') }}</p>
@@ -12,7 +12,7 @@
                        </ul>
                    </div>
                </div>
-               <div class="col-sm-6 col-xl-3">
+               <div class="col-sm-6 col-xl-4">
                    <div class="footer-widget contact">
                        <h3 class="footer-title">@lang('words.contact')</h3>
                        <ul class="footer-contact">
@@ -33,7 +33,7 @@
                        </ul>
                    </div>
                </div>
-               <div class="col-sm-6 col-xl-3">
+               <div class="col-sm-6 col-xl-4">
                    <div class="footer-widget">
                        <h3 class="footer-title">@lang('words.pages')</h3>
                        <div class="footer-links">
@@ -45,27 +45,11 @@
                        </div>
                    </div>
                </div>
-               <div class="col-sm-6 col-xl-3">
-                   <div class="footer-widget">
-                       <h3 class="footer-title">Download App</h3>
-                       <p class="footer-desc">Lorem ipsum dolor sit amet tenetur dignissimos ipsum eligendi autem
-                           obcaecati minus ducimus totam reprehenderit exercitationem!</p>
-                       <div class="footer-app"><a href="#"><img src="{{ asset('web') }}/images/google-store.png"
-                                   alt="google"></a><a href="#"><img src="{{ asset('web') }}/images/app-store.png"
-                                   alt="app"></a></div>
-                   </div>
-               </div>
            </div>
            <div class="row">
                <div class="col-12">
                    <div class="footer-bottom">
                        <p class="footer-copytext">© All Copyrights Reserved by <a href="" class="custom-general-white">Canseworks</a></p>
-                       <div class="footer-card"><a href="#"><img src="{{ asset('web') }}/images/payment/jpg/01.jpg"
-                                   alt="payment"></a><a href="#"><img
-                                   src="{{ asset('web') }}/images/payment/jpg/02.jpg" alt="payment"></a><a
-                               href="#"><img src="{{ asset('web') }}/images/payment/jpg/03.jpg" alt="payment"></a><a
-                               href="#"><img src="{{ asset('web') }}/images/payment/jpg/04.jpg" alt="payment"></a>
-                       </div>
                    </div>
                </div>
            </div>

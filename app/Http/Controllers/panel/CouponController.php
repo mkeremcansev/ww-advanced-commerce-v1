@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CouponStoreRequest;
+use App\Http\Requests\CouponUpdateRequest;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,8 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        $coupons = Coupon::get();
+        return view('panel.coupon.index', ['coupons'=>$coupons]);
     }
 
     /**
@@ -34,13 +37,8 @@ class CouponController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CouponStoreRequest $request)
     {
-        $request->validate([
-            'code' => 'required|max:255|unique:coupons',
-            'price' => 'required|integer',
-            'usage' => 'required|integer'
-        ]);
         Coupon::create([
             'code' => $request->code,
             'price' => $request->price,
@@ -68,7 +66,8 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
-        //
+        $coupon = Coupon::findOrFail($id);
+        return view('panel.coupon.update.index', ['coupon'=>$coupon]);
     }
 
     /**
@@ -78,9 +77,14 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CouponUpdateRequest $request, $id)
     {
-        //
+        Coupon::findOrFail($id)->update([
+            'code' => $request->code,
+            'price' => $request->price,
+            'usage' => $request->usage,
+        ]);
+        return back()->with('success', __('words.updated_action_success'));
     }
 
     /**
@@ -91,6 +95,7 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Coupon::findOrFail($id)->delete();
+        return back()->with('success', __('words.deleted_action_success'));
     }
 }
