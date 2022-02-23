@@ -63,13 +63,15 @@
                                     @foreach ($v->getAllVariantAttributes as $a)
                                         @if ($a->stock)
                                             @if ($a->price)
-                                                <li class="custom-data-tooltip" data-tooltip="@lang('words.plus_price', ['price'=>getMoneyOrder($a->price)])"  variant-hash="{{ $a->hash }}">
+                                                <li class="custom-data-tooltip" data-tooltip="@lang('words.plus_price', ['price'=>getMoneyOrder($a->price)])" variant-hash="{{ $a->hash }}">
                                                     <a class="variant-attr" variant-stock="{{ $a->stock }}">
                                                         {{ $a->title }}
                                                     </a>
                                                 </li>
                                             @else
-                                                <li variant-hash="{{ $a->hash }}"><a class="variant-attr" variant-stock="{{ $a->stock }}">{{ $a->title }}</a></li>
+                                                <li class="variant-price" variant-hash="{{ $a->hash }}" variant-price="{{ $a->price }}">
+                                                    <a class="variant-attr" variant-stock="{{ $a->stock }}">{{ $a->title }}</a>
+                                                </li>
                                             @endif
                                         @else
                                                 <li><a class="custom-disabled-alert" variant-stock="{{ $a->stock }}">{{ $a->title }}</a></li>

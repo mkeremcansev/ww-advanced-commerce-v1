@@ -43,6 +43,10 @@ $('.action-plus, .action-minus').on('click', function () {
             stock[response].parentElement.classList.add('custom-data-tooltip')
         }
     })
+    let vPrice = $('.variant-price').attr('variant-price')
+    if(vPrice <= 0){
+        $('.variant-price').removeClass('custom-data-tooltip')
+    }
 })
 window.onload = function () {
     document.querySelector(".preloader").style.display = "none";
@@ -58,6 +62,10 @@ window.onload = function () {
             stock[response].parentElement.classList.add('custom-data-tooltip')
         }
     })
+    let vPrice = $('.variant-price').attr('variant-price')
+    if(vPrice <= 0){
+        $('.variant-price').removeClass('custom-data-tooltip')
+    }
 }
 $.ajaxSetup({
     headers: {
