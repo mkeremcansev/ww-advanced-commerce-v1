@@ -40,7 +40,7 @@ class Paytr
         } else {
             $ip = $_SERVER["REMOTE_ADDR"];
         }
-        $user_ip = '95.10.14.110';
+        $user_ip = $ip;
         $timeout_limit = "30";
         $debug_on = 1;
         $test_mode = 0;
