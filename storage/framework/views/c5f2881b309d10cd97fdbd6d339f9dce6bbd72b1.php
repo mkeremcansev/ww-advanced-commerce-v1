@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="">
-    <meta name="email" content="">
-    <meta name="profile" content="">
-    <meta name="template" content="">
-    <meta name="title" content="">
-    <meta name="keywords" content="">
+    <meta name="author" content="<?php echo e(setting('title')); ?>">
+    <meta name="description" content="<?php echo e(setting('description')); ?>">
+    <meta name="keywords" content="<?php echo e(setting('keywords')); ?>">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     <title><?php echo e(setting('title')); ?> - <?php echo $__env->yieldContent('title'); ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 

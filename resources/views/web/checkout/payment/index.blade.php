@@ -1,5 +1,5 @@
 @extends('web.layouts.extends')
-@section('title', 'ödesene awk')
+@section('title', __('words.payment_page'))
 @include('web.checkout.script.script')
 @section('content')
 <section class="inner-section">

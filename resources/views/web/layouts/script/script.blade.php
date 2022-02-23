@@ -1,9 +1,7 @@
    <script>
         let words = [
             @foreach ($categories as $r)
-                @foreach ($r->getAllCategoriesCollection as $c)
-                    "{{ $c->title }}".replace(/&amp;/g, '&'),
-                @endforeach
+                "{{ $r->title }}".replace(/&amp;/g, '&'),
             @endforeach
         ];
         let i = 0;

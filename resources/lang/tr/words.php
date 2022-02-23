@@ -252,4 +252,5 @@ return [
     '500_error_title'=>'Yazılım taraflı hata.',
     '500_error_content'=>'Hata aldığınız işlem veya işlemleri :email adresinden bize bildirebilirsiniz.',
     'admin_panel'=>'Yönetim Paneli',
+    'payment_page'=>'Ödeme Sayfası',
 ];

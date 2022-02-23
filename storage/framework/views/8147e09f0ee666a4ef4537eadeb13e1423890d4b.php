@@ -1,9 +1,7 @@
    <script>
         let words = [
             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php $__currentLoopData = $r->getAllCategoriesCollection; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    "<?php echo e($c->title); ?>".replace(/&amp;/g, '&'),
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                "<?php echo e($r->title); ?>".replace(/&amp;/g, '&'),
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         ];
         let i = 0;

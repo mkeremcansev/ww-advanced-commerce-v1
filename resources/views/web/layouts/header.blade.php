@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="">
-    <meta name="email" content="">
-    <meta name="profile" content="">
-    <meta name="template" content="">
-    <meta name="title" content="">
-    <meta name="keywords" content="">
+    <meta name="author" content="{{ setting('title') }}">
+    <meta name="description" content="{{ setting('description') }}">
+    <meta name="keywords" content="{{ setting('keywords') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{ setting('title') }} - @yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
