@@ -166,6 +166,7 @@ return [
         'list.*.attribute.*.attribute_price' => __('words.attribute_price'),
         'list.*.attribute' => __('words.attribute_list'),
         'quantity' => __('words.quantity'),
+        'quantity.*' => __('words.quantity'),
         'rating' => __('words.rating'),
         'content' => __('words.content'),
         'product' => __('words.product'),

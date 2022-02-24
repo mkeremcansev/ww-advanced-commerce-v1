@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAllUserOrders()
     {
-        return $this->hasMany(Order::class, 'user_id', 'id')->whereStatus(1);
+        return $this->hasMany(Order::class, 'user_id', 'id')->where('status', '>', 0);
     }
 
     public function sendPasswordResetNotification($token)

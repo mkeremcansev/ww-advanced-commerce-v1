@@ -216,7 +216,7 @@ return [
     'coupon_code_added_action_success' => 'Kupon kodu tanımlama işlemi başarıyla gerçekleşti.',
     'coupon_code_added_action_error' => 'Kupon kodu tanımlama işlemi başarısız.',
     'copun_code_use_text' => ':code kupon kodu kullanıldı. Kupon değeri :price.',
-    'product_not_have_stock' => ':product ürününde bulunan :variant varyasyonuna ait :qty adet stok bulunmuyor.',
+    'product_not_have_stock' => ':product ürününde bulunan :variant varyasyonuna ait :qty adet stok bulunmuyor. :variant_two varyasyonuna ait :qty_two adet stok bulunuyor.',
     'not_have_coupon_usage' => 'Kupon`a ait kullanım sayısı bulunmamaktadır.',
     'order_number' => 'Sipariş Numarası #:number',
     'coupon'=>'Kupon',

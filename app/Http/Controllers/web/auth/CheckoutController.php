@@ -38,7 +38,7 @@ class CheckoutController extends Controller
                         DB::rollBack();
                         return response()->json([
                             'status' => 201,
-                            'message' => __('words.product_not_have_stock', ['qty' => $c->qty, 'variant'=>$variant->title, 'product'=>$variant->getOneVariantMain->getOneProductAttributes->title])
+                            'message' => __('words.product_not_have_stock', ['qty' => $c->qty, 'variant'=>$variant->title, 'product'=>$variant->getOneVariantMain->getOneProductAttributes->title, 'variant_two'=>$variant->title, 'qty_two'=>$variant->stock])
                         ]);
                     }
                     $variant->decrement('stock', $c->qty);

@@ -17,7 +17,7 @@ class CouponController extends Controller
             ->whereStatus(1)
             ->whereCode($request->code)
             ->first();
-        if (!$coupon || Session::get('coupon') || getCheckoutMoneyOrder(Cart::instance('cart')->total()) < $coupon->price) {
+        if (!$coupon || Session::get('coupon') || getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) <= $coupon->price) {
             return response()->json([
                 'status' => 201,
                 'message' => __('words.coupon_code_added_action_error')

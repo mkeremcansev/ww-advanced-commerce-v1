@@ -54,7 +54,7 @@ class ShoppingCartController extends Controller
         foreach ($request->rowId as $key => $r) {
             Cart::instance('cart')->update($r, $request->quantity[$key]);
         }
-        Session::has('coupon') && (int)Session::get('coupon')['price'] > (int)getCheckoutMoneyOrder(Cart::instance('cart')->subtotal())
+        Session::has('coupon') && (int)Session::get('coupon')['price'] >= (int)getCheckoutMoneyOrder(Cart::instance('cart')->subtotal())
         ? Session::forget('coupon')
         : null;
         return back()->with('success', __('words.updated_action_success'));
@@ -62,11 +62,17 @@ class ShoppingCartController extends Controller
     public function delete($rowId)
     {
         Cart::instance('cart')->remove($rowId);
+        Session::has('coupon') && (int)Session::get('coupon')['price'] >= (int)getCheckoutMoneyOrder(Cart::instance('cart')->subtotal())
+        ? Session::forget('coupon')
+        : null;
         return back()->with('success', __('words.deleted_action_success'));
     }
     public function destroy()
     {
         Cart::instance('cart')->destroy();
+        Session::has('coupon') && (int)Session::get('coupon')['price'] >= (int)getCheckoutMoneyOrder(Cart::instance('cart')->subtotal())
+        ? Session::forget('coupon')
+        : null;
         return back()->with('success', __('words.clear_action_success'));
     }
 }

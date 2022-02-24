@@ -25,7 +25,8 @@ class ShoppingCartUpdateRequest extends FormRequest
     {
         return [
             'rowId' => 'required|array',
-            'quantity' => 'required|array'
+            'quantity' => 'required|array',
+            'quantity.*'=>'integer',
         ];
     }
 }
