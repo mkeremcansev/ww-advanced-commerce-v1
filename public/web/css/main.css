@@ -5263,7 +5263,6 @@ tbody tr td:last-child {
 
 .category-item {
     width: 100%;
-    border-bottom: 1px solid var(--border)
 }
 
 .category-link:hover {
