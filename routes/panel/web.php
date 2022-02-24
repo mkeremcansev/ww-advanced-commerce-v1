@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:admin'])->group(function () {
-    Route::view('/', 'panel.homepage.index')->name('index');
+    Route::get('/', [HomepageController::class, 'index'])->name('index');
     Route::resource('/category', CategoryController::class);
     Route::resource('/product', ProductController::class);
     Route::resource('/brand', BrandController::class);

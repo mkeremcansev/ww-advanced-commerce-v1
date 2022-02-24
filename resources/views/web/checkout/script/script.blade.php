@@ -32,6 +32,15 @@
                                 result.isConfirmed ? location.reload() : location.reload()
                             })
                         }
+                        else if(response.status == 203){
+                            Swal.fire({
+                                text: response.message,
+                                icon: 'error',
+                                confirmButtonText: '@lang("words.okey")'
+                            }).then((result) => {
+                                result.isConfirmed ? location.reload() : location.reload()
+                            })
+                        }
                     },
                     error: function(response){
                         go_to_payment.removeClass('custom-disabled')

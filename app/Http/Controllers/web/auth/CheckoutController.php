@@ -30,6 +30,12 @@ class CheckoutController extends Controller
 
     public function store(CheckoutStoreRequest $request)
     {
+        if(Cart::instance('cart')->subtotal() <= 0){
+            return response()->json([
+                'status'=>203,
+                'message'=>__('words.payment_error_203')
+            ]);
+        }
         DB::beginTransaction();
             foreach (Cart::instance('cart')->content() as $c) {
                 foreach($c->options['variants'] as $v){
@@ -38,7 +44,7 @@ class CheckoutController extends Controller
                         DB::rollBack();
                         return response()->json([
                             'status' => 201,
-                            'message' => __('words.product_not_have_stock', ['qty' => $c->qty, 'variant'=>$variant->title, 'product'=>$variant->getOneVariantMain->getOneProductAttributes->title, 'variant_two'=>$variant->title, 'qty_two'=>$variant->stock])
+                            'message' => __('words.product_not_have_stock', ['qty' => $variant->stock, 'variant'=>$variant->title, 'product'=>$variant->getOneVariantMain->getOneProductAttributes->title])
                         ]);
                     }
                     $variant->decrement('stock', $c->qty);

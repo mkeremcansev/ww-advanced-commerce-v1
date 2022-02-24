@@ -35,6 +35,8 @@
 <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 <script src="{{ asset('panel/app-assets/js/scripts/pages/page-knowledge-base.js') }}"></script>
 <script src="{{ asset('panel/app-assets/js/scripts/pages/app-invoice.js') }}"></script>
+<script src="{{ asset('panel/app-assets/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
+<script src="{{ asset('panel/app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
 @include('panel.layouts.script.script')
 @yield('script')
 </body>

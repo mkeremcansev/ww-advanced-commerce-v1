@@ -35,6 +35,8 @@
 <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 <script src="<?php echo e(asset('panel/app-assets/js/scripts/pages/page-knowledge-base.js')); ?>"></script>
 <script src="<?php echo e(asset('panel/app-assets/js/scripts/pages/app-invoice.js')); ?>"></script>
+<script src="<?php echo e(asset('panel')); ?>/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/app-assets/vendors/js/charts/apexcharts.min.js"></script>
 <?php echo $__env->make('panel.layouts.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->yieldContent('script'); ?>
 </body>

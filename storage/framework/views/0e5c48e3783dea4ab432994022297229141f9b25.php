@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('title', 'ödesene awk'); ?>
+<?php $__env->startSection('title', __('words.payment_page')); ?>
 <?php echo $__env->make('web.checkout.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->startSection('content'); ?>
 <section class="inner-section">

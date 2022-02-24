@@ -35,8 +35,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/pages/app-invoice.css')); ?>">
 </head>
 
-<body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover"
-    data-menu="horizontal-menu" data-col="">
+<body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col="">
     <nav class=" header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center navbar-dark" data-nav="brand-center">
         <div class="navbar-container d-flex content">
             <div class="bookmark-wrapper d-flex align-items-center">
@@ -55,6 +54,13 @@
             </ul>
             <ul class="nav navbar-nav align-items-center ml-auto">
             </ul>
+            <div class="custom-control custom-control-success custom-switch">
+                <input onchange="modeChange();" type="checkbox" class="custom-control-input" id="modeSwitch" checked />
+                <label class="custom-control-label" for="modeSwitch">
+                    <span class="switch-icon-left"><i data-feather="sun"></i></span>
+                    <span class="switch-icon-right"><i data-feather="moon"></i></span>
+                </label>
+            </div>
         </div>
     </nav>
     <div class="horizontal-menu-wrapper">
@@ -228,21 +234,35 @@
                         </ul>
                     </li>
 
+                    <?php if(app()->isDownForMaintenance()): ?>
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('panel.maintenance.off')); ?>" class="nav-link d-flex align-items-center">
+                                <i data-feather="pocket"></i>
+                                <span><?php echo app('translator')->get('words.maintenance_off'); ?></span>
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('panel.maintenance.on')); ?>" class="nav-link d-flex align-items-center">
+                                <i data-feather="power"></i>
+                                <span><?php echo app('translator')->get('words.maintenance_on'); ?></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('web.account.logout.store')); ?>" class="nav-link d-flex align-items-center">
+                            <i data-feather="x"></i>
+                            <span><?php echo app('translator')->get('words.logout'); ?></span>
+                        </a>
+                    </li>
+                    
                     <li class="nav-item">
                         <a target="_blank" href="<?php echo e(route('web.index')); ?>" class="nav-link d-flex align-items-center">
                             <i data-feather="globe"></i>
                             <span><?php echo app('translator')->get('words.preview'); ?></span>
                         </a>
                     </li>
-
-                    <div class="custom-control custom-control-success custom-switch mt-2 ml-auto">
-                        <input onchange="modeChange();" type="checkbox" class="custom-control-input" id="modeSwitch" checked />
-                        <label class="custom-control-label" for="modeSwitch">
-                            <span class="switch-icon-left"><i data-feather="sun"></i></span>
-                            <span class="switch-icon-right"><i data-feather="moon"></i></span>
-                        </label>
-                    </div>
-
                 </ul>
             </div>
         </div>
