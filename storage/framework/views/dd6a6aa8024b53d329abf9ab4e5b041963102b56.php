@@ -15,6 +15,6 @@
             </li>
         </ul>
         <div class="category-footer">
-            <p>All Rights Reserved by <a href="#">canseworks</a></p>
+            <p>All Rights Reserved by <a href="#">Canseworks</a></p>
         </div>
     </aside><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/layouts/menu/sidebar.blade.php ENDPATH**/ ?>
