@@ -259,4 +259,5 @@ return [
     'total_user'=>'Toplam :user kullanıcı bulunuyor.',
     'total_review'=>'Toplam :review yorum bulunuyor.',
     'payment_error_203'=>'Ödeme işlemi başarısız. Ödeme tamamlanmadan sayfadan ayrıldığınız için yönlendiriliyorsunuz.',
+    'order_failed'=>'Sipariş Başarısız',
 ];
