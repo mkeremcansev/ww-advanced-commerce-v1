@@ -14,6 +14,7 @@ use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
 use App\Http\Controllers\panel\ProductStatusController;
 use App\Http\Controllers\panel\SettingController;
+use App\Http\Controllers\panel\SliderController;
 use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\ThemeController;
 use App\Http\Controllers\panel\UserReviewController;
@@ -33,6 +34,7 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:a
     Route::resource('/campaign', CampaignController::class);
     Route::resource('/page', PageController::class);
     Route::resource('/coupon', CouponController::class);
+    Route::resource('/slider', SliderController::class);
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');

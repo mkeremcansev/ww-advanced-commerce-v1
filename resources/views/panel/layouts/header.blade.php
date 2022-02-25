@@ -84,28 +84,21 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.settings')</span>
                                 </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.theme.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.theme')</span>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="layers"></i><span>@lang('words.category')</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.category.index') }}" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span>@lang('words.category_list')</span>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.category.create') }}" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span>@lang('words.category_create')</span>
-                                </a>
+                                @if (app()->isDownForMaintenance())
+                                    <a href="{{ route('panel.maintenance.off') }}" class="dropdown-item d-flex align-items-center">
+                                        <i data-feather="chevrons-right"></i>
+                                        <span>@lang('words.maintenance_off')</span>
+                                    </a>
+                                @else
+                                    <a href="{{ route('panel.maintenance.on') }}" class="dropdown-item d-flex align-items-center">
+                                        <i data-feather="chevrons-right"></i>
+                                        <span>@lang('words.maintenance_on')</span>
+                                    </a>
+                                @endif
                             </li>
                         </ul>
                     </li>
@@ -122,14 +115,6 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.product_create')</span>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="git-merge"></i><span>@lang('words.brand')</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.brand.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.brand_list')</span>
@@ -138,21 +123,13 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.brand_create')</span>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span>@lang('words.page')</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.page.index') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.category.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
-                                    <span>@lang('words.page_list')</span>
+                                    <span>@lang('words.category_list')</span>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.page.create') }}" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.category.create') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
-                                    <span>@lang('words.page_create')</span>
+                                    <span>@lang('words.category_create')</span>
                                 </a>
                             </li>
                         </ul>
@@ -191,22 +168,6 @@
                     </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="user"></i><span>@lang('words.user')</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.admin.index') }}" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span>@lang('words.admin_list')</span>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.member.index') }}" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span>@lang('words.member_list')</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="refresh-cw"></i><span>@lang('words.review')</span></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -234,27 +195,52 @@
                         </ul>
                     </li>
 
-                    @if (app()->isDownForMaintenance())
-                        <li class="nav-item">
-                            <a href="{{ route('panel.maintenance.off') }}" class="nav-link d-flex align-items-center">
-                                <i data-feather="pocket"></i>
-                                <span>@lang('words.maintenance_off')</span>
-                            </a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a href="{{ route('panel.maintenance.on') }}" class="nav-link d-flex align-items-center">
-                                <i data-feather="power"></i>
-                                <span>@lang('words.maintenance_on')</span>
-                            </a>
-                        </li>
-                    @endif
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="user"></i><span>@lang('words.user')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.admin.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.admin_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.member.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.member_list')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('web.account.logout.store') }}" class="nav-link d-flex align-items-center">
-                            <i data-feather="x"></i>
-                            <span>@lang('words.logout')</span>
-                        </a>
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="airplay"></i><span>@lang('words.slider')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.slider.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.slider_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.slider.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.slider_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span>@lang('words.page')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.page.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.page_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.page.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.page_create')</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     
                     <li class="nav-item">
@@ -263,6 +249,14 @@
                             <span>@lang('words.preview')</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('web.account.logout.store') }}" class="nav-link d-flex align-items-center">
+                            <i data-feather="x"></i>
+                            <span>@lang('words.logout')</span>
+                        </a>
+                    </li>
+                    
                 </ul>
             </div>
         </div>

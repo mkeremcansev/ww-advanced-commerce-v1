@@ -1,16 +1,20 @@
 <div class="mobile-menu">
-        <a href="{{ route('web.index') }}" title="Home Page"><i class="fas fa-home"></i><span>@lang('words.homepage')</span>
+        <a href="{{ route('web.index') }}" title="@lang('words.homepage')">
+                <i class="fas fa-home"></i>
+                <span>@lang('words.homepage')</span>
         </a>
-        <button class="cate-btn" title="Category List"><i class="fas fa-list"></i><span>@lang('words.category')</span>
+        <button class="cate-btn" title="@lang('words.category_list')">
+                <i class="fas fa-list"></i>
+                <span>@lang('words.category')</span>
         </button>
-        <button class="cart-btn" title="Cartlist">
+        <button class="cart-btn" title="@lang('words.shopping_cart', ['count'=>Cart::instance('cart')->content()->count()])">
                 <i class="fas fa-shopping-basket"></i>
                 <span>@lang('words.shopping_cart_main')</span>
                 <sup>
                         {{ Cart::instance('cart')->content()->count() }}
                 </sup>
         </button>
-        <button class="wishlist-btn" title="Cartlist">
+        <button class="wishlist-btn" title="@lang('words.wishlist_count', ['count'=>Cart::instance('wishlist')->content()->count()])">
                 <i class="fas fa-heart"></i>
                 <span>@lang('words.wishlist')</span>
                 <sup>
@@ -28,5 +32,4 @@
                         <span>@lang('words.login')</span>
                 </a>
         @endauth
-        
-    </div>
+</div>

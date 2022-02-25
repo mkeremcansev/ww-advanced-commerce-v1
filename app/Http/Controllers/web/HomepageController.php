@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -41,6 +42,7 @@ class HomepageController extends Controller
             return
                 Campaign::whereStatus(1)->inRandomOrder()->limit(6)->get();
         });
-        return view('web.homepage.index');
+        $sliders = Slider::get();
+        return view('web.homepage.index', ['sliders'=>$sliders]);
     }
 }

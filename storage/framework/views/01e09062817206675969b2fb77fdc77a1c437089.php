@@ -84,28 +84,21 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.settings'); ?></span>
                                 </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.theme.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.theme'); ?></span>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="layers"></i><span><?php echo app('translator')->get('words.category'); ?></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.category.index')); ?>" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span><?php echo app('translator')->get('words.category_list'); ?></span>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.category.create')); ?>" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span><?php echo app('translator')->get('words.category_create'); ?></span>
-                                </a>
+                                <?php if(app()->isDownForMaintenance()): ?>
+                                    <a href="<?php echo e(route('panel.maintenance.off')); ?>" class="dropdown-item d-flex align-items-center">
+                                        <i data-feather="chevrons-right"></i>
+                                        <span><?php echo app('translator')->get('words.maintenance_off'); ?></span>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="<?php echo e(route('panel.maintenance.on')); ?>" class="dropdown-item d-flex align-items-center">
+                                        <i data-feather="chevrons-right"></i>
+                                        <span><?php echo app('translator')->get('words.maintenance_on'); ?></span>
+                                    </a>
+                                <?php endif; ?>
                             </li>
                         </ul>
                     </li>
@@ -122,14 +115,6 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.product_create'); ?></span>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="git-merge"></i><span><?php echo app('translator')->get('words.brand'); ?></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.brand.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.brand_list'); ?></span>
@@ -138,21 +123,13 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.brand_create'); ?></span>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span><?php echo app('translator')->get('words.page'); ?></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.page.index')); ?>" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.category.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
-                                    <span><?php echo app('translator')->get('words.page_list'); ?></span>
+                                    <span><?php echo app('translator')->get('words.category_list'); ?></span>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.page.create')); ?>" data-toggle="dropdown">
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.category.create')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
-                                    <span><?php echo app('translator')->get('words.page_create'); ?></span>
+                                    <span><?php echo app('translator')->get('words.category_create'); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -191,22 +168,6 @@
                     </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="user"></i><span><?php echo app('translator')->get('words.user'); ?></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.admin.index')); ?>" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span><?php echo app('translator')->get('words.admin_list'); ?></span>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.member.index')); ?>" data-toggle="dropdown">
-                                    <i data-feather="chevrons-right"></i>
-                                    <span><?php echo app('translator')->get('words.member_list'); ?></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="refresh-cw"></i><span><?php echo app('translator')->get('words.review'); ?></span></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -234,27 +195,52 @@
                         </ul>
                     </li>
 
-                    <?php if(app()->isDownForMaintenance()): ?>
-                        <li class="nav-item">
-                            <a href="<?php echo e(route('panel.maintenance.off')); ?>" class="nav-link d-flex align-items-center">
-                                <i data-feather="pocket"></i>
-                                <span><?php echo app('translator')->get('words.maintenance_off'); ?></span>
-                            </a>
-                        </li>
-                    <?php else: ?>
-                        <li class="nav-item">
-                            <a href="<?php echo e(route('panel.maintenance.on')); ?>" class="nav-link d-flex align-items-center">
-                                <i data-feather="power"></i>
-                                <span><?php echo app('translator')->get('words.maintenance_on'); ?></span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="user"></i><span><?php echo app('translator')->get('words.user'); ?></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.admin.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.admin_list'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.member.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.member_list'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('web.account.logout.store')); ?>" class="nav-link d-flex align-items-center">
-                            <i data-feather="x"></i>
-                            <span><?php echo app('translator')->get('words.logout'); ?></span>
-                        </a>
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="airplay"></i><span><?php echo app('translator')->get('words.slider'); ?></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.slider.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.slider_list'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.slider.create')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.slider_create'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span><?php echo app('translator')->get('words.page'); ?></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.page.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.page_list'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.page.create')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.page_create'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     
                     <li class="nav-item">
@@ -263,6 +249,14 @@
                             <span><?php echo app('translator')->get('words.preview'); ?></span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('web.account.logout.store')); ?>" class="nav-link d-flex align-items-center">
+                            <i data-feather="x"></i>
+                            <span><?php echo app('translator')->get('words.logout'); ?></span>
+                        </a>
+                    </li>
+                    
                 </ul>
             </div>
         </div>

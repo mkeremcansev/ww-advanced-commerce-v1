@@ -260,4 +260,8 @@ return [
     'total_review'=>'Toplam :review yorum bulunuyor.',
     'payment_error_203'=>'Ödeme işlemi başarısız. Ödeme tamamlanmadan sayfadan ayrıldığınız için yönlendiriliyorsunuz.',
     'order_failed'=>'Sipariş Başarısız',
+    'slider'=>'Slider',
+    'slider_list'=>'Slider Listesi',
+    'slider_create'=>'Slider Oluştur',
+    'slider_edit'=>'Slider Düzenle',
 ];
