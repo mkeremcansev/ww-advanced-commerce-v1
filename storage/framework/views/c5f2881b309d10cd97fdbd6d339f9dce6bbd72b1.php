@@ -97,4 +97,7 @@
     <?php echo $__env->make('web.layouts.menu.cart', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('web.layouts.menu.wish', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('web.layouts.menu.mobile', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div style="z-index: 1000; position: fixed; margin-top: 10%;">
+    <img src="<?php echo e(asset(setting('logo'))); ?>" alt="">
+</div>
 <?php /**PATH C:\laragon\www\eticaretim\resources\views/web/layouts/header.blade.php ENDPATH**/ ?>

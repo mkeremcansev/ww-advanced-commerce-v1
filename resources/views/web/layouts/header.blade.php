@@ -97,3 +97,6 @@
     @include('web.layouts.menu.cart')
     @include('web.layouts.menu.wish')
     @include('web.layouts.menu.mobile')
+<div style="z-index: 1000; position: fixed; margin-top: 10%;">
+    <img src="{{ asset(setting('logo')) }}" alt="">
+</div>
