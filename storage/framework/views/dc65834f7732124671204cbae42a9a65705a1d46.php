@@ -46,4 +46,7 @@
     --primary-bshadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.1);
     --primary-tshadow: 2px 3px 8px rgba(0, 0, 0, 0.1)
 }
-</style><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/layouts/style/style.blade.php ENDPATH**/ ?>
+<?php echo e(setting('css')); ?>
+
+</style>
+<?php /**PATH C:\laragon\www\eticaretim\resources\views/web/layouts/style/style.blade.php ENDPATH**/ ?>

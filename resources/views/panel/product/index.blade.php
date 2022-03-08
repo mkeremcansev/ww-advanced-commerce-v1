@@ -30,7 +30,6 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>@lang('words.image')</th>
                                                 <th>@lang('words.product_name')</th>
                                                 <th>@lang('words.brand')</th>
                                                 <th>@lang('words.category')</th>
@@ -45,8 +44,7 @@
                                             @php($product = $p->getOneProductAttributes)
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="100" src="{{ asset($p->getOneProductImages->image) }}" alt=""></td>
-                                                    <td>{{ $product->title }}</td>
+                                                    <td><a target="_blank" href="{{ route('web.product.show', $product->slug) }}">{{ $product->title }}</a></td>
                                                     <td>{{ $p->getOneProductBrand->title }}</td>
                                                     <td>{{ $p->getOneProductCategory->title }}</td>
                                                     <td class="custom-list-style-none">

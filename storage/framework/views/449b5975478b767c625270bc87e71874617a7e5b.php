@@ -31,7 +31,6 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th><?php echo app('translator')->get('words.image'); ?></th>
                                                 <th><?php echo app('translator')->get('words.product_name'); ?></th>
                                                 <th><?php echo app('translator')->get('words.brand'); ?></th>
                                                 <th><?php echo app('translator')->get('words.category'); ?></th>
@@ -46,8 +45,7 @@
                                             <?php ($product = $p->getOneProductAttributes); ?>
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="100" src="<?php echo e(asset($p->getOneProductImages->image)); ?>" alt=""></td>
-                                                    <td><?php echo e($product->title); ?></td>
+                                                    <td><a target="_blank" href="<?php echo e(route('web.product.show', $product->slug)); ?>"><?php echo e($product->title); ?></a></td>
                                                     <td><?php echo e($p->getOneProductBrand->title); ?></td>
                                                     <td><?php echo e($p->getOneProductCategory->title); ?></td>
                                                     <td class="custom-list-style-none">

@@ -29,7 +29,6 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>@lang('words.image')</th>
                                                 <th>@lang('words.category_name')</th>
                                                 <th>@lang('words.actions')</th>
                                             </tr>
@@ -38,7 +37,6 @@
                                             @foreach ($categories as $c)
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="150" src="{{ asset($c->image) }}" alt="{{ $c->title }}"></td>
                                                     <td>{{ $c->title }}</td>
                                                     <td>
                                                         <div class="btn-group">

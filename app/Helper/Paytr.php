@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Session;
 class Paytr
 {
     public static function create($total, $order, $adress, $phone){
-        $merchant_id    = env('PAYTR_MERCHANT_ID');
-        $merchant_key   = env('PAYTR_MERCHANT_KEY');
-        $merchant_salt  = env('PAYTR_MERCHANT_SALT');
+        $merchant_id    = setting('paytr_merchant_id');
+        $merchant_key   = setting('paytr_merchant_key');
+        $merchant_salt  = setting('paytr_merchant_salt');
         $email = Auth::user()->email;
         $payment_amount = $total*100;
         $merchant_oid = $order;
@@ -92,8 +92,8 @@ class Paytr
     }
 
     public static function update(Request $request){
-        $merchant_key  = env('PAYTR_MERCHANT_KEY');
-        $merchant_salt  = env('PAYTR_MERCHANT_SALT');
+        $merchant_key   = setting('paytr_merchant_key');
+        $merchant_salt  = setting('paytr_merchant_salt');
         $hash = base64_encode(hash_hmac('sha256', $request->merchant_oid.$merchant_salt.$request->status.$request->total_amount, $merchant_key, true));
         if( $hash != $request->hash )
             die('PAYTR notification failed: bad hash');

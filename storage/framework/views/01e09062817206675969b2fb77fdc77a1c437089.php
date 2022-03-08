@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/plugins/forms/pickers/form-pickadate.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/pages/page-knowledge-base.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/pages/app-invoice.css')); ?>">
+    <?php echo $__env->yieldContent('style'); ?>
 </head>
 
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col="">
@@ -87,6 +88,14 @@
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.theme.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.theme'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.paytr.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.paytr'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.css.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.css'); ?></span>
                                 </a>
                                 <?php if(app()->isDownForMaintenance()): ?>
                                     <a href="<?php echo e(route('panel.maintenance.off')); ?>" class="dropdown-item d-flex align-items-center">

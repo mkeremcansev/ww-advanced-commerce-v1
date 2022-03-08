@@ -29,7 +29,6 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>@lang('words.image')</th>
                                                 <th>@lang('words.brand_name')</th>
                                                 <th>@lang('words.actions')</th>
                                             </tr>
@@ -38,7 +37,6 @@
                                             @foreach ($brands as $b)
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="100" src="{{ asset($b->image) }}" alt=""></td>
                                                     <td>{{ $b->title }}</td>
                                                     <td>
                                                         <div class="btn-group">

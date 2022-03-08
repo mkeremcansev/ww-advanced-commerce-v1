@@ -46,4 +46,5 @@
     --primary-bshadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.1);
     --primary-tshadow: 2px 3px 8px rgba(0, 0, 0, 0.1)
 }
+{{ setting('css') }}
 </style>

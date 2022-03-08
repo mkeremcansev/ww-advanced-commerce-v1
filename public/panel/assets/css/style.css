@@ -55,3 +55,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .tox-tinymce {
 	border-radius: 0.357rem !important;
 }
+
+.css-custom-style {
+	color: var(--main-color) !important;
+}

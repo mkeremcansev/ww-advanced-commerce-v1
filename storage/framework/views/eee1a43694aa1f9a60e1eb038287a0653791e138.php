@@ -30,7 +30,6 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th><?php echo app('translator')->get('words.image'); ?></th>
                                                 <th><?php echo app('translator')->get('words.category_name'); ?></th>
                                                 <th><?php echo app('translator')->get('words.actions'); ?></th>
                                             </tr>
@@ -39,7 +38,6 @@
                                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="150" src="<?php echo e(asset($c->image)); ?>" alt="<?php echo e($c->title); ?>"></td>
                                                     <td><?php echo e($c->title); ?></td>
                                                     <td>
                                                         <div class="btn-group">

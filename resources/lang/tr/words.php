@@ -264,4 +264,9 @@ return [
     'slider_list'=>'Slider Listesi',
     'slider_create'=>'Slider Oluştur',
     'slider_edit'=>'Slider Düzenle',
+    'paytr'=>'PayTR',
+    'paytr_merchant_id'=>'PayTR Merchant ID',
+    'paytr_merchant_key'=>'PayTR Merchant Key',
+    'paytr_merchant_salt'=>'PayTR Merchant Salt',
+    'css'=>'CSS',
 ];
