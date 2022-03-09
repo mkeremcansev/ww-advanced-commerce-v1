@@ -1,0 +1,73 @@
+﻿<?xml version="1.0"?>
+<main>
+    <products>
+        <category_id>6</category_id>
+        <brand_id>1</brand_id>
+        <title>Test ürün asdasdsadasd</title>
+        <description>Ürün 1</description>
+        <price>1599</price>
+        <discount>1299</discount>
+        <variant>
+            <title>Color</title>
+            <attribute>
+                <title>Blue</title>
+                <price>19</price>
+                <stock>10</stock>
+            </attribute>
+        </variant>
+        <variant>
+            <title>Size</title>
+            <attribute>
+                <title>XL</title>
+                <price>39</price>
+                <stock>20</stock>
+            </attribute>
+            <attribute>
+                <title>XXL</title>
+                <price>14</price>
+                <stock>24</stock>
+            </attribute>
+        </variant>
+        <information>
+            <attribute>
+                <title>Storage</title>
+                <description>128GB</description>
+            </attribute>
+        </information>
+    </products>
+    <products>
+        <category_id>6</category_id>
+        <brand_id>1</brand_id>
+        <title>Test ürün yuıyuııyuuıyyuıyuı</title>
+        <description>Ürün 1</description>
+        <price>1599</price>
+        <discount>1299</discount>
+        <variant>
+            <title>Color</title>
+            <attribute>
+                <title>Blue</title>
+                <price>19</price>
+                <stock>10</stock>
+            </attribute>
+        </variant>
+        <variant>
+            <title>Size</title>
+            <attribute>
+                <title>XL</title>
+                <price>39</price>
+                <stock>20</stock>
+            </attribute>
+            <attribute>
+                <title>XXL</title>
+                <price>14</price>
+                <stock>24</stock>
+            </attribute>
+        </variant>
+        <information>
+            <attribute>
+                <title>Storage</title>
+                <description>128GB</description>
+            </attribute>
+        </information>
+    </products>
+</main>

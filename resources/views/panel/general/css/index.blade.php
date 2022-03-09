@@ -36,6 +36,11 @@
                             <form id="setting_form" method="POST" action="{{ route('panel.css.update') }}">
                                 @csrf
                                 <div class="card-body">
+                                    <div class="alert alert-danger" role="alert">
+                                        <div class="alert-body">
+                                            @lang('words.css_code_alert')
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">

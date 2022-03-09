@@ -14,6 +14,14 @@ class Helper
         return $move;
     }
 
+    public static function xmlUpload($file, String $path)
+    {
+        $name = date('d-m-Y-H-i-s') . rand(1, 999) . '.' . $file->extension();
+        $file->move(public_path($path), $name);
+        $move = $path . '/' .  $name;
+        return $move;
+    }
+
     public static function deleteOldImage(string $path)
     {
         return unlink(public_path($path));

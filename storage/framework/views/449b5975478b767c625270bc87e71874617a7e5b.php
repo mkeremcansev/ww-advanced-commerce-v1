@@ -25,6 +25,7 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title"><?php echo app('translator')->get('words.product_list'); ?></h4>
+                                    <a href="<?php echo e(route('panel.xml.product.insert.index')); ?>" class="btn btn-warning waves-effect waves-float waves-light float-right"><?php echo app('translator')->get('words.xml_product_insert'); ?></a>
                                 </div>
                                 <div class="card-datatable">
                                     <table id="category_list_table" class="dt-responsive table">
@@ -83,7 +84,7 @@
                                                         <div class="btn-group">
                                                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo app('translator')->get('words.actions'); ?></button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                <a class="dropdown-item text-success" href="<?php echo e(route('panel.product.edit', $product->id)); ?>"><?php echo app('translator')->get('words.edit'); ?></a>
+                                                                <a class="dropdown-item text-success" href="<?php echo e(route('panel.product.edit', $p->id)); ?>"><?php echo app('translator')->get('words.edit'); ?></a>
                                                                 <form action="<?php echo e(route('panel.product.destroy', $p->id)); ?>" method="POST">
                                                                     <?php echo csrf_field(); ?>
                                                                     <?php echo method_field('DELETE'); ?>

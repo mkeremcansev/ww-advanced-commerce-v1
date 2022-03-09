@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<main>
+    <products>
+        <category_id>6</category_id>
+        <brand_id>1</brand_id>
+        <title>Ürün Adı</title>
+        <description>Ürün Açıklaması</description>
+        <price>1599</price>
+        <discount>1299</discount>
+        <variant>
+            <title>Renk</title>
+            <attribute>
+                <title>Mavi</title>
+                <price>19</price>
+                <stock>10</stock>
+            </attribute>
+        </variant>
+        <variant>
+            <title>Beden</title>
+            <attribute>
+                <title>XL</title>
+                <price>39</price>
+                <stock>20</stock>
+            </attribute>
+            <attribute>
+                <title>XXL</title>
+                <price>14</price>
+                <stock>24</stock>
+            </attribute>
+        </variant>
+        <information>
+            <attribute>
+                <title>Ekran Genişliği</title>
+                <description>13'7</description>
+            </attribute>
+            <attribute>
+                <title>Ortalama Pil Ömrü</title>
+                <description>24 Saat</description>
+            </attribute>
+        </information>
+    </products>
+</main>

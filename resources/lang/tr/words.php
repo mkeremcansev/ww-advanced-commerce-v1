@@ -269,4 +269,9 @@ return [
     'paytr_merchant_key'=>'PayTR Merchant Key',
     'paytr_merchant_salt'=>'PayTR Merchant Salt',
     'css'=>'CSS',
+    'xml_product_insert'=>'XML ile içe aktar',
+    'xml_file'=>'XML dosya',
+    'xml_sample_file_download'=>'Örnek XML dosyasını indir',
+    'css_code_alert'=>'Tüm yazılan CSS kod parçalarının sonuna `!important` eklenmelidir. Aksi takdirde düzenleme aktif hale gelmez.',
+    'xml_insert_action_success'=>'XML içe aktarma işlemi başarıyla gerçekleşti.',
 ];

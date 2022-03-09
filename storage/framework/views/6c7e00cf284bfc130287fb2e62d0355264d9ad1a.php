@@ -1,6 +1,13 @@
 
 <?php $__env->startSection('title'); ?>
-<?php echo app('translator')->get('words.css'); ?>
+<?php echo app('translator')->get('words.theme'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+    <script>
+        $('#primary, #secondary').spectrum({
+            type: "component"
+        });
+    </script>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <div class="app-content content">
@@ -32,20 +39,22 @@
                         <?php endif; ?>
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><?php echo app('translator')->get('words.css'); ?></h4>
+                                <h4 class="card-title"><?php echo app('translator')->get('words.theme'); ?></h4>
                             </div>
-                            <form id="setting_form" method="POST" action="<?php echo e(route('panel.css.update')); ?>">
+                            <form method="POST" action="<?php echo e(route('panel.theme.update')); ?>">
                                 <?php echo csrf_field(); ?>
                                 <div class="card-body">
-                                    <div class="alert alert-danger" role="alert">
-                                        <div class="alert-body">
-                                            <?php echo app('translator')->get('words.css_code_alert'); ?>
-                                        </div>
-                                    </div>
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
-                                                <textarea style="" type="text" class="form-control css-custom-style" name="css" rows="10"><?php echo e(setting('css')); ?></textarea>
+                                                <label for="color"><?php echo app('translator')->get('words.primary_color'); ?></label>
+                                            <input class="form-control" name="primary" id="primary"  value="<?php echo e(setting('primary')); ?>"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="color"><?php echo app('translator')->get('words.secondary_color'); ?></label>
+                                            <input class="form-control" name="secondary" id="secondary" value="<?php echo e(setting('secondary')); ?>"/>
                                             </div>
                                         </div>
                                     </div>
@@ -60,4 +69,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('panel.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/panel/general/css/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('panel.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/panel/general/theme/index.blade.php ENDPATH**/ ?>

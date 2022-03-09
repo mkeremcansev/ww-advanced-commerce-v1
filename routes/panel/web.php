@@ -20,6 +20,7 @@ use App\Http\Controllers\panel\SliderController;
 use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\ThemeController;
 use App\Http\Controllers\panel\UserReviewController;
+use App\Http\Controllers\panel\XmlProductInsertController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,4 +65,7 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:a
     Route::post('/text/image/store', [TextImageController::class, 'store'])->name('text.image.store');
     Route::get('/maintenance/down', [HomepageController::class, 'down'])->name('maintenance.on');
     Route::get('/maintenance/up', [HomepageController::class, 'up'])->name('maintenance.off');
+    Route::view('/xml/product/insert', 'panel.xml.index')->name('xml.product.insert.index');
+    Route::post('/xml/product/insert', [XmlProductInsertController::class, 'store'])->name('xml.product.insert.store');
+    Route::get('/xml/sample/file/download', [XmlProductInsertController::class, 'download'])->name('xml.sample.file.download');
 });
