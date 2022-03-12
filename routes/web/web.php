@@ -54,7 +54,7 @@ Route::name('web.')->group(function () {
     Route::post('/payment/update',[CheckoutController::class, 'update'])->name('payment.update');
     Route::get('/account/logout/store', [LogoutController::class, 'store'])->name('account.logout.store');
 });
-Route::name('web.')->middleware(['auth', 'verified', 'role:admin|member'])->group(function () {
+Route::name('web.')->middleware(setting('verification') ? ['auth', 'verified', 'role:admin|member'] : ['auth', 'role:admin|member'])->group(function () {
     Route::post('/product/review/store', [ProductReviewController::class, 'store'])->name('product.review.store');
     Route::view('/account', 'web.account.index')->name('account.index');
     Route::view('/account/order', 'web.account.order.index')->name('accout.order');
@@ -81,4 +81,7 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::post('/forgot/password/store', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
     Route::get('/forgot/password/call/{token}', [ForgotPasswordController::class, 'call'])->name('forgot.password.call');
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
+});
+Route::get('/test', function(){
+    return orderAccountStatus(3);
 });

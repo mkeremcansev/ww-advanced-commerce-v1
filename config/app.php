@@ -179,6 +179,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\ViewShareProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        App\Providers\MailServiceProvider::class,
+        App\Providers\OAuthServiceProvider::class,
     ],
 
     /*

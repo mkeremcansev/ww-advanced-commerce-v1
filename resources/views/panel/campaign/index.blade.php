@@ -29,7 +29,6 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>@lang('words.image')</th>
                                                 <th>@lang('words.campaign_name')</th>
                                                 <th>@lang('words.product_count')</th>
                                                 <th>@lang('words.status')</th>
@@ -40,7 +39,6 @@
                                             @foreach ($campaigns as $c)
                                                 <tr>
                                                     <td></td>
-                                                    <td><img width="100" src="{{ asset($c->image) }}" alt=""></td>
                                                     <td>{{ $c->title }}</td>
                                                      <td><span class="text-primary">@lang('words.product_count_text', ['count'=>$c->getAllCampaignAttributes->count()])</span></td>
                                                     <td>

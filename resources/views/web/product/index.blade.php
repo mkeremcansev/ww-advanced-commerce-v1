@@ -1,5 +1,7 @@
 @extends('web.layouts.extends')
 @section('title', $product->getOneProductAttributes->title)
+@section('description', $product->getOneProductSeoAttributes->description)
+@section('keywords', $product->getOneProductSeoAttributes->keywords)
 @include('web.product.script.script')
 @section('content')
 @php($p = $product->getOneProductAttributes)

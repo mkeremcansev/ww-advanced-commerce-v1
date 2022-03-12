@@ -2,7 +2,10 @@
 
 namespace App\Helper;
 
+use App\Jobs\Order as JobsOrder;
+use App\Jobs\OrderCreate;
 use App\Models\Order;
+use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -98,9 +101,11 @@ class Paytr
         if( $hash != $request->hash )
             die('PAYTR notification failed: bad hash');
         if($request->status == 'success' ) {
-            Order::whereId($request->merchant_oid)->update([
+            $order = Order::with('getAllOrderAttributes')->findOrFail($request->merchant_oid);
+            $order->update([
                 'status'=>1
             ]);
+            dispatch(new OrderCreate(User::findOrFail($order->user_id), $order));
         } else {
             return redirect()->route('web.index');
         }

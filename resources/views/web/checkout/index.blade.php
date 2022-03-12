@@ -1,5 +1,7 @@
 @extends('web.layouts.extends')
 @section('title', __('words.go_to_payment_title'))
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @include('web.checkout.script.script')
 @section('content')
 <section class="inner-section">

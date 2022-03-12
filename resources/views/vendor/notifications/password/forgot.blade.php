@@ -1,6 +1,6 @@
 @extends('web.layouts.extends')
 @section('title')
-    qweqwewqewqq
+    @lang('words.forgot_your_password')
 @endsection
 @section('content')
  <section class="user-form-part">

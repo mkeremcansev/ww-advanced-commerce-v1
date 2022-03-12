@@ -20,6 +20,7 @@ class XmlProductInsertController extends Controller
                     'hash' => Str::random(15),
                     'category_id' => $object->category_id,
                     'brand_id' => $object->brand_id,
+                    'status'=>0
                 ]);
                 $product->getOneProductAttributes()->create([
                     'title' => $object->title,

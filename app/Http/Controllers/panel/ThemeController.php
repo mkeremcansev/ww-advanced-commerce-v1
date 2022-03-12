@@ -10,10 +10,7 @@ class ThemeController extends Controller
 {
     public function update(ThemeUpdateRequest $request)
     {
-        setting([
-            'primary' => $request->primary,
-            'secondary' => $request->secondary
-        ])->save();
+        setting($request->validated())->save();
         return back()->with('success', __('words.updated_action_success'));
     }
 }

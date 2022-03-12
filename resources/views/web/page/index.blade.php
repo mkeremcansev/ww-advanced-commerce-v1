@@ -1,5 +1,7 @@
 @extends('web.layouts.extends')
 @section('title', $page->title)
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @section('content')
 <section class="inner-section" id="informations">
     <div class="container">

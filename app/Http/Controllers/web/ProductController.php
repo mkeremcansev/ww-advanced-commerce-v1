@@ -12,6 +12,7 @@ class ProductController extends Controller
     {
         $product = Product::whereStatus(1)->with([
             'getOneProductAttributes',
+            'getOneProductSeoAttributes',
             'getAllProductImages',
             'getAllProductInformations',
             'getAllProductVariants.getAllVariantAttributes',

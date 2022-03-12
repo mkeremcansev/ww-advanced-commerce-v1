@@ -1,9 +1,9 @@
 @extends('web.layouts.extends')
 @section('title', __('words.homepage'))
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @section('content')
-    @include('web.homepage.layouts.category')
-    @include('web.homepage.layouts.slider')
-    @include('web.homepage.layouts.campaign')
-    @include('web.homepage.layouts.random')
-    @include('web.homepage.layouts.tab')
+@foreach (setting('design') as $d)
+    @include('web.homepage.layouts.'.$d['title'].'')
+@endforeach
 @endsection

@@ -1,7 +1,6 @@
 @foreach ($getAllSubCategoriesCollection as $c)
     <tr>
         <td></td>
-        <td><img width="150" src="{{ asset($c->image) }}" alt="{{ $c->title }}"></td>
         <td>{{ $parent_title . __('words.separator') . $c->title }}</td>
         <td>
             <div class="btn-group">

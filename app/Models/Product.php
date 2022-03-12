@@ -50,4 +50,7 @@ class Product extends Model
     {
         return $this->hasMany(CampaignAttribute::class, 'product_id', 'id');
     }
+    public function getOneProductSeoAttributes(){
+        return $this->hasOne(ProductSeoAttribute::class, 'product_id', 'id');
+    }
 }

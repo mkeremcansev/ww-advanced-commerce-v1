@@ -30,6 +30,8 @@ class ProductUpdateRequest extends FormRequest
             'description' => 'required',
             'price' => 'required|integer',
             'discount' => 'nullable|integer',
+            'seo_description'=>'required',
+            'keywords'=>'required',
             'images' => 'array',
             'informations' => 'required|array',
             'informations.*.information_title' => 'required|max:255',

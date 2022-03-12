@@ -1,5 +1,9 @@
 @extends('panel.layouts.extends')
 @section('title', __('words.homepage'))
+@section('script')
+    <script src="{{ asset('panel/app-assets/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
+    <script src="{{ asset('panel/app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
+@endsection
 @section('content')
     <div class="app-content content">
     <div class="content-overlay"></div>

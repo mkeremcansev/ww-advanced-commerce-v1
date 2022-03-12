@@ -1,5 +1,7 @@
 @extends('web.layouts.extends')
 @section('title', __('words.my_account'))
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @include('web.account.script.script')
 @section('content')
 <section class="inner-section profile-part">

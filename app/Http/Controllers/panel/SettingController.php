@@ -21,6 +21,8 @@ class SettingController extends Controller
             'twitter' => $request->twitter,
             'mail' => $request->mail,
             'phone' => $request->phone,
+            'oauth'=>$request->oauth ? 1 : 0,
+            'verification'=>$request->verification ? 1 : 0
         ];
         if ($request->hasFile('logo')) {
             $settings['logo'] = Helper::imageUpload($request->file('logo'), 'storage');

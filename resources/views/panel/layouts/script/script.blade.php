@@ -46,4 +46,14 @@
             input.click();
         }
     });
+    $(document).ready(function(){
+        $('#title_h').text('{{ setting("title") }} - '+$('#seo_title').val())
+        $('#description_p').text($('#seo_description').val())
+        $('#seo_title').on('keyup', function(){
+            $('#title_h').text('{{ setting("title") }} - '+$('#seo_title').val())
+        })
+        $('#seo_description').on('keyup', function(){
+            $('#description_p').text($('#seo_description').val())
+        })
+    })
 </script>

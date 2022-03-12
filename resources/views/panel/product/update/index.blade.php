@@ -60,6 +60,12 @@
                                                 @lang('words.information')
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="seo-tab" data-toggle="tab" href="#seo" aria-controls="about" role="tab" aria-selected="true">
+                                                <i data-feather='airplay'></i>
+                                                @lang('words.seo')
+                                            </a>
+                                        </li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="product" aria-labelledby="product-tab" role="tabpanel">
@@ -67,7 +73,7 @@
                                                     <div class="card-body">
                                                         <div class="form-group">
                                                             <label for="name">@lang('words.product_name')</label>
-                                                            <input type="text" class="form-control" name="title" value="{{ $product->getOneProductAttributes->title }}">
+                                                            <input type="text" class="form-control" name="title" id="seo_title" value="{{ $product->getOneProductAttributes->title }}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="category_name">@lang('words.price')</label>
@@ -300,6 +306,25 @@
                                                         <button data-repeater-create type="button" class="btn btn-success waves-effect waves-float waves-light w-100">
                                                             @lang('words.add_attribute')
                                                         </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="seo" aria-labelledby="seo-tab" role="tabpanel">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="name">@lang('words.seo_description')</label>
+                                                        <textarea type="text" class="form-control" name="seo_description" id="seo_description">{{ $product->getOneProductSeoAttributes->description }}</textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name">@lang('words.keywords')</label>
+                                                        <textarea type="text" class="form-control" name="keywords" id="keywords">{{ $product->getOneProductSeoAttributes->keywords }}</textarea>
+                                                    </div>
+                                                    <div class="form-group bg-white p-5 rounded">
+                                                        <label for="name" class="seo-p-color">{{ route('web.index') }}</label>
+                                                        <h1 id="title_h" class="text-primary text-decoration-underline">adasdsda</h1>
+                                                        <p id="description_p" class="seo-p-color">asdas</p>
                                                     </div>
                                                 </div>
                                             </div>

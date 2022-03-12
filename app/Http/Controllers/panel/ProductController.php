@@ -92,6 +92,10 @@ class ProductController extends Controller
                     'hash' => Str::random(15),
                 ]);
             }
+            $product->getOneProductSeoAttributes()->create([
+                'description'=>$request->seo_description,
+                'keywords'=>$request->keywords
+            ]);
         });
         return back()->with('success', __('words.created_action_success'));
     }
@@ -115,7 +119,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('getOneProductAttributes', 'getAllProductInformations', 'getAllProductVariants.getAllVariantAttributes', 'getAllProductImages')->findOrFail($id);
+        $product = Product::with('getOneProductAttributes', 'getOneProductSeoAttributes' ,'getAllProductInformations', 'getAllProductVariants.getAllVariantAttributes', 'getAllProductImages')->findOrFail($id);
         $brands = Brand::all();
         return view('panel.product.update.index', ['product' => $product, 'brands' => $brands]);
     }
@@ -168,6 +172,10 @@ class ProductController extends Controller
                     ]);
                 }
             }
+            $product->getOneProductSeoAttributes()->update([
+                'description'=>$request->seo_description,
+                'keywords'=>$request->keywords
+            ]);
             if ($request->hasFile('images')) {
                 foreach ($request->images as $image) {
                     $product->getAllProductImages()->create([

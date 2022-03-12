@@ -1,4 +1,4 @@
-<nav class="navbar-part">
+<nav class="navbar-part mb-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

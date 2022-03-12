@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Showcase;
 use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -42,7 +43,12 @@ class HomepageController extends Controller
             return
                 Campaign::whereStatus(1)->inRandomOrder()->limit(6)->get();
         });
-        $sliders = Slider::get();
-        return view('web.homepage.index', ['sliders'=>$sliders]);
+        Cache::remember('sliders', 60 * 60, function(){
+            return Slider::get();
+        });
+        Cache::remember('showcases', 60 * 60, function(){
+            return Showcase::with('getAllShowcaseAttributes.getOneShowcaseAttributeCategory')->get();
+        });
+        return view('web.homepage.index');
     }
 }

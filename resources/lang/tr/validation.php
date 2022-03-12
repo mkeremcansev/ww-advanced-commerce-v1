@@ -178,7 +178,9 @@ return [
         'adress' => __('words.adress'),
         'phone' => __('words.phone_number'),
         'search' => __('words.search'),
-        'code'=>__('words.code')
+        'code'=>__('words.code'),
+        'showcases.*.category_id'=>__('words.showcase_category'),
+        'showcases.*.image'=>__('words.showcase_image'),
+        'showcases'=>__('words.showcase'),
     ],
-
 ];

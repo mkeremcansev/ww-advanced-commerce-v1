@@ -1,7 +1,7 @@
 @extends('web.layouts.extends')
-@section('title')
-    @lang('words.search')
-@endsection
+@section('title', __('words.search'))
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @section('content')
         <section class="inner-section shop-part">
         <div class="container">

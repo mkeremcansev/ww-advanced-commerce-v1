@@ -7,16 +7,21 @@ use App\Http\Controllers\panel\CampaignController;
 use App\Http\Controllers\panel\CategoryController;
 use App\Http\Controllers\panel\CouponController;
 use App\Http\Controllers\panel\CssController;
+use App\Http\Controllers\panel\DesignController;
 use App\Http\Controllers\panel\HomepageController;
 use App\Http\Controllers\panel\MemberController;
+use App\Http\Controllers\panel\OAuthController;
 use App\Http\Controllers\panel\OrderController;
 use App\Http\Controllers\panel\PageController;
 use App\Http\Controllers\panel\PayTRController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
+use App\Http\Controllers\panel\ProductMultiplePriceController;
 use App\Http\Controllers\panel\ProductStatusController;
 use App\Http\Controllers\panel\SettingController;
+use App\Http\Controllers\panel\ShowcaseController;
 use App\Http\Controllers\panel\SliderController;
+use App\Http\Controllers\panel\SMTPController;
 use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\ThemeController;
 use App\Http\Controllers\panel\UserReviewController;
@@ -29,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:admin'])->group(function () {
+Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('index');
     Route::resource('/category', CategoryController::class);
     Route::resource('/product', ProductController::class);
@@ -38,6 +43,7 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:a
     Route::resource('/page', PageController::class);
     Route::resource('/coupon', CouponController::class);
     Route::resource('/slider', SliderController::class);
+    Route::resource('/showcase', ShowcaseController::class);
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');
@@ -47,6 +53,14 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:a
     Route::post('/paytr/update', [PayTRController::class, 'update'])->name('paytr.update');
     Route::view('/css', 'panel.general.css.index')->name('css.index');
     Route::post('/css/update', [CssController::class, 'update'])->name('css.update');
+    Route::view('/design', 'panel.general.design.index')->name('design.index');
+    Route::post('/design/update', [DesignController::class, 'update'])->name('design.update');
+    Route::view('/smtp', 'panel.general.smtp.index')->name('smtp.index');
+    Route::post('/smtp/update', [SMTPController::class, 'update'])->name('smtp.update');
+    Route::view('/oauth', 'panel.general.oauth.index')->name('oauth.index');
+    Route::post('/oauth/update', [OAuthController::class, 'update'])->name('oauth.update');
+    Route::view('/multiple/product/price', 'panel.multiple.product.price.index')->name('multiple.product.price.index');
+    Route::post('/multiple/product/price/update', [ProductMultiplePriceController::class, 'update'])->name('multiple.product.price.update');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/{id}/delete', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::get('/member', [MemberController::class, 'index'])->name('member.index');
@@ -68,4 +82,6 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'verified', 'role:a
     Route::view('/xml/product/insert', 'panel.xml.index')->name('xml.product.insert.index');
     Route::post('/xml/product/insert', [XmlProductInsertController::class, 'store'])->name('xml.product.insert.store');
     Route::get('/xml/sample/file/download', [XmlProductInsertController::class, 'download'])->name('xml.sample.file.download');
+    Route::view('/test', 'panel.test');
+    
 });

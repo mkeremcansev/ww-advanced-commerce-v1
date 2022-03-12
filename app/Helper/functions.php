@@ -75,3 +75,11 @@ function orderAccountStatus($status)
     ];
     return $order;
 }
+
+function showcaseColonCalc($value){
+    return 12 / $value;
+}
+
+function multipleProductPriceEditPercent($price, $value){
+    return abs((int) ($price / 100 * $value));
+}

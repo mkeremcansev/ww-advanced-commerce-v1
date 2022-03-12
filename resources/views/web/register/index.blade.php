@@ -1,5 +1,7 @@
 @extends('web.layouts.extends')
 @section('title', __('words.register'))
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @include('web.register.script.script')
 @section('content')
     <section class="user-form-part">

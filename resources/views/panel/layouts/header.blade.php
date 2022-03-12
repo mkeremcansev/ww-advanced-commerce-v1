@@ -89,9 +89,21 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.theme')</span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.design.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.homepage_design')</span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.paytr.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.paytr')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.smtp.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.smtp')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.oauth.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.oauth')</span>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.css.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
@@ -140,6 +152,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.category_create')</span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.multiple.product.price.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.multiple_product_price_edit')</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -155,6 +171,22 @@
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.campaign.create') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.campaign_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="copy"></i><span>@lang('words.showcase')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.showcase.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.showcase_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.showcase.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.showcase_create')</span>
                                 </a>
                             </li>
                         </ul>

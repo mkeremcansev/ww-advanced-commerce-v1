@@ -59,3 +59,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .css-custom-style {
 	color: var(--main-color) !important;
 }
+
+.text-decoration-underline {
+	text-decoration: underline !important;
+}
+.seo-p-color {
+	color: rgb(39, 39, 39) !important;
+}

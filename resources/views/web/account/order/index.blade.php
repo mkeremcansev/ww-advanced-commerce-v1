@@ -1,5 +1,7 @@
 @extends('web.layouts.extends')
 @section('title', 'asdasdas')
+@section('description', setting('description'))
+@section('keywords', setting('keywords'))
 @section('content')
 <section class="inner-section orderlist-part">
         <div class="container">
@@ -69,10 +71,10 @@
                                                 <p>{{ getMoneyOrder($a->total) }}</p>
                                             </li>
                                             @foreach ($a->variants as $v)
-                                            <li>
-                                                <h6>{{ $v->get_one_variant_main->title }}</h6>
-                                                <p>{{ $v->title }}</p>
-                                            </li>
+                                                <li>
+                                                    <h6>{{ $v->get_one_variant_main->title }}</h6>
+                                                    <p>{{ $v->title }}</p>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
