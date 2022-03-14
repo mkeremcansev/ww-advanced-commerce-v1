@@ -45,7 +45,7 @@ class AccountVerifyQueued extends VerifyEmail implements ShouldQueue
             ->subject(__('words.verify_your_email_adress'))
             ->line(__('words.hello_name', ['name' => $notifiable->name]))
             ->action(__('words.verify_your_email_adress'), $this->verificationUrl($notifiable))
-            ->line(__('words.password_reset_message', ['company' => config('app.name'), 'button' => __('words.verify_your_email_adress')]));
+            ->line(__('words.verify_email_message', ['company' => config('app.name'), 'button' => __('words.verify_your_email_adress')]));
     }
 
     /**

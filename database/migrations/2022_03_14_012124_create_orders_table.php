@@ -23,6 +23,9 @@ class CreateOrdersTable extends Migration
             $table->string('coupon')->nullable();
             $table->string('total');
             $table->integer('status')->default(0);
+            $table->string('cargo_code')->nullable();
+            $table->unsignedBigInteger('cargo_id')->nullable();
+            $table->foreign('cargo_id')->references('id')->on('cargos')->cascadeOnDelete();
             $table->timestamps();
         });
     }

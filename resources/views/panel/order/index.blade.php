@@ -50,11 +50,9 @@
                                                     <td>{{ $o->phone }}</td>
                                                     <td>
                                                             <select class="form-control" onchange="orderStatus({{ $o->id }}, this.value)">
-                                                                <option value="0" @if($o->status == 0) selected @endif>@lang('words.order_failed')</option>
-                                                                <option value="1" @if($o->status == 1) selected @endif>@lang('words.order_saved')</option>
-                                                                <option value="2" @if($o->status == 2) selected @endif>@lang('words.order_prepared')</option>
-                                                                <option value="3" @if($o->status == 3) selected @endif>@lang('words.order_shepped')</option>
-                                                                <option value="4" @if($o->status == 4) selected @endif>@lang('words.order_delivered')</option>
+                                                                @foreach (orderStatusData($o->status) as $key => $s)
+                                                                    <option value="{{ $s['value'] }}" @if($s['status']) selected @endif>{{ $s['text'] }}</option>
+                                                                @endforeach
                                                             </select>
                                                     </td>
                                                     <td>

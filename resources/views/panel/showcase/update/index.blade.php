@@ -64,6 +64,7 @@
                                                 @foreach ($showcase->getAllShowcaseAttributes as $a)
                                                 <div data-repeater-item>
                                                     <div class="row d-flex align-items-end">
+                                                        <input type="hidden" name="id" value="{{ $a->id }}">
                                                         <div class="col-md-4 col-12">
                                                             <div class="form-group">
                                                                 <label for="name">@lang('words.showcase_image')</label>

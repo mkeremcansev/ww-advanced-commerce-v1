@@ -5,6 +5,7 @@ namespace App\Http\Controllers\panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderUpdateRequest;
 use App\Jobs\OrderUpdate;
+use App\Models\Cargo;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ class OrderController extends Controller
 
     public function show($id){
         $order = Order::with(['getAllOrderAttributes','getOneUsers'])->findOrFail($id);
-        return view('panel.order.detail.index', ['order'=>$order]);
+        $cargos = Cargo::get();
+        return view('panel.order.detail.index', ['order'=>$order, 'cargos'=>$cargos]);
     }
 }

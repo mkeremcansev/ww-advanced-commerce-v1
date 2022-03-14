@@ -89,20 +89,19 @@ class ShowcaseController extends Controller
     public function update(ShowcaseUpdateRequest $request, $id)
     {
         DB::transaction(function () use ($request, $id) {
-            $request->validate([
-                
-            ]);
             $showcase = Showcase::findOrFail($id);
             $showcase->update([
                 'title'=>$request->title
             ]);
-            $showcase->getAllShowcaseAttributes()->delete();
             foreach($request->showcases as $s){
-                $showcase->getAllShowcaseAttributes()->create([
-                    'image'=>Helper::imageUpload($s['image'], 'storage'),
+                $update = [
                     'category_id'=>$s['category_id'],
-                    'url'=>$s['url'] ? $s['url'] : null
-                ]);
+                    'url'=>$s['url'] ? $s['url'] : null,
+                ];
+                if(isset($s['image'])) {
+                    $update['image'] = Helper::imageUpload($s['image'], 'storage');
+                }
+                $showcase->getAllShowcaseAttributes()->findOrFail($s['id'])->update($update);
             }
         });
         return back()->with('success', __('words.updated_action_success'));

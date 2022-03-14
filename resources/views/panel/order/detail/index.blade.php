@@ -12,8 +12,25 @@
             </div>
             <div class="content-body">
                 <section class="invoice-preview-wrapper">
+                    @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="pt-1 pb-1">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if ($m = Session::get('success'))
+                                <div class="alert alert-success" role="alert">
+                                    <div class="alert-body">
+                                        {{ $m }}
+                                    </div>
+                                </div>
+                            @endif
                     <div class="row invoice-preview">
                         <div class="col-xl-8 col-md-8 col-12">
+                            
                             <div class="card invoice-preview-card">
                                 <div class="card-body invoice-padding pb-0">
                                     <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
@@ -89,14 +106,33 @@
                                 <div class="card-body">
                                     <h4 class="text-center">@lang('words.total_price')</h4>
                                     <p class="text-center">{{ getMoneyOrder($order->total) }}</p>
-                                    <select class="form-control" onchange="orderStatus({{ $order->id }}, this.value)">
-                                        <option value="0" @if($order->status == 0) selected @endif>@lang('words.order_failed')</option>
-                                        <option value="1" @if($order->status == 1) selected @endif>@lang('words.order_saved')</option>
-                                        <option value="2" @if($order->status == 2) selected @endif>@lang('words.order_prepared')</option>
-                                        <option value="3" @if($order->status == 3) selected @endif>@lang('words.order_shepped')</option>
-                                        <option value="4" @if($order->status == 4) selected @endif>@lang('words.order_delivered')</option>
+                                    <select class="select2 form-control" onchange="orderStatus({{ $order->id }}, this.value)">
+                                        @foreach (orderStatusData($order->status) as $key => $s)
+                                            <option value="{{ $s['value'] }}" @if($s['status']) selected @endif>{{ $s['text'] }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
+                            </div>
+                            <div class="card">
+                                <form method="POST" action="{{ route('panel.order.cargo.update', $order->id) }}">
+                                    @csrf
+                                    <div class="card-body">
+                                        <h4 class="text-center">@lang('words.cargo_informations')</h4>
+                                        <div class="form-group">
+                                            <label>@lang('words.cargo_company')</label>
+                                            <select class="select2 form-control" name="cargo_id">
+                                                @foreach ($cargos as $c)
+                                                    <option @if($order->cargo_id == $c->id) selected @endif value="{{ $c->id }}">{{ $c->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name">@lang('words.cargo_code')</label>
+                                            <input type="text" class="form-control" name="cargo_code" value="{{ $order->cargo_code }}">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-float waves-light mt-2 mb-2 float-right">@lang('words.save')</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

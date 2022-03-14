@@ -92,6 +92,7 @@
             </div>
         </div>
     </header>
+    @include('web.layouts.banner')
     @include('web.layouts.menu.navbar')
     @include('web.layouts.menu.sidebar')
     @include('web.layouts.menu.cart')

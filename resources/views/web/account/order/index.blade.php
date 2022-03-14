@@ -49,6 +49,13 @@
                                             <h6>@lang('words.order_phone')</h6>
                                             <p>{{ $o->phone }}</p>
                                         </li>
+                                        @if ($o->cargo_code)
+                                            <li>
+                                                <h6>@lang('words.cargo_tracking')</h6>
+                                                <a target="_blank" href="{{ orderCargoWhere($o->getOrderCargos->url, $o->cargo_code) }}"><p>@lang('words.where_is_my_cargo')</p></a>
+                                            </li>
+                                        @endif
+                                        
                                     </ul>
                                 </div>
                                 @foreach ($o->getAllOrderAttributes as $a)

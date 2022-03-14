@@ -48,6 +48,41 @@ function getProductLabel($discount, $price, $created_at, $popular = null)
     return $labels;
 }
 
+function orderStatusData($status){
+    $data = [
+        [
+            'status'=>$status == 0 ? true : false,
+            'text'=>__('words.order_failed'),
+            'value'=> 0
+        ],
+        [
+            'status'=>$status == 1 ? true : false,
+            'text'=>__('words.order_saved'),
+            'value'=> 1
+        ],
+        [
+            'status'=>$status == 2 ? true : false,
+            'text'=>__('words.order_prepared'),
+            'value'=> 2   
+        ],
+        [
+            'status'=>$status == 3 ? true : false,
+            'text'=>__('words.order_shepped'),
+            'value'=> 3   
+        ],
+        [
+            'status'=>$status == 4 ? true : false,
+            'text'=>__('words.order_delivered'),
+            'value'=> 4   
+        ]
+
+    ];
+    return $data;
+}
+
+function orderCargoWhere($url, $code){
+    return $url.$code;
+}
 function getShowMore($text)
 {
     return substr($text, 0, 180);

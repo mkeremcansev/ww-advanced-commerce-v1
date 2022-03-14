@@ -152,6 +152,10 @@ button:focus {
     margin-bottom: 50px
 }
 
+.recent-part {
+    margin-bottom: 0 !important;
+}
+
 .inner-section {
     padding: 30px 0px 22px;
 }
@@ -7277,6 +7281,31 @@ border-color: var(--primary);
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
-.os_govde{
-    margin: 0px auto 0px auto !important;
+.right_banner {
+    position: fixed;
+    z-index: 4;
+    right: 80px !important;
+    margin-top: 5%;
+}
+.left_banner {
+    position: fixed;
+    z-index: 4;
+    margin-top: 5%;
+    left: 80px;
+}
+.right_banner img {
+    width: 150px !important;
+    border-radius: 8px;
+}
+.left_banner img {
+    width: 150px !important;
+    border-radius: 8px;
+}
+@media only screen and (max-width: 1800px) {
+    .left_banner {
+        display: none !important;
+    }
+    .right_banner {
+        display: none !important;
+    }            
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\panel\ActiveAndPassiveReviewController;
 use App\Http\Controllers\panel\AdminController;
+use App\Http\Controllers\panel\BannerController;
 use App\Http\Controllers\panel\BrandController;
 use App\Http\Controllers\panel\CampaignController;
 use App\Http\Controllers\panel\CategoryController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\panel\DesignController;
 use App\Http\Controllers\panel\HomepageController;
 use App\Http\Controllers\panel\MemberController;
 use App\Http\Controllers\panel\OAuthController;
+use App\Http\Controllers\panel\OrderCargoController;
 use App\Http\Controllers\panel\OrderController;
 use App\Http\Controllers\panel\PageController;
 use App\Http\Controllers\panel\PayTRController;
@@ -59,6 +61,8 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::post('/smtp/update', [SMTPController::class, 'update'])->name('smtp.update');
     Route::view('/oauth', 'panel.general.oauth.index')->name('oauth.index');
     Route::post('/oauth/update', [OAuthController::class, 'update'])->name('oauth.update');
+    Route::view('/banner', 'panel.general.banner.index')->name('banner.index');
+    Route::post('/banner/update', [BannerController::class, 'update'])->name('banner.update');
     Route::view('/multiple/product/price', 'panel.multiple.product.price.index')->name('multiple.product.price.index');
     Route::post('/multiple/product/price/update', [ProductMultiplePriceController::class, 'update'])->name('multiple.product.price.update');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -76,12 +80,11 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/status/update', [OrderController::class, 'update'])->name('order.status.update');
     Route::get('/order/{id}/detail', [OrderController::class, 'show'])->name('order.show');
+    Route::post('/order/cargo/{id}/update', [OrderCargoController::class, 'update'])->name('order.cargo.update');
     Route::post('/text/image/store', [TextImageController::class, 'store'])->name('text.image.store');
     Route::get('/maintenance/down', [HomepageController::class, 'down'])->name('maintenance.on');
     Route::get('/maintenance/up', [HomepageController::class, 'up'])->name('maintenance.off');
     Route::view('/xml/product/insert', 'panel.xml.index')->name('xml.product.insert.index');
     Route::post('/xml/product/insert', [XmlProductInsertController::class, 'store'])->name('xml.product.insert.store');
     Route::get('/xml/sample/file/download', [XmlProductInsertController::class, 'download'])->name('xml.sample.file.download');
-    Route::view('/test', 'panel.test');
-    
 });

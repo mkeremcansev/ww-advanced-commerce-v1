@@ -26,7 +26,8 @@ class ShowcaseUpdateRequest extends FormRequest
         return [
             'title'=>'required|max:255',
             'showcases'=>'required|array|max:4',
-            'showcases.*.image'=>'required|mimes:png,jpg,jpeg',
+            'showcases.*.id'=>'required|integer',
+            'showcases.*.image'=>'nullable|mimes:png,jpg,jpeg',
             'showcases.*.category_id'=>'required|integer',
             'showcases.*.url'=>'nullable',
         ];
