@@ -4280,6 +4280,17 @@ tbody tr td:last-child {
     margin-right: 0px
 }
 
+.navbar-item {
+    margin-right: 30px
+}
+
+@media only screen and (max-width: 1400px) {
+    .navbar-item {
+        margin-right: 20px !important;
+      }
+}
+
+
 .navbar-link {
     padding: 22px 0px;
     font-weight: 500;
