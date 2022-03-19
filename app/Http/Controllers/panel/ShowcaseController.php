@@ -30,7 +30,7 @@ class ShowcaseController extends Controller
      */
     public function create()
     {
-        return view('panel.showcase.create.index');
+        return view('panel.showcase.create.index'); 
     }
 
     /**
@@ -93,15 +93,13 @@ class ShowcaseController extends Controller
             $showcase->update([
                 'title'=>$request->title
             ]);
+            $showcase->getAllShowcaseAttributes()->delete();
             foreach($request->showcases as $s){
-                $update = [
+                $showcase->getAllShowcaseAttributes()->create([
                     'category_id'=>$s['category_id'],
                     'url'=>$s['url'] ? $s['url'] : null,
-                ];
-                if(isset($s['image'])) {
-                    $update['image'] = Helper::imageUpload($s['image'], 'storage');
-                }
-                $showcase->getAllShowcaseAttributes()->findOrFail($s['id'])->update($update);
+                    'image'=>Helper::imageUpload($s['image'], 'storage'),
+                ]);
             }
         });
         return back()->with('success', __('words.updated_action_success'));

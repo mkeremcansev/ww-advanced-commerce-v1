@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Mail;
 class OrderCreate implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $user;
-    public $order;
+    protected $user;
+    protected $order;
     /**
      * Create a new job instance.
      *

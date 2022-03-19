@@ -26,7 +26,7 @@ class ShowcaseStoreRequest extends FormRequest
         return [
             'title'=>'required|max:255',
             'showcases'=>'required|array|max:4',
-            'showcases.*.image'=>'required|mimes:png,jpg,jpeg',
+            'showcases.*.image'=>'required|mimes:png,jpg,jpeg,webp',
             'showcases.*.category_id'=>'required|integer',
             'showcases.*.url'=>'nullable',
         ];

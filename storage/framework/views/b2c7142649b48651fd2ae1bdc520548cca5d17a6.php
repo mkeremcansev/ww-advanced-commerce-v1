@@ -5,7 +5,7 @@
                 <ul class="nav nav-tabs">
                         <li>
                             <a href="#top-new" class="tab-link active" data-bs-toggle="tab">
-                                <i class="icofont-star"></i>
+                                <i class="icofont-loop"></i>
                                 <span><?php echo app('translator')->get('words.new_products'); ?></span>
                             </a>
                         </li>
@@ -17,7 +17,7 @@
                         </li>
                         <li>
                             <a href="#top-disc" class="tab-link" data-bs-toggle="tab">
-                                <i class="icofont-star"></i>
+                                <i class="icofont-sale-discount"></i>
                                 <span><?php echo app('translator')->get('words.discounted_products'); ?></span>
                             </a>
                         </li>

@@ -69,6 +69,10 @@
    <script src="<?php echo e(asset('web/js/slick.js')); ?>"></script>
    <script src="<?php echo e(asset('web/js/main.js')); ?>"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <script src="<?php echo e(asset('web/story')); ?>/dist/zuck.min.js"></script>
+   <script src="<?php echo e(asset('web/story')); ?>/demo/script.js"></script>
+
    <?php echo $__env->make('web.layouts.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    <?php echo $__env->make('web.layouts.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    <?php echo $__env->yieldContent('script'); ?>

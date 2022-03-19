@@ -24,11 +24,15 @@ use App\Http\Controllers\panel\SettingController;
 use App\Http\Controllers\panel\ShowcaseController;
 use App\Http\Controllers\panel\SliderController;
 use App\Http\Controllers\panel\SMTPController;
+use App\Http\Controllers\panel\StoryController;
 use App\Http\Controllers\panel\TextImageController;
 use App\Http\Controllers\panel\ThemeController;
 use App\Http\Controllers\panel\UserReviewController;
 use App\Http\Controllers\panel\XmlProductInsertController;
+use App\Models\Product;
+use App\Models\ProductAttribute;
 use Illuminate\Support\Facades\Route;
+use Spatie\ArrayToXml\ArrayToXml;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +50,7 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::resource('/coupon', CouponController::class);
     Route::resource('/slider', SliderController::class);
     Route::resource('/showcase', ShowcaseController::class);
+    Route::resource('/story', StoryController::class);
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');
@@ -87,4 +92,11 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::view('/xml/product/insert', 'panel.xml.index')->name('xml.product.insert.index');
     Route::post('/xml/product/insert', [XmlProductInsertController::class, 'store'])->name('xml.product.insert.store');
     Route::get('/xml/sample/file/download', [XmlProductInsertController::class, 'download'])->name('xml.sample.file.download');
+    Route::get('/test', function(){
+        $xml = [];
+        $result = ArrayToXml::convert($xml, [
+            'rootElementName' => 'main',
+        ], true, 'UTF-8');
+        return response($result)->header('Content-Type', 'text/xml');
+    });
 });

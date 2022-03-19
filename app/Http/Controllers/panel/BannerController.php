@@ -10,8 +10,8 @@ class BannerController extends Controller
 {
     public function update(Request $request){
         $request->validate([
-            'right'=>'nullable|mimes:png,jpg,jpeg,gif',
-            'left'=>'nullable|mimes:png,jpg,jpeg,gif'
+            'right'=>'nullable|mimes:png,jpg,jpeg,gif,webp',
+            'left'=>'nullable|mimes:png,jpg,jpeg,gif,webp'
         ]);
         $banner = [];
         if($request->hasFile('right')){

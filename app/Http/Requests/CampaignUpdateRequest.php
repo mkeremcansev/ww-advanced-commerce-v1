@@ -27,7 +27,7 @@ class CampaignUpdateRequest extends FormRequest
             'title' => 'required|max:255',
             'products' => 'required|array|min:1',
             'products.*' => 'required|integer',
-            'image' => 'nullable|mimes:png,jpg,jpeg'
+            'image' => 'nullable|mimes:png,jpg,jpeg,webp'
         ];
     }
 }

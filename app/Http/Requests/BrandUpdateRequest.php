@@ -25,7 +25,7 @@ class BrandUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'image' => 'nullable|mimes:png,jpg,jpeg'
+            'image' => 'nullable|mimes:png,jpg,jpeg,webp'
         ];
     }
 }

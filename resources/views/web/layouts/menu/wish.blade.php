@@ -1,7 +1,7 @@
 <aside class="wishlist-sidebar">
         <div class="cart-header">
             <div class="cart-total">
-                <i class="fas fa-shopping-basket"></i>
+                <i class="fas fa-heart"></i>
                 <span>@lang('words.wishlist_count', ['count'=>Cart::instance('wishlist')->content()->count()])</span>
             </div>
             <button type="button" class="wishlist-close">

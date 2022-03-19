@@ -271,6 +271,21 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="aperture"></i><span><?php echo app('translator')->get('words.story'); ?></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.story.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.story_list'); ?></span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.story.create')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.story_create'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span><?php echo app('translator')->get('words.page'); ?></span></a>

@@ -33,7 +33,7 @@ class SettingUpdateRequest extends FormRequest
             'twitter' => 'required|max:255',
             'mail' => 'required|max:255',
             'phone' => 'required|max:255',
-            'logo' => 'mimes:jpeg,png,jpg',
+            'logo' => 'mimes:jpeg,png,jpg,webp',
             'favicon' => 'mimes:ico',
         ];
     }

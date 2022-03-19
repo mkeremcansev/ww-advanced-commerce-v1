@@ -69,6 +69,10 @@
    <script src="{{ asset('web/js/slick.js') }}"></script>
    <script src="{{ asset('web/js/main.js') }}"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <script src="{{ asset('web/story') }}/dist/zuck.min.js"></script>
+   <script src="{{ asset('web/story') }}/demo/script.js"></script>
+
    @include('web.layouts.alert')
    @include('web.layouts.script.script')
    @yield('script')

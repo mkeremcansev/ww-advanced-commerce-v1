@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="{{ asset('web/css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/orderlist.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/error.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('web/story') }}/demo/style.css">
+    <link rel="stylesheet" href="{{ asset('web/story') }}/dist/zuck.min.css">
+    <link rel="stylesheet" href="{{ asset('web/story') }}/dist/skins/snapgram.css">
+
 </head>
 <body>
     @include('web.layouts.loader')

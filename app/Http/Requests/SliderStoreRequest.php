@@ -24,7 +24,7 @@ class SliderStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'=>'required|mimes:png,jpg,jpeg'
+            'image'=>'required|mimes:png,jpg,jpeg,webp'
         ];
     }
 }

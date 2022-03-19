@@ -24,7 +24,7 @@ class DesignUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'design'=>'required|array|min:6|max:6'
+            'design'=>'required|array|min:7|max:7'
         ];
     }
 }

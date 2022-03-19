@@ -75,7 +75,6 @@ function orderStatusData($status){
             'text'=>__('words.order_delivered'),
             'value'=> 4   
         ]
-
     ];
     return $data;
 }
@@ -117,4 +116,14 @@ function showcaseColonCalc($value){
 
 function multipleProductPriceEditPercent($price, $value){
     return abs((int) ($price / 100 * $value));
+}
+
+function getStockControl($variants){
+    $value = null;
+    foreach($variants as $v){
+        foreach($v->getAllVariantAttributes as $a){
+            $value += $a->stock;
+        }
+    }
+    return $value == 0 ? true : false;
 }

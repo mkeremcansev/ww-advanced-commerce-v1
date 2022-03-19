@@ -27,7 +27,7 @@ class CampaignStoreRequest extends FormRequest
             'title' => 'required|max:255',
             'products' => 'required|array|min:1',
             'products.*' => 'required|integer',
-            'image' => 'required|mimes:png,jpg,jpeg'
+            'image' => 'required|mimes:png,jpg,jpeg,webp'
         ];
     }
 }

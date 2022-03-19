@@ -271,6 +271,21 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="dropdown nav-item" data-menu="dropdown">
+                        <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="aperture"></i><span>@lang('words.story')</span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.story.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.story_list')</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.story.create') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.story_create')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle nav-link d-flex  align-items-center" data-toggle="dropdown"><i data-feather="book-open"></i><span>@lang('words.page')</span></a>

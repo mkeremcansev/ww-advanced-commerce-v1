@@ -10,7 +10,7 @@
         <variant>
             <title>Renk</title>
             <attribute>
-                <title>Mavi</title>
+                <title>Mavi</title> 
                 <price>19</price>
                 <stock>10</stock>
             </attribute>

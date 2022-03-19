@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Showcase;
 use App\Models\Slider;
+use App\Models\Story;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -30,7 +31,7 @@ class HomepageController extends Controller
         Cache::remember('d_products', 60 * 60, function () use ($with) {
             return
                 Product::with($with)->whereStatus(1)->whereHas('getOneProductAttributes', function ($query) {
-                    $query->where('discount', '!=', null);
+                    $query->where('discount', '>', 0);
                 })->limit(10)->get();
         });
         Cache::remember('p_products', 60 * 60, function () use ($with) {
@@ -48,6 +49,9 @@ class HomepageController extends Controller
         });
         Cache::remember('showcases', 60 * 60, function(){
             return Showcase::with('getAllShowcaseAttributes.getOneShowcaseAttributeCategory')->get();
+        });
+        Cache::remember('stories', 60 * 60, function(){
+            return Story::with('getAllStoryAttributes')->get();
         });
         return view('web.homepage.index');
     }

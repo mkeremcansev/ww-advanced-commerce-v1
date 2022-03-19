@@ -1944,7 +1944,7 @@ tbody tr td:last-child {
 
 .product-disable::before {
     position: absolute;
-    content: "Out of Stock";
+    content: "Tükendi";
     top: 40%;
     left: 50%;
     z-index: 2;
@@ -1953,14 +1953,12 @@ tbody tr td:last-child {
     font-weight: 400;
     padding: 15px 0px;
     text-align: center;
-    text-transform: uppercase;
     text-shadow: var(--primary-tshadow);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: var(--white);
-    background: rgba(224, 152, 22, 0.9)
+    background: var(--primary)
 }
-
 .product-disable::after {
     position: absolute;
     content: "";
@@ -7291,7 +7289,7 @@ border-color: var(--primary);
     position: fixed;
     z-index: 4;
     margin-top: 5%;
-    left: 80px;
+    left: 80px !important;
 }
 .right_banner img {
     width: 150px !important;
@@ -7302,6 +7300,14 @@ border-color: var(--primary);
     border-radius: 8px;
 }
 @media only screen and (max-width: 1800px) {
+    .left_banner {
+        left: 40px !important;
+    }
+    .right_banner {
+        right: 40px !important;
+    }            
+}
+@media only screen and (max-width: 1600px) {
     .left_banner {
         display: none !important;
     }

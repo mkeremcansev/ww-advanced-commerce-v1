@@ -1,5 +1,5 @@
 @extends('web.layouts.extends')
-@section('title', 'asdasdas')
+@section('title', __('words.my_orders'))
 @section('description', setting('description'))
 @section('keywords', setting('keywords'))
 @section('content')

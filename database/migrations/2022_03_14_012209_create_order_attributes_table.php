@@ -22,7 +22,7 @@ class CreateOrderAttributesTable extends Migration
             $table->string('price');
             $table->integer('quantity');
             $table->string('total');
-            $table->json('variants');
+            $table->text('variants');
             $table->timestamps();
         });
     }
