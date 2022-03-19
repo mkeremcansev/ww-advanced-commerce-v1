@@ -7,7 +7,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>{{ setting('title') }} - @yield('title')</title>
+    <title>kerem -{{ setting('title') }} - @yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
     <link rel="icon" href="{{ asset(setting('favicon')) }}">
     @include('web.layouts.style.style')
