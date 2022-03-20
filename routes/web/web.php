@@ -82,6 +82,7 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::get('/forgot/password/call/{token}', [ForgotPasswordController::class, 'call'])->name('forgot.password.call');
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });
-Route::get('/test', function(){
-    return orderAccountStatus(3);
+Route::get('/cache', function(){
+    \Artisan::call('cache:clear');
+    return back()->with('success', __('words.updated_action_success'));
 });
