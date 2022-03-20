@@ -1,6 +1,10 @@
 <?php $__env->startSection('script'); ?>
     <script>
         $(document).ready(function(){
+            $('.list-filter a').on('click', function(){
+                let count = $(this).attr('variant-stock');
+                $('.custom-stock').text('<?php echo app('translator')->get("words.product_stock_count_detail", ["count"=>"'+count+'"]); ?>')
+            })
             let add_to_cart_btn = $('#add-to-cart')    
             add_to_cart_btn.on('click', function(){
                 let product_hash =  '<?php echo e($product->hash); ?>'

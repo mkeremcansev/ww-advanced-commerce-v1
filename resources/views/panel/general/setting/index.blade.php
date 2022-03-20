@@ -101,7 +101,7 @@
                                         <textarea type="text" class="form-control" name="adress">{{ setting('adress') }}</textarea>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <div class="custom-control custom-control-primary custom-switch">
                                                     <p class="mb-50">@lang('words.facebook_and_twitter_login')</p>
@@ -110,12 +110,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <div class="custom-control custom-control-primary custom-switch">
                                                     <p class="mb-50">@lang('words.email_verification_status_change')</p>
                                                     <input type="checkbox" name="verification" @if(setting('verification')) checked @endif  class="custom-control-input" id="verification">
                                                     <label class="custom-control-label" for="verification"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-control-primary custom-switch">
+                                                    <p class="mb-50">@lang('words.information_from_whatsapp')</p>
+                                                    <input type="checkbox" name="whatsapp_info" @if(setting('whatsapp_info')) checked @endif  class="custom-control-input" id="whatsapp_info">
+                                                    <label class="custom-control-label" for="whatsapp_info"></label>
                                                 </div>
                                             </div>
                                         </div>

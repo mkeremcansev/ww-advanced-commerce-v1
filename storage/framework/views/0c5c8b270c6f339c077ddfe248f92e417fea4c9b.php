@@ -84,18 +84,21 @@
                                 </ul>
                             </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <p class="custom-stock"></p>
                             <div class="details-action-group mt-4">
                                 <a class="details-wish wish w-100 custom-cursor-pointer" id="add-to-wishlist">
                                     <i class="icofont-heart"></i>
                                     <span><?php echo app('translator')->get('words.add_to_wishlist'); ?></span>
                                 </a>
                             </div>
-                            <div class="details-action-group mt-4">
-                                <a class="details-wish wish w-100 custom-cursor-pointer" target="_blank" href="<?php echo app('translator')->get('words.whatsapp_url', ['url'=>'https://wa.me', 'phone'=>setting('phone'), 'product'=>$p->title, 'current_url'=>url()->current()]); ?>">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <span><?php echo app('translator')->get('words.information_from_whatsapp'); ?></span>
-                                </a>
-                            </div>
+                            <?php if(setting('whatsapp_info')): ?>
+                                <div class="details-action-group mt-4">
+                                    <a class="details-wish wish w-100 custom-cursor-pointer" target="_blank" href="<?php echo app('translator')->get('words.whatsapp_url', ['url'=>'https://wa.me', 'phone'=>setting('phone'), 'product'=>$p->title, 'current_url'=>url()->current()]); ?>">
+                                        <i class="fab fa-whatsapp"></i>
+                                        <span><?php echo app('translator')->get('words.information_from_whatsapp'); ?></span>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                             <div class="detail-action-group mt-4">
                                 <div class="product-action">
                                     <button class="action-minus">

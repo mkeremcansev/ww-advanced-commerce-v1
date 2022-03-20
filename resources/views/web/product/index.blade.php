@@ -82,18 +82,21 @@
                                 </ul>
                             </div>
                             @endforeach
+                            <p class="custom-stock"></p>
                             <div class="details-action-group mt-4">
                                 <a class="details-wish wish w-100 custom-cursor-pointer" id="add-to-wishlist">
                                     <i class="icofont-heart"></i>
                                     <span>@lang('words.add_to_wishlist')</span>
                                 </a>
                             </div>
-                            <div class="details-action-group mt-4">
-                                <a class="details-wish wish w-100 custom-cursor-pointer" target="_blank" href="@lang('words.whatsapp_url', ['url'=>'https://wa.me', 'phone'=>setting('phone'), 'product'=>$p->title, 'current_url'=>url()->current()])">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <span>@lang('words.information_from_whatsapp')</span>
-                                </a>
-                            </div>
+                            @if (setting('whatsapp_info'))
+                                <div class="details-action-group mt-4">
+                                    <a class="details-wish wish w-100 custom-cursor-pointer" target="_blank" href="@lang('words.whatsapp_url', ['url'=>'https://wa.me', 'phone'=>setting('phone'), 'product'=>$p->title, 'current_url'=>url()->current()])">
+                                        <i class="fab fa-whatsapp"></i>
+                                        <span>@lang('words.information_from_whatsapp')</span>
+                                    </a>
+                                </div>
+                            @endif
                             <div class="detail-action-group mt-4">
                                 <div class="product-action">
                                     <button class="action-minus">

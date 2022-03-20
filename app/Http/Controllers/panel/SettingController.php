@@ -22,7 +22,8 @@ class SettingController extends Controller
             'mail' => $request->mail,
             'phone' => $request->phone,
             'oauth'=>$request->oauth ? 1 : 0,
-            'verification'=>$request->verification ? 1 : 0
+            'verification'=>$request->verification ? 1 : 0,
+            'whatsapp_info'=>$request->whatsapp_info ? 1 : 0,
         ];
         if ($request->hasFile('logo')) {
             $settings['logo'] = Helper::imageUpload($request->file('logo'), 'storage');

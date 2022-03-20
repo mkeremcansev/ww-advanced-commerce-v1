@@ -25,11 +25,9 @@
     <link rel="stylesheet" href="<?php echo e(asset('web/css/profile.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/orderlist.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/error.css')); ?>">
-
-    <link rel="stylesheet" href="<?php echo e(asset('web/story')); ?>/demo/style.css">
-    <link rel="stylesheet" href="<?php echo e(asset('web/story')); ?>/dist/zuck.min.css">
-    <link rel="stylesheet" href="<?php echo e(asset('web/story')); ?>/dist/skins/snapgram.css">
-
+    <link rel="stylesheet" href="<?php echo e(asset('web/story/demo/style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/zuck.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/skins/snapgram.css')); ?>">
 </head>
 <body>
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

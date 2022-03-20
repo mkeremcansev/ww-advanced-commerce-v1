@@ -7326,3 +7326,6 @@ border-color: var(--primary);
         display: none !important;
     }            
 }
+.custom-stock {
+    color: var(--red) !important;
+}

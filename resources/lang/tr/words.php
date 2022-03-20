@@ -343,4 +343,5 @@ return [
     'story'=>'Hikaye',
     'information_from_whatsapp'=>'Whatsapp`dan Bilgi Al',
     'whatsapp_url'=>':url/:phone?text=:product ürünü hakkında bilgi almak istiyorum. :current_url',
+    'product_stock_count_detail'=>'Bu üründen stokta :count adet kaldı.',
 ];
