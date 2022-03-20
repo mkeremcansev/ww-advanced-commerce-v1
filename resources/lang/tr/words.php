@@ -341,4 +341,6 @@ return [
     'story_edit'=>'Hikaye Düzenle',
     'story_list'=>'Hikaye Listesi',
     'story'=>'Hikaye',
+    'information_from_whatsapp'=>'Whatsapp`dan Bilgi Al',
+    'whatsapp_url'=>':url/:phone?text=:product ürünü hakkında bilgi almak istiyorum. :current_url',
 ];
