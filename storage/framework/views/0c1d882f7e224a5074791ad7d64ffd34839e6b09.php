@@ -51,6 +51,26 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-control-primary custom-switch">
+                                                    <p class="mb-50"><?php echo app('translator')->get('words.right_banner'); ?></p>
+                                                    <input type="checkbox" name="right_status" <?php if(setting('right_status')): ?> checked <?php endif; ?> class="custom-control-input" id="right_status">
+                                                    <label class="custom-control-label" for="right_status"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-control-primary custom-switch">
+                                                    <p class="mb-50"><?php echo app('translator')->get('words.left_banner'); ?></p>
+                                                    <input type="checkbox" name="left_status" <?php if(setting('left_status')): ?> checked <?php endif; ?>  class="custom-control-input" id="left_status">
+                                                    <label class="custom-control-label" for="left_status"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-float waves-light mt-2 mb-2 float-right"><?php echo app('translator')->get('words.save'); ?></button>
                                 </div>
                             </form>

@@ -13,7 +13,10 @@ class BannerController extends Controller
             'right'=>'nullable|mimes:png,jpg,jpeg,gif,webp',
             'left'=>'nullable|mimes:png,jpg,jpeg,gif,webp'
         ]);
-        $banner = [];
+        $banner = [
+            'right_status'=>$request->right_status ? true : false,
+            'left_status'=>$request->left_status ? true : false,
+        ];
         if($request->hasFile('right')){
             $banner['right'] = Helper::imageUpload($request->right, 'storage');
         }
