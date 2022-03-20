@@ -6,4 +6,4 @@
 @foreach (setting('design') as $d)
     @include('web.homepage.layouts.'.$d['title'].'')
 @endforeach
-@endsection
+@endsection 
