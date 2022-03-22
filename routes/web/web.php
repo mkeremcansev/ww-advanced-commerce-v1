@@ -84,3 +84,6 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });
 Route::get('/cache', [CacheController::class, 'update']);
+Route::get('/test', function(){
+    return 0;
+});
