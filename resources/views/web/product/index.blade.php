@@ -12,8 +12,6 @@
                     <div class="alert-info">
                         @if ($product->getAllProductHits->count())
                             <h4>@lang('words.product_show_count', ['count'=>$product->getAllProductHits->count()])</h4>
-                        @else
-                            <h4>@lang('words.not_product_show_count')</h4>
                         @endif
                     </div>
                 </div>
