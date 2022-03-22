@@ -20,7 +20,6 @@ use App\Http\Controllers\web\CacheController;
 use App\Http\Controllers\web\CampaignController;
 use App\Http\Controllers\web\CategoryController;
 use App\Http\Controllers\web\HomepageController;
-use App\Http\Controllers\web\MigrateController;
 use App\Http\Controllers\web\PageController;
 use App\Http\Controllers\web\ProductController;
 use App\Http\Controllers\web\SearchController;
@@ -85,4 +84,3 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });
 Route::get('/cache', [CacheController::class, 'update']);
-Route::get('/migrate/IjsuYjsdnasdjjw', [MigrateController::class, 'update']); 
