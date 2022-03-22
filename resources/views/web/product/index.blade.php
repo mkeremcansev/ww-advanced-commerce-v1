@@ -8,13 +8,13 @@
     <section class="inner-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="alert-info">
-                        @if ($product->getAllProductHits->count())
-                            <h4>@lang('words.product_show_count', ['count'=>$product->getAllProductHits->count()])</h4>
-                        @endif
+                @if ($product->getAllProductHits->count())
+                    <div class="col-lg-12">
+                        <div class="alert-info">
+                                <h4>@lang('words.product_show_count', ['count'=>$product->getAllProductHits->count()])</h4>
+                        </div>
                     </div>
-                </div>
+                @endif
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
