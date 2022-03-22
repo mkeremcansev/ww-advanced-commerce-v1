@@ -11,7 +11,7 @@
                 @if ($product->getAllProductHits->count())
                     <div class="col-lg-12">
                         <div class="alert-info">
-                                <h4>@lang('words.product_show_count', ['count'=>$product->getAllProductHits->count()])</h4>
+                            <h4>@lang('words.product_show_count', ['count'=>$product->getAllProductHits->count()])</h4>
                         </div>
                     </div>
                 @endif
