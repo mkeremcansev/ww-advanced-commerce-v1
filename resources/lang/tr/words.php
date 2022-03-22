@@ -346,4 +346,5 @@ return [
     'product_stock_count_detail'=>'Bu üründen stokta :count adet kaldı.',
     'product_show_count'=>'Bu ürünü şu an :count kişi inceliyor.',
     'not_product_show_count'=>'Bu ürünü şu an inceleyen bulunmuyor.',
+    'not_have_your_order'=>'Siparişiniz bulunmuyor.',
 ];

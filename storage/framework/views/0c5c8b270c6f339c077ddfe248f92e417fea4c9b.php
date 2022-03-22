@@ -8,15 +8,13 @@
     <section class="inner-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="alert-info">
-                        <?php if($product->getAllProductHits->count()): ?>
+                <?php if($product->getAllProductHits->count()): ?>
+                    <div class="col-lg-12">
+                        <div class="alert-info">
                             <h4><?php echo app('translator')->get('words.product_show_count', ['count'=>$product->getAllProductHits->count()]); ?></h4>
-                        <?php else: ?>
-                            <h4><?php echo app('translator')->get('words.not_product_show_count'); ?></h4>
-                        <?php endif; ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">

@@ -52,8 +52,8 @@
             @else
             <div class="row row-cols-12 row-cols-md-12 row-cols-lg-12 row-cols-xl-12">
                 <div class="product-card pb-5 pt-5 mt-5">
-                        <h5 class="text-center">@lang('words.campaign_not_have_product')</h5>
-                    </div>
+                    <h5 class="text-center">@lang('words.campaign_not_have_product')</h5>
+                </div>
             </div>
             @endif
              {{ $products->links('vendor.pagination.pagination') }}
