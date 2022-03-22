@@ -53,4 +53,7 @@ class Product extends Model
     public function getOneProductSeoAttributes(){
         return $this->hasOne(ProductSeoAttribute::class, 'product_id', 'id');
     }
+    public function getAllProductHits(){
+        return $this->hasMany(Hit::class, 'product_id', 'id');
+    }
 }

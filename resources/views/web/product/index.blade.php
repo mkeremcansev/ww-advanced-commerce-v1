@@ -8,6 +8,15 @@
     <section class="inner-section">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert-info">
+                        @if ($product->getAllProductHits->count())
+                            <h4>@lang('words.product_show_count', ['count'=>$product->getAllProductHits->count()])</h4>
+                        @else
+                            <h4>@lang('words.not_product_show_count')</h4>
+                        @endif
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
@@ -30,9 +39,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                <ul class="product-navigation">
-                    <h3>{{ $p->title }} </h3>
-                </ul>
+                    <ul class="product-navigation">
+                        <h3>{{ $p->title }}</h3>
+                    </ul>
                     <div class="details-content">
                         <div class="details-meta">
                             <p>@lang('words.category')<span>{{ $product->getOneProductCategory->title }}</span></p>

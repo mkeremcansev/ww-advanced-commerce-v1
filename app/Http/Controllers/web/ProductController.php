@@ -19,10 +19,12 @@ class ProductController extends Controller
             'getOneProductBrand',
             'getOneProductCategory',
             'getAllProductReviews.getOneReviewUser',
-            'getAllProductAuthReviews'
+            'getAllProductAuthReviews',
+            'getAllProductHits',
         ])->whereHas('getOneProductAttributes', function ($q) use ($slug) {
             $q->where('slug', $slug);
         })->firstOrFail();
+        $product->getAllProductHits()->create(['hit'=>1]);
         return view('web.product.index', ['product' => $product]);
     }
 }

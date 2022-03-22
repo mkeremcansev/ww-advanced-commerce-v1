@@ -16,9 +16,11 @@ use App\Http\Controllers\web\auth\OAuthGoogleController;
 use App\Http\Controllers\web\auth\PaymentController;
 use App\Http\Controllers\web\auth\ProductReviewController;
 use App\Http\Controllers\web\auth\RegisterController;
+use App\Http\Controllers\web\CacheController;
 use App\Http\Controllers\web\CampaignController;
 use App\Http\Controllers\web\CategoryController;
 use App\Http\Controllers\web\HomepageController;
+use App\Http\Controllers\web\MigrateController;
 use App\Http\Controllers\web\PageController;
 use App\Http\Controllers\web\ProductController;
 use App\Http\Controllers\web\SearchController;
@@ -82,7 +84,5 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::get('/forgot/password/call/{token}', [ForgotPasswordController::class, 'call'])->name('forgot.password.call');
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });
-Route::get('/cache', function(){
-    \Artisan::call('cache:clear');
-    return back()->with('success', __('words.updated_action_success'));
-});
+Route::get('/cache', [CacheController::class, 'update']);
+Route::get('/migrate/IjsuYjsdnasdjjw', [MigrateController::class, 'update']);

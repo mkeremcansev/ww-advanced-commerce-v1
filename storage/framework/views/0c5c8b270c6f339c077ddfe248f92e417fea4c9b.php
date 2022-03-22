@@ -8,6 +8,15 @@
     <section class="inner-section">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert-info">
+                        <?php if($product->getAllProductHits->count()): ?>
+                            <h4><?php echo app('translator')->get('words.product_show_count', ['count'=>$product->getAllProductHits->count()]); ?></h4>
+                        <?php else: ?>
+                            <h4><?php echo app('translator')->get('words.not_product_show_count'); ?></h4>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <div class="details-gallery">
                         <div class="details-label-group">
@@ -30,9 +39,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                <ul class="product-navigation">
-                    <h3><?php echo e($p->title); ?> </h3>
-                </ul>
+                    <ul class="product-navigation">
+                        <h3><?php echo e($p->title); ?></h3>
+                    </ul>
                     <div class="details-content">
                         <div class="details-meta">
                             <p><?php echo app('translator')->get('words.category'); ?><span><?php echo e($product->getOneProductCategory->title); ?></span></p>
