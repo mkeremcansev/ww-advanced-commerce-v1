@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('campaign:attribute')->hourly();
+        $schedule->command('hit:update')->everyMinute();
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Jobs\HitUpdate;
 use App\Models\Hit;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class HitUpdateCommand extends Command
 {
@@ -41,5 +42,6 @@ class HitUpdateCommand extends Command
     public function handle()
     {
         Hit::where('created_at', '<', Carbon::now()->subMinute())->delete();
+        Log::info($this->description);
     }
 }
