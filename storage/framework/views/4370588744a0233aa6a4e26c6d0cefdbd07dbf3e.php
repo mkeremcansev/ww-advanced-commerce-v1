@@ -36,6 +36,7 @@
                                                 <th><?php echo app('translator')->get('words.user'); ?></th>
                                                 <th><?php echo app('translator')->get('words.order_adress'); ?></th>
                                                 <th><?php echo app('translator')->get('words.order_phone'); ?></th>
+                                                <th><?php echo app('translator')->get('words.payment_method_main'); ?></th>
                                                 <th><?php echo app('translator')->get('words.status'); ?></th>
                                                 <th><?php echo app('translator')->get('words.actions'); ?></th>
                                             </tr>
@@ -49,6 +50,7 @@
                                                     <td><?php echo app('translator')->get('words.name_surname', ['name'=>$o->getOneUsers->name, 'surname'=>$o->getOneUsers->surname]); ?></td>
                                                     <td><?php echo e($o->adress); ?></td>
                                                     <td><?php echo e($o->phone); ?></td>
+                                                    <td><?php echo e($o->getOneOrderPaymentMethods->title); ?></td>
                                                     <td>
                                                             <select class="form-control" onchange="orderStatus(<?php echo e($o->id); ?>, this.value)">
                                                                 <?php $__currentLoopData = orderStatusData($o->status); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

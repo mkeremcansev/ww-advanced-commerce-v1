@@ -9,7 +9,7 @@
         
         <div class="row">
             <div class="col-lg-12">
-                <a class="checkout-and-go-btn mt-1 mb-3 w-100 text-center" href="{{ route('web.accout.order') }}">
+                <a class="checkout-and-go-btn mt-1 mb-3 w-100 text-center" href="{{ route('web.account.order') }}">
                     <span class="checkout-label">@lang('words.my_orders')</span>
                 </a>
             </div>

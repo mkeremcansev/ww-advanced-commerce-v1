@@ -64,11 +64,11 @@
                     <a href="{{ route('web.shopping.cart.destroy') }}" class="clear-and-update-btn">@lang('words.shopping_cart_clear')</a>
                 </div>
                 @if (Session::get('coupon'))
-                    <a class="checkout-and-go-btn" href="{{ route('web.checkout.index') }}">
+                    <a class="checkout-and-go-btn" href="{{ route('web.payment.method') }}">
                         <span class="checkout-label">@lang('words.go_to_pay_coupon', ['price'=>getMoneyOrder(getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) - Session::get('coupon')['price']), 'code'=>Session::get('coupon')['code']])</span>
                     </a>
                 @else
-                    <a class="checkout-and-go-btn" href="{{ route('web.checkout.index') }}">
+                    <a class="checkout-and-go-btn" href="{{ route('web.payment.method') }}">
                         <span class="checkout-label">@lang('words.go_to_pay', ['price'=>getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal())])</span>
                     </a>
                 @endif

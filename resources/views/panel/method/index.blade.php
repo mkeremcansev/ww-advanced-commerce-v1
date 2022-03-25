@@ -1,8 +1,7 @@
 @extends('panel.layouts.extends')
 @section('title')
-    @lang('words.order_list')
+    @lang('words.payment_methods')
 @endsection
-@include('panel.order.script.script')
 @section('content')
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -23,45 +22,29 @@
                             @endif
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title">@lang('words.order_list')</h4>
+                                    <h4 class="card-title">@lang('words.payment_methods')</h4>
                                 </div>
                                 <div class="card-datatable">
                                     <table id="category_list_table" class="dt-responsive table">
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>@lang('words.order_number_1')</th>
-                                                <th>@lang('words.total_price')</th>
-                                                <th>@lang('words.user')</th>
-                                                <th>@lang('words.order_adress')</th>
-                                                <th>@lang('words.order_phone')</th>
-                                                <th>@lang('words.payment_method_main')</th>
-                                                <th>@lang('words.status')</th>
+                                                <th>@lang('words.title')</th>
+                                                <th>@lang('words.price')</th>
                                                 <th>@lang('words.actions')</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $o)
+                                            @foreach ($methods as $m)
                                                 <tr>
                                                     <td></td>
-                                                    <td>{{ $o->id }}</td>
-                                                    <td>{{ getMoneyOrder($o->total) }}</td>
-                                                    <td>@lang('words.name_surname', ['name'=>$o->getOneUsers->name, 'surname'=>$o->getOneUsers->surname])</td>
-                                                    <td>{{ $o->adress }}</td>
-                                                    <td>{{ $o->phone }}</td>
-                                                    <td>{{ $o->getOneOrderPaymentMethods->title }}</td>
-                                                    <td>
-                                                            <select class="form-control" onchange="orderStatus({{ $o->id }}, this.value)">
-                                                                @foreach (orderStatusData($o->status) as $key => $s)
-                                                                    <option value="{{ $s['value'] }}" @if($s['status']) selected @endif>{{ $s['text'] }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                    </td>
+                                                    <td>{{ $m->title }}</td>
+                                                    <td>@lang('words.plus_price', ['price'=>getMoneyOrder($m->price)])</td>
                                                     <td>
                                                         <div class="btn-group">
                                                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('words.actions')</button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                <a class="dropdown-item text-success" href="{{ route('panel.order.show', $o->id) }}">@lang('words.detail')</a>
+                                                                <a class="dropdown-item text-success" href="{{ route('panel.method.edit', $m->id) }}">@lang('words.edit')</a>
                                                             </div>
                                                         </div>
                                                     </td>

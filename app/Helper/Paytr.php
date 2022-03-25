@@ -23,7 +23,7 @@ class Paytr
         $user_name = __('words.name_surname', ['name'=>Auth::user()->name, 'surname'=>Auth::user()->surname]);
         $user_address = $adress;
         $user_phone = $phone;
-        $merchant_ok_url = route('web.accout.order');
+        $merchant_ok_url = route('web.account.order');
         $merchant_fail_url = route('web.index');
         $cart_items = [];
         foreach (Cart::instance('cart')->content() as $c) {

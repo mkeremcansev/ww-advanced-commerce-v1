@@ -26,6 +26,8 @@ class CreateOrdersTable extends Migration
             $table->string('cargo_code')->nullable();
             $table->unsignedBigInteger('cargo_id')->nullable();
             $table->foreign('cargo_id')->references('id')->on('cargos')->cascadeOnDelete();
+            $table->unsignedBigInteger('payment_method_id')->nullable();
+            $table->foreign('payment_method_id')->references('id')->on('payment_methods')->cascadeOnDelete();
             $table->timestamps();
         });
     }

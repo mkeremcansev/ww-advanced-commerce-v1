@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::with('getOneUsers')->get();
+        $orders = Order::with(['getOneUsers', 'getOneOrderPaymentMethods'])->get();
         return view('panel.order.index', ['orders'=>$orders]);
     }
 

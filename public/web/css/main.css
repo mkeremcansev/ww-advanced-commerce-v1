@@ -7329,3 +7329,8 @@ border-color: var(--primary);
 .custom-stock {
     color: var(--red) !important;
 }
+
+.payment-last-icon {
+    font-size: 200px !important;
+    color: var(--primary);
+}

@@ -97,6 +97,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.banner'); ?></span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.method.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.payment_methods'); ?></span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.paytr.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.paytr'); ?></span>

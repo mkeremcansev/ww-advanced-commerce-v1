@@ -15,6 +15,7 @@ use App\Http\Controllers\panel\OAuthController;
 use App\Http\Controllers\panel\OrderCargoController;
 use App\Http\Controllers\panel\OrderController;
 use App\Http\Controllers\panel\PageController;
+use App\Http\Controllers\panel\PaymentMethodController;
 use App\Http\Controllers\panel\PayTRController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
@@ -70,6 +71,9 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::post('/banner/update', [BannerController::class, 'update'])->name('banner.update');
     Route::view('/multiple/product/price', 'panel.multiple.product.price.index')->name('multiple.product.price.index');
     Route::post('/multiple/product/price/update', [ProductMultiplePriceController::class, 'update'])->name('multiple.product.price.update');
+    Route::get('/methods', [PaymentMethodController::class, 'index'])->name('method.index');
+    Route::get('/method/{id}', [PaymentMethodController::class, 'edit'])->name('method.edit');
+    Route::post('/method/{id}', [PaymentMethodController::class, 'update'])->name('method.update');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/{id}/delete', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::get('/member', [MemberController::class, 'index'])->name('member.index');

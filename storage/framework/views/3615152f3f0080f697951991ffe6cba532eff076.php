@@ -49,7 +49,7 @@
            <div class="row">
                <div class="col-12">
                    <div class="footer-bottom">
-                       <p class="footer-copytext">© All Copyrights Reserved by <a href="" class="custom-general-white">Canseworks</a></p>
+                       <p class="footer-copytext">© All Copyrights Reserved by <a href="https://canseworks.net" class="custom-general-white">Canseworks</a></p>
                    </div>
                </div>
            </div>

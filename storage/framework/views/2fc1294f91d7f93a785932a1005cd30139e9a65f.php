@@ -1,4 +1,4 @@
-@section('script')
+<?php $__env->startSection('script'); ?>
     <script>
         let go_to_payment = $('#go-to-payment')
         go_to_payment.on('click', function(e){
@@ -8,7 +8,7 @@
             let phone = $('#phone').val()
             $.ajax({
                     method: 'POST',
-                    url: '{{ route("web.checkout.store") }}',
+                    url: '<?php echo e(route("web.checkout.store")); ?>',
                     data: {adress:adress, phone:phone},
                     dataType: 'json',
                     success: function(response){
@@ -17,17 +17,17 @@
                             Swal.fire({
                                 text: response.message,
                                 icon: 'error',
-                                confirmButtonText: '@lang("words.okey")'
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                             })
                         } else if(response.status == 200){
                             go_to_payment.addClass('custom-disabled')
-                            location.href = '{{ route("web.payment.create") }}'
+                            location.href = '<?php echo e(route("web.payment.create")); ?>'
                         }
                         else if(response.status == 202){
                             Swal.fire({
                                 text: response.message,
                                 icon: 'error',
-                                confirmButtonText: '@lang("words.okey")'
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                             }).then((result) => {
                                 result.isConfirmed ? location.reload() : location.reload()
                             })
@@ -36,18 +36,18 @@
                             Swal.fire({
                                 text: response.message,
                                 icon: 'error',
-                                confirmButtonText: '@lang("words.okey")'
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                             }).then((result) => {
                                 result.isConfirmed ? location.reload() : location.reload()
                             })
                         }
                         else if(response.status == 205){
                             Swal.fire({
-                                text: '@lang("words.order_action_success")',
+                                text: '<?php echo app('translator')->get("words.order_action_success"); ?>',
                                 icon: 'success',
-                                confirmButtonText: '@lang("words.okey")'
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                             }).then((result) => {
-                                result.isConfirmed ? location.href = '{{ route("web.account.order") }}' : location.href = '{{ route("web.account.order") }}'
+                                result.isConfirmed ? location.href = '<?php echo e(route("web.account.order")); ?>' : location.href = '<?php echo e(route("web.account.order")); ?>'
                             })
                         }
                     },
@@ -57,7 +57,7 @@
                         Swal.fire({
                             text: getValidateMessage(response),
                             icon: 'error',
-                            confirmButtonText: '@lang("words.okey")'
+                            confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                         })
                     }
                 })
@@ -68,7 +68,7 @@
             let code = $('#code').val()
             $.ajax({
                     method: 'POST',
-                    url: '{{ route("web.coupon.store") }}',
+                    url: '<?php echo e(route("web.coupon.store")); ?>',
                     data: {code:code},
                     dataType: 'json',
                     success: function(response){
@@ -76,7 +76,7 @@
                             Swal.fire({
                                 text: response.message,
                                 icon: 'success',
-                                confirmButtonText: '@lang("words.okey")',
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>',
                             }).then((result) => {
                                 result.isConfirmed ? location.reload() : location.reload()
                             })
@@ -84,7 +84,7 @@
                             Swal.fire({
                                 text: response.message,
                                 icon: 'error',
-                                confirmButtonText: '@lang("words.okey")',
+                                confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>',
                             })
                         }
                         
@@ -93,10 +93,10 @@
                         Swal.fire({
                             text: getValidateMessage(response),
                             icon: 'error',
-                            confirmButtonText: '@lang("words.okey")'
+                            confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                         })
                     }
                 })
         })
     </script>
-@endsection
+<?php $__env->stopSection(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/checkout/script/script.blade.php ENDPATH**/ ?>

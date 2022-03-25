@@ -14,12 +14,14 @@ use App\Http\Controllers\web\auth\LogoutController;
 use App\Http\Controllers\web\auth\OAuthFacebookController;
 use App\Http\Controllers\web\auth\OAuthGoogleController;
 use App\Http\Controllers\web\auth\PaymentController;
+use App\Http\Controllers\web\auth\PaymentMethodController;
 use App\Http\Controllers\web\auth\ProductReviewController;
 use App\Http\Controllers\web\auth\RegisterController;
 use App\Http\Controllers\web\CacheController;
 use App\Http\Controllers\web\CampaignController;
 use App\Http\Controllers\web\CategoryController;
 use App\Http\Controllers\web\HomepageController;
+use App\Http\Controllers\web\MigrateController;
 use App\Http\Controllers\web\PageController;
 use App\Http\Controllers\web\ProductController;
 use App\Http\Controllers\web\SearchController;
@@ -58,13 +60,16 @@ Route::name('web.')->group(function () {
 Route::name('web.')->middleware(setting('verification') ? ['auth', 'verified', 'role:admin|member'] : ['auth', 'role:admin|member'])->group(function () {
     Route::post('/product/review/store', [ProductReviewController::class, 'store'])->name('product.review.store');
     Route::view('/account', 'web.account.index')->name('account.index');
-    Route::view('/account/order', 'web.account.order.index')->name('accout.order');
+    Route::view('/account/order', 'web.account.order.index')->name('account.order');
     Route::post('/account/password/change/update', [AccountPasswordController::class, 'update'])->name('account.password.change.update');
     Route::post('/account/phone/store', [AccountPhoneController::class, 'store'])->name('account.phone.store');
     Route::post('/account/adress/store', [AccountAdressController::class, 'store'])->name('account.adress.store');
     Route::post('/account/attribute/destroy', [AccountAttributeController::class, 'destroy'])->name('account.attribute.destroy');
     Route::post('/account/review/destroy', [AccountReviewController::class, 'destroy'])->name('account.review.destroy');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::get('/payment/method', [PaymentMethodController::class, 'index'])->name('payment.method');
+    Route::get('/payment/credit', [PaymentMethodController::class, 'credit'])->name('payment.credit');
+    Route::get('/payment/door', [PaymentMethodController::class, 'door'])->name('payment.door');
     Route::post('/coupon/store', [CouponController::class, 'store'])->name('coupon.store');
     Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
     Route::get('/payment/create', [PaymentController::class, 'index'])->name('payment.create');
@@ -84,3 +89,4 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });
 Route::get('/cache', [CacheController::class, 'update']);
+Route::get('/migrate/update/gGn9LOtfvfRKJLk', [MigrateController::class, 'update']);

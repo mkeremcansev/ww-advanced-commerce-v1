@@ -97,6 +97,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.banner')</span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.method.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.payment_methods')</span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.paytr.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.paytr')</span>

@@ -9,8 +9,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="product-details-frame">
+                    <h3 class="mb-5 text-center">@lang('words.payment_method', ['method'=>$method->title])</h3>
                     <div class="row">
                         <div class="col-lg-6">
+                            
                             <div class="form-group">
                                 <label class="form-label">@lang('words.adress')</label>
                                 <select class="form-select" id="adress">
@@ -63,6 +65,7 @@
                                         <i class="icofont-arrow-right"></i>
                                             <span>
                                                 @lang('words.go_to_payment', ['price'=>getMoneyOrder(getCheckoutMoneyOrder(Cart::instance('cart')->subtotal()) - Session::get('coupon')['price'])])
+                                                @if($method->price) @lang('words.plus_price', ['price'=>getMoneyOrder($method->price)]) @endif
                                             </span>
                                     </a>
                                 </div>
@@ -70,11 +73,13 @@
                                 <div class="details-action-group mt-4">
                                     <a class="details-wish wish w-100 custom-cursor-pointer" id="go-to-payment">
                                         <i class="icofont-arrow-right"></i>
-                                        <span>@lang('words.go_to_payment', ['price'=>getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal())])</span>
+                                        <span>
+                                            @lang('words.go_to_payment', ['price'=>getMoneyOrderShoppingCart(Cart::instance('cart')->subtotal())])
+                                            @if($method->price) @lang('words.plus_price', ['price'=>getMoneyOrder($method->price)]) @endif
+                                        </span>
                                     </a>
                                 </div>
                             @endif
-                            
                     </div>
                 </div>
             </div>
