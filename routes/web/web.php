@@ -88,8 +88,5 @@ Route::name('web.')->middleware('guest')->group(function () {
     Route::get('/forgot/password/call/{token}', [ForgotPasswordController::class, 'call'])->name('forgot.password.call');
     Route::post('/forgot/password/update', [ForgotPasswordController::class, 'update'])->name('forgot.password.update');
 });
-Route::group(function(){
-    Route::get('/cache', [CacheController::class, 'update']);
-    Route::get('/migrate/update/gGn9LOtfvfRKJLk', [MigrateController::class, 'update']);
-});
-
+Route::get('/cache', [CacheController::class, 'update']);
+Route::get('/migrate/update/gGn9LOtfvfRKJLk', [MigrateController::class, 'update']);
