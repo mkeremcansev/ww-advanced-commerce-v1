@@ -57,3 +57,36 @@ Did you mean one of these?
 #4 C:\\laragon\\www\\eticaretim\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #5 {main}
 "} 
+[2022-03-25 22:03:00] local.ERROR: Illuminate\Routing\Router::group(): Argument #1 ($attributes) must be of type array, Closure given, called in C:\laragon\www\eticaretim\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php on line 261 {"exception":"[object] (TypeError(code: 0): Illuminate\\Routing\\Router::group(): Argument #1 ($attributes) must be of type array, Closure given, called in C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php on line 261 at C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php:375)
+[stacktrace]
+#0 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Object(Closure))
+#1 C:\\laragon\\www\\eticaretim\outes\\web\\web.php(94): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#2 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('C:\\\\laragon\\\\www\\\\...')
+#3 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\laragon\\\\www\\\\...')
+#4 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('C:\\\\laragon\\\\www\\\\...')
+#5 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'C:\\\\laragon\\\\www\\\\...')
+#6 C:\\laragon\\www\\eticaretim\\app\\Providers\\RouteServiceProvider.php(47): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\laragon\\\\www\\\\...')
+#7 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#8 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#10 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#11 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#12 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#13 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#14 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#15 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#16 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#17 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#18 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#19 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#20 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#21 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#22 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 27)
+#23 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#24 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#25 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#26 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#27 C:\\laragon\\www\\eticaretim\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#28 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 {main}
+"} 
