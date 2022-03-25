@@ -24,7 +24,7 @@ class TextImageStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => 'required|mimes:png,jpg,jpeg,webp'
+            'file' => 'required|image|mimes:png,jpg,jpeg,webp'
         ];
     }
 }

@@ -24,7 +24,7 @@ class SliderUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable|mimes:png,jpg,jpeg,webp'
+            'image' => 'nullable|image|mimes:png,jpg,jpeg,webp'
         ];
     }
 }

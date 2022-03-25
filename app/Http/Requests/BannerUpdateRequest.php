@@ -24,8 +24,8 @@ class BannerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'right'=>'nullable|mimes:png,jpg,jpeg,gif,webp',
-            'left'=>'nullable|mimes:png,jpg,jpeg,gif,webp'
+            'right'=>'nullable|image|mimes:png,jpg,jpeg,gif,webp',
+            'left'=>'nullable|image|mimes:png,jpg,jpeg,gif,webp'
         ];
     }
 }

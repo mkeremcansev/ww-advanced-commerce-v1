@@ -26,7 +26,7 @@ class StoryStoreRequest extends FormRequest
         return [
             'title'=>'required|max:255',
             'stories'=>'required|array',
-            'stories.*.image'=>'required|mimes:png,jpg,jpeg,webp',
+            'stories.*.image'=>'required|image|mimes:png,jpg,jpeg,webp',
         ];
     }
 }
