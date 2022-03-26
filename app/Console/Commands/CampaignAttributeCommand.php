@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Models\CampaignAttribute;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 
 class CampaignAttributeCommand extends Command
 {
@@ -42,6 +41,5 @@ class CampaignAttributeCommand extends Command
         CampaignAttribute::whereHas('getOneCampaignAttributeProducts', function ($query) {
             $query->whereStatus(0);
         })->delete();
-        Log::info($this->description);
     }
 }
