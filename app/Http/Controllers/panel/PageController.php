@@ -8,6 +8,7 @@ use App\Http\Requests\PageStoreRequest;
 use App\Http\Requests\PageUpdateRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -42,7 +43,7 @@ class PageController extends Controller
     {
         Page::create([
             'title' => $request->title,
-            'slug' => Helper::slug($request->title),
+            'slug' => Str::slug($request->title),
             'description' => $request->description,
         ]);
         return back()->with('success', __('words.created_action_success'));

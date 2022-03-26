@@ -24,7 +24,7 @@ class XmlProductInsertController extends Controller
                 ]);
                 $product->getOneProductAttributes()->create([
                     'title' => $object->title,
-                    'slug' => Helper::slug($object->title),
+                    'slug' => Str::slug($object->title),
                     'description' => $object->description,
                     'hash' => Str::random(15),
                     'price' => $object->price,

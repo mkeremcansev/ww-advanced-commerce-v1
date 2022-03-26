@@ -58,7 +58,7 @@ class ProductController extends Controller
             ]);
             $product->getOneProductAttributes()->create([
                 'title' => $request->title,
-                'slug' => Helper::slug($request->title),
+                'slug' => Str::slug($request->title),
                 'description' => $request->description,
                 'hash' => Str::random(15),
                 'price' => $request->price,
@@ -142,7 +142,7 @@ class ProductController extends Controller
             ]);
             $product->getOneProductAttributes()->update([
                 'title' => $request->title,
-                'slug' => Helper::slug($request->title),
+                'slug' => Str::slug($request->title),
                 'description' => $request->description,
                 'hash' => Str::random(15),
                 'price' => $request->price,
