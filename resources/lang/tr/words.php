@@ -363,7 +363,7 @@ return [
     'new_user_update'=>'Yeni :action güncelleme ":email"',
     'new_oauth_register'=>'Yeni OAuth ":type" kayıt ":email"',
     'new_oauth_login'=>'Yeni OAuth ":type" giriş ":email"',
-    'new_success_order'=>'Yeni başarılı ":type" sipariş ":email',
+    'new_success_order'=>'Yeni başarılı ":type" sipariş ":email"',
     'door_pay'=>'Kapıda Ödeme',
     'credit_card'=>'Kredi Kartı',
 ];
