@@ -89,6 +89,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.theme'); ?></span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.log.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.logs'); ?></span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.design.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.homepage_design'); ?></span>

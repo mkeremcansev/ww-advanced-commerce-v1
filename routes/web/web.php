@@ -34,7 +34,6 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 */
-
 Route::prefix('/email')->middleware('unverified')->group(function () {
     Route::view('/verify', 'vendor.notifications.unverified')->middleware(['auth', 'unverified'])->name('verification.notice');
     Route::get('/verification/{id}/{hash}', [AccountVerificationController::class, 'call'])->middleware(['auth', 'signed', 'unverified'])->name('verification.verify');

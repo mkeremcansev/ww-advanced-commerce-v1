@@ -353,4 +353,9 @@ return [
     'product_show_count'=>'Bu ürünü şu an :count kişi inceliyor.',
     'not_product_show_count'=>'Bu ürünü şu an inceleyen bulunmuyor.',
     'not_have_your_order'=>'Siparişiniz bulunmuyor.',
+    'logs'=>'Loglar',
+    'date'=>'Tarih',
+    'download'=>'İndir',
+    'file_clear'=>'Dosyayı Temizle',
+    'all_files_delete'=>'Tüm Dosyaları Sil',
 ];

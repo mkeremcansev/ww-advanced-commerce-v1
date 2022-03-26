@@ -52,6 +52,7 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::resource('/slider', SliderController::class);
     Route::resource('/showcase', ShowcaseController::class);
     Route::resource('/story', StoryController::class);
+    Route::get('/log', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('log.index');
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');

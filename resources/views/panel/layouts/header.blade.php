@@ -89,6 +89,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.theme')</span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.log.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.logs')</span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.design.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.homepage_design')</span>
