@@ -1,4 +1,4 @@
-@section('script')
+<?php $__env->startSection('script'); ?>
     <script>
         $(document).ready(function(){
             let add_to_register_btn = $('#add-to-register')
@@ -10,7 +10,7 @@
                 let repeat = $('#repeat').val()
                 $.ajax({
                     method: 'POST',
-                    url: '{{ route("web.user.register.store") }}',
+                    url: '<?php echo e(route("web.user.register.store")); ?>',
                     data: {
                         name:name,
                         surname:surname,
@@ -24,20 +24,20 @@
                         Swal.fire({
                             text: response.message,
                             icon: 'success',
-                            confirmButtonText: '@lang("words.okey")',
+                            confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>',
                         }).then((result) => {
-                            result.isConfirmed ? location.href = '{{ route("web.account.index") }}' : location.href = '{{ route("web.account.index") }}'
+                            result.isConfirmed ? location.href = '<?php echo e(route("web.account.index")); ?>' : location.href = '<?php echo e(route("web.account.index")); ?>'
                         })
                     },
                     error: function(response){
                         Swal.fire({
                             text: getValidateMessage(response),
                             icon: 'error',
-                            confirmButtonText: '@lang("words.okey")'
+                            confirmButtonText: '<?php echo app('translator')->get("words.okey"); ?>'
                         })
                     }
                 })
             })
         })
     </script>
-@endsection
+<?php $__env->stopSection(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/register/script/script.blade.php ENDPATH**/ ?>

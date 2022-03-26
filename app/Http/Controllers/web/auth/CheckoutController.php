@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
@@ -159,6 +160,7 @@ class CheckoutController extends Controller
                 }
                 $coupon ? $coupon->decrement('usage', 1) : null;
             });
+            Log::info(__('words.new_success_order', ['type'=>__('words.door_pay') ,'email'=>Auth::user()->email]));
             Session::forget('coupon');
             Session::forget('payment_method_id');
             Cart::instance('cart')->destroy();

@@ -358,4 +358,12 @@ return [
     'download'=>'İndir',
     'file_clear'=>'Dosyayı Temizle',
     'all_files_delete'=>'Tüm Dosyaları Sil',
+    'new_register'=>'Yeni kayıt ":email"',
+    'new_login'=>'Yeni giriş ":email"',
+    'new_user_update'=>'Yeni :action güncelleme ":email"',
+    'new_oauth_register'=>'Yeni OAuth ":type" kayıt ":email"',
+    'new_oauth_login'=>'Yeni OAuth ":type" giriş ":email"',
+    'new_success_order'=>'Yeni başarılı ":type" sipariş ":email',
+    'door_pay'=>'Kapıda Ödeme',
+    'credit_card'=>'Kredi Kartı',
 ];

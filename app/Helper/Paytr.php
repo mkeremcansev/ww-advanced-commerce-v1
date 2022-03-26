@@ -9,6 +9,7 @@ use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class Paytr
@@ -105,6 +106,7 @@ class Paytr
             $order->update([
                 'status'=>1
             ]);
+            Log::info(__('words.new_success_order', ['type'=>__('words.credit_card') ,'email'=>User::findOrFail($order->user_id)->email]));
             dispatch(new OrderCreate(User::findOrFail($order->user_id), $order));
         } else {
             return redirect()->route('web.index');

@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
 
@@ -26,6 +27,7 @@ class OAuthFacebookController extends Controller
         if($u) {
             Auth::login($u);
             $request->session()->flash('success', __('words.login_action_success'));
+            Log::info(__('words.new_oauth_login', ['type'=>__('words.login_with_facebook'), 'email'=>$u->email]));
             return redirect()->route('web.account.index');
         }else {
             $n = User::create([
@@ -38,6 +40,7 @@ class OAuthFacebookController extends Controller
             ]);
             $n->assignRole('member');
             Auth::login($n);
+            Log::info(__('words.new_oauth_register', ['type'=>__('words.login_with_facebook'), 'email'=>$n->email]));
             $request->session()->flash('success', __('words.login_action_success'));
             return redirect()->route('web.account.index');
         }
