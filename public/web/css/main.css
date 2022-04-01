@@ -7334,3 +7334,16 @@ border-color: var(--primary);
     font-size: 200px !important;
     color: var(--primary);
 }
+
+.header-form .typeahead {
+    width: auto !important;
+    margin-top: 5px !important;
+}
+.typeahead li {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+
+}
+.typeahead li a{
+    border-radius: 5px !important;
+}

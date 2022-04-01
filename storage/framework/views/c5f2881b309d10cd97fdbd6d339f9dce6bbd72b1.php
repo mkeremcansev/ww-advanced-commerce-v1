@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('web/story/demo/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/zuck.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/skins/snapgram.css')); ?>">
+    
 </head>
 <body>
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -76,7 +77,7 @@
                 <?php endif; ?>
                 
                 <form class="header-form" method="GET" action="<?php echo e(route('web.search.products.store')); ?>">
-                    <input type="text" name="search" id="search_input_typing" placeholder="">
+                    <input type="text" name="search" id="search_input_typing" autocomplete="off" placeholder="">
                     <button type="submit">
                         <i class="fas fa-search"></i>
                     </button>

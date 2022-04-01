@@ -1,4 +1,21 @@
    <script>
+       $('#search_input_typing').on('keyup', function(){
+            $('#search_input_typing').typeahead({
+                source: function (search, process) {
+                    return $.get("<?php echo e(route('web.search.auto')); ?>", {
+                        search: search
+                    }, function (data) {
+                        let products = []
+                        for(var i = 0; i < data.length; i++){
+                            products.push(data[i].get_one_product_attributes.title)
+                        }
+                        return process(products);
+                        
+                    });
+                }
+            });
+       })
+            
         let words = [
             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 "<?php echo e($r->title); ?>".replace(/&amp;/g, '&'),

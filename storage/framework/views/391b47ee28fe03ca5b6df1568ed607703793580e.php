@@ -3,7 +3,7 @@
 <?php $__env->startSection('description', setting('description')); ?>
 <?php $__env->startSection('keywords', setting('keywords')); ?>
 <?php $__env->startSection('content'); ?>
-        <section class="inner-section shop-part">
+    <section class="inner-section shop-part">
         <div class="container">
             <?php if($products->count()): ?>
                 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">

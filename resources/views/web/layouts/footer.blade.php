@@ -2,8 +2,8 @@
        <div class="container">
            <div class="row">
                <div class="col-sm-6 col-xl-4">
-                   <div class="footer-widget"><a class="footer-logo" href="#"><img
-                               src="{{ asset('web') }}/images/logo.png" alt="logo"></a>
+                   <div class="footer-widget"><a class="footer-logo" href="{{ route('web.index') }}"><img
+                               src="{{ asset(setting('logo')) }}" alt="{{ setting('title') }}"></a>
                        <p class="footer-desc">{{ setting('description') }}</p>
                        <ul class="footer-social">
                            <li><a class="icofont-facebook" href="{{ setting('facebook') }}"></a></li>
@@ -72,6 +72,7 @@
    <script src="{{ asset('web/story/dist/zuck.min.js') }}"></script>
    <script src="{{ asset('web/story/demo/script.js') }}"></script>
    @include('web.layouts.alert')
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
    @include('web.layouts.script.script')
    @yield('script')
    </body>

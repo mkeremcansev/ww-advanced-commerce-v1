@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('web/story/demo/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/story/dist/zuck.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web/story/dist/skins/snapgram.css') }}">
+    
 </head>
 <body>
     @include('web.layouts.loader')
@@ -76,7 +77,7 @@
                 @endauth
                 
                 <form class="header-form" method="GET" action="{{ route('web.search.products.store') }}">
-                    <input type="text" name="search" id="search_input_typing" placeholder="">
+                    <input type="text" name="search" id="search_input_typing" autocomplete="off" placeholder="">
                     <button type="submit">
                         <i class="fas fa-search"></i>
                     </button>

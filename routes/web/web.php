@@ -51,6 +51,7 @@ Route::name('web.')->group(function () {
     Route::get('/wishlist/delete/{rowId}', [WishlistController::class, 'delete'])->name('wishlist.delete');
     Route::get('/category/{slug}/products', [CategoryController::class, 'show'])->name('category.products.show');
     Route::get('/search/products', [SearchController::class, 'store'])->name('search.products.store');
+    Route::get('/search/auto', [SearchController::class, 'auto'])->name('search.auto');
     Route::get('/campaign/{slug}/products', [CampaignController::class, 'show'])->name('campaign.products.show');
     Route::get('/page/{slug}/info', [PageController::class, 'show'])->name('page.info.show');
     Route::post('/payment/update',[CheckoutController::class, 'update'])->name('payment.update');

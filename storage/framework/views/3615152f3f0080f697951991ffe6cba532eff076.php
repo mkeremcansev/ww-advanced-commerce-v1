@@ -2,8 +2,8 @@
        <div class="container">
            <div class="row">
                <div class="col-sm-6 col-xl-4">
-                   <div class="footer-widget"><a class="footer-logo" href="#"><img
-                               src="<?php echo e(asset('web')); ?>/images/logo.png" alt="logo"></a>
+                   <div class="footer-widget"><a class="footer-logo" href="<?php echo e(route('web.index')); ?>"><img
+                               src="<?php echo e(asset(setting('logo'))); ?>" alt="<?php echo e(setting('title')); ?>"></a>
                        <p class="footer-desc"><?php echo e(setting('description')); ?></p>
                        <ul class="footer-social">
                            <li><a class="icofont-facebook" href="<?php echo e(setting('facebook')); ?>"></a></li>
@@ -72,6 +72,7 @@
    <script src="<?php echo e(asset('web/story/dist/zuck.min.js')); ?>"></script>
    <script src="<?php echo e(asset('web/story/demo/script.js')); ?>"></script>
    <?php echo $__env->make('web.layouts.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
    <?php echo $__env->make('web.layouts.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    <?php echo $__env->yieldContent('script'); ?>
    </body>

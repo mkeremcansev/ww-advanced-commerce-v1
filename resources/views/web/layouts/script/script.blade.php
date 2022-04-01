@@ -1,4 +1,21 @@
    <script>
+       $('#search_input_typing').on('keyup', function(){
+            $('#search_input_typing').typeahead({
+                source: function (search, process) {
+                    return $.get("{{ route('web.search.auto') }}", {
+                        search: search
+                    }, function (data) {
+                        let products = []
+                        for(var i = 0; i < data.length; i++){
+                            products.push(data[i].get_one_product_attributes.title)
+                        }
+                        return process(products);
+                        
+                    });
+                }
+            });
+       })
+            
         let words = [
             @foreach ($categories as $r)
                 "{{ $r->title }}".replace(/&amp;/g, '&'),

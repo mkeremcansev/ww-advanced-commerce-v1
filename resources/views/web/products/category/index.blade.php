@@ -3,7 +3,7 @@
 @section('description', setting('description'))
 @section('keywords', setting('keywords'))
 @section('content')
-        <section class="inner-section shop-part">
+    <section class="inner-section shop-part">
         <div class="container">
             @if ($products->count())
                 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">

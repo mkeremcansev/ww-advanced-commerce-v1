@@ -11,7 +11,11 @@ class CategoryController extends Controller
 {
     public function show($slug)
     {
-        $products = Product::with(['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews'])->whereStatus(1)->where('category_id', Category::whereSlug($slug)->firstOrFail()->id)->paginate(15);
-        return view('web.products.category.index', ['products' => $products]);
+        $category = Category::whereSlug($slug)->firstOrFail();
+        $products = Product::with(['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews'])
+        ->whereStatus(1)
+        ->where('category_id', $category->id)
+        ->paginate(15);
+        return view('web.products.category.index', ['products' => $products, 'category'=>$category]);
     }
 }
