@@ -77,7 +77,7 @@ class SearchController extends Controller
                         $query
                             ->where('title', 'LIKE', "%{$request->search}%");
                     });
-            })->get();
+            })->take(10)->get();
 
         return response()->json($products);
     }

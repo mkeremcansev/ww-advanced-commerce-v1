@@ -7336,7 +7336,7 @@ border-color: var(--primary);
 }
 
 .header-form .typeahead {
-    width: auto !important;
+    width: max-content !important;
     margin-top: 5px !important;
 }
 .typeahead li {

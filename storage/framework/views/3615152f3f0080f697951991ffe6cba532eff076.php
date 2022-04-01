@@ -72,7 +72,7 @@
    <script src="<?php echo e(asset('web/story/dist/zuck.min.js')); ?>"></script>
    <script src="<?php echo e(asset('web/story/demo/script.js')); ?>"></script>
    <?php echo $__env->make('web.layouts.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+   <script src="<?php echo e(asset('web/js/typeahead.js')); ?>"></script>
    <?php echo $__env->make('web.layouts.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    <?php echo $__env->yieldContent('script'); ?>
    </body>
