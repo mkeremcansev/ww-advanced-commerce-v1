@@ -76,7 +76,7 @@
                     </a>
                 @endauth
                 
-                <form class="header-form" method="GET" action="{{ route('web.search.products.store') }}">
+                <form class="header-form" id="realtime-search-submit" method="GET" action="{{ route('web.search.products.store') }}">
                     <input type="text" name="search" id="search_input_typing" autocomplete="off" placeholder="">
                     <button type="submit">
                         <i class="fas fa-search"></i>

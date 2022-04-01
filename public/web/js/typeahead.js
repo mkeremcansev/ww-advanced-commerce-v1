@@ -358,6 +358,7 @@
             this.select();
             this.$element.focus();
             this.hide()
+            $('#realtime-search-submit').submit()
         },
         mouseenter: function(e) {
             this.mousedover = true;
