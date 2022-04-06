@@ -50,30 +50,9 @@ class SearchController extends Controller
         $products = Product::whereStatus(1)
             ->with([
                 'getOneProductAttributes',
-                'getAllProductReviews',
-                'getOneProductImages'
             ])->where(function ($query) use ($request) {
                 $query
                     ->whereHas('getOneProductAttributes', function ($query) use ($request) {
-                        $query
-                            ->where('title', 'LIKE', "%{$request->search}%")
-                            ->orWhere('description', 'LIKE', "%{$request->search}%")
-                            ->orWhere('sku', 'LIKE', "%{$request->search}%");
-                    })
-                    ->orWhereHas('getAllProductInformations', function ($query) use ($request) {
-                        $query
-                            ->where('title', 'LIKE', "%{$request->search}%")
-                            ->orWhere('description', 'LIKE', "%{$request->search}%");
-                    })
-                    ->orWhereHas('getOneProductCategory', function ($query) use ($request) {
-                        $query
-                            ->where('title', 'LIKE', "%{$request->search}%");
-                    })
-                    ->orWhereHas('getOneProductBrand', function ($query) use ($request) {
-                        $query
-                            ->where('title', 'LIKE', "%{$request->search}%");
-                    })
-                    ->orWhereHas('getAllProductVariants.getAllVariantAttributes', function ($query) use ($request) {
                         $query
                             ->where('title', 'LIKE', "%{$request->search}%");
                     });

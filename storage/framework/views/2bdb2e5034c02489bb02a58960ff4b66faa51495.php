@@ -1,6 +1,6 @@
 
 <?php $__env->startSection('title'); ?>
-    <?php echo app('translator')->get('words.active_review_list'); ?>
+    <?php echo app('translator')->get('words.passive_review_list'); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('panel.review.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->startSection('content'); ?>
@@ -24,7 +24,7 @@
                             <?php endif; ?>
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title"><?php echo app('translator')->get('words.active_review_list'); ?></h4>
+                                    <h4 class="card-title"><?php echo app('translator')->get('words.passive_review_list'); ?></h4>
                                 </div>
                                 <div class="card-datatable">
                                     <table id="category_list_table" class="dt-responsive table">
@@ -89,4 +89,4 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('panel.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/panel/review/active/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('panel.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/panel/review/passive/index.blade.php ENDPATH**/ ?>

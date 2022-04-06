@@ -97,11 +97,4 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::view('/xml/product/insert', 'panel.xml.index')->name('xml.product.insert.index');
     Route::post('/xml/product/insert', [XmlProductInsertController::class, 'store'])->name('xml.product.insert.store');
     Route::get('/xml/sample/file/download', [XmlProductInsertController::class, 'download'])->name('xml.sample.file.download');
-    Route::get('/test', function(){
-        $xml = [];
-        $result = ArrayToXml::convert($xml, [
-            'rootElementName' => 'main',
-        ], true, 'UTF-8');
-        return response($result)->header('Content-Type', 'text/xml');
-    });
 });

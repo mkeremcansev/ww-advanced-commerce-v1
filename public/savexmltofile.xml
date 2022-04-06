@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<user>
+    <username> user123 </username>
+    <name> firstname lastname </name>
+    <phone> +91-9876543210 </phone>
+    <detail> I am John Doe. Live in Kolkata, India. </detail>
+</user>

@@ -2,7 +2,6 @@
 @section('title', __('words.payment_page'))
 @section('description', setting('description'))
 @section('keywords', setting('keywords'))
-@include('web.checkout.script.script')
 @section('content')
 <section class="inner-section">
     <div class="container">
