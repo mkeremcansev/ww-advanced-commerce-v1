@@ -7312,10 +7312,10 @@ border-color: var(--primary);
 }
 @media only screen and (max-width: 1800px) {
     .left_banner {
-        left: 40px !important;
+        left: 35px !important;
     }
     .right_banner {
-        right: 40px !important;
+        right: 35px !important;
     }            
 }
 @media only screen and (max-width: 1600px) {
