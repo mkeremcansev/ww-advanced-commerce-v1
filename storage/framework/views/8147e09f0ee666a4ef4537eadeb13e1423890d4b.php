@@ -1,4 +1,14 @@
    <script>
+    $('#shopping_modal_button').on('click', function(){
+        localStorage.setItem('shopping_modal', true)
+    })
+    $(window).on('load', function() {
+        if(localStorage.getItem('shopping_modal')){
+            $('#shopping_modal').modal('hide');
+        } else {
+            $('#shopping_modal').modal('show');
+        }
+    });
        $('#search_input_typing').on('keyup', function(){
             $('#search_input_typing').typeahead({
                 source: function (search, process) {
@@ -15,7 +25,6 @@
                 }
             });
        })
-            
         let words = [
             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 "<?php echo e($r->title); ?>".replace(/&amp;/g, '&'),

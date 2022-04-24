@@ -366,4 +366,5 @@ return [
     'new_success_order'=>'Yeni başarılı ":type" sipariş ":email"',
     'door_pay'=>'Kapıda Ödeme',
     'credit_card'=>'Kredi Kartı',
+    'popup'=>'Popup',
 ];

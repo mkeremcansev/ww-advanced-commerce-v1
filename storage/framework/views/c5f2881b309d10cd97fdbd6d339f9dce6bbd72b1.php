@@ -28,10 +28,17 @@
     <link rel="stylesheet" href="<?php echo e(asset('web/story/demo/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/zuck.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/skins/snapgram.css')); ?>">
-    
 </head>
 <body>
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <div class="modal fade" id="shopping_modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button class="modal-close" data-bs-dismiss="modal" id="shopping_modal_button"><i class="icofont-close"></i></button>
+                <img class="img-fluid  rounded" src="<?php echo e(asset(setting('popup'))); ?>" alt="<?php echo e(setting('title')); ?>">
+            </div>
+        </div>
+    </div>
     <div class="backdrop"></div>
     <a class="backtop fas fa-arrow-up" href="#"></a>
     <header class="header-part">

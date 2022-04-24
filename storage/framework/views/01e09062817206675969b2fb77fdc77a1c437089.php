@@ -109,6 +109,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.paytr'); ?></span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.popup.index')); ?>" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span><?php echo app('translator')->get('words.popup'); ?></span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="<?php echo e(route('panel.smtp.index')); ?>" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span><?php echo app('translator')->get('words.smtp'); ?></span>

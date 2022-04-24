@@ -17,6 +17,7 @@ use App\Http\Controllers\panel\OrderController;
 use App\Http\Controllers\panel\PageController;
 use App\Http\Controllers\panel\PaymentMethodController;
 use App\Http\Controllers\panel\PayTRController;
+use App\Http\Controllers\panel\PopupController;
 use App\Http\Controllers\panel\ProductController;
 use App\Http\Controllers\panel\ProductImageController;
 use App\Http\Controllers\panel\ProductMultiplePriceController;
@@ -64,6 +65,8 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::post('/css/update', [CssController::class, 'update'])->name('css.update');
     Route::view('/design', 'panel.general.design.index')->name('design.index');
     Route::post('/design/update', [DesignController::class, 'update'])->name('design.update');
+    Route::view('/popup', 'panel.general.popup.index')->name('popup.index');
+    Route::post('/popup/update', [PopupController::class, 'update'])->name('popup.update');
     Route::view('/smtp', 'panel.general.smtp.index')->name('smtp.index');
     Route::post('/smtp/update', [SMTPController::class, 'update'])->name('smtp.update');
     Route::view('/oauth', 'panel.general.oauth.index')->name('oauth.index');

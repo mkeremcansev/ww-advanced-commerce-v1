@@ -109,6 +109,10 @@
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.paytr')</span>
                                 </a>
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.popup.index') }}" data-toggle="dropdown">
+                                    <i data-feather="chevrons-right"></i>
+                                    <span>@lang('words.popup')</span>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('panel.smtp.index') }}" data-toggle="dropdown">
                                     <i data-feather="chevrons-right"></i>
                                     <span>@lang('words.smtp')</span>

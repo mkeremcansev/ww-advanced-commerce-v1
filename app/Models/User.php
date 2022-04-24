@@ -29,8 +29,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'oauth_type',
     ];
 
-    // protected $with = ['getAllUserReviews.getOneReviewProduct', 'getAllUserAttributePhones', 'getAllUserAttributeAdresses'];
-
     public function getAllUserAttributePhones()
     {
         return $this->hasMany(UserAttribute::class, 'user_id', 'id')->whereType(1);
