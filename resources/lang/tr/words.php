@@ -367,4 +367,9 @@ return [
     'door_pay'=>'Kapıda Ödeme',
     'credit_card'=>'Kredi Kartı',
     'popup'=>'Popup',
+    'announcement'=>'Duyuru',
+    'announcements'=>'Duyurular',
+    'announcement_edit'=>'Duyuru Düzenle',
+    'announcement_create'=>'Duyuru Ekle',
+    'announcement_list'=>'Duyuru Listesi',
 ];

@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('web/story/demo/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/story/dist/zuck.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web/story/dist/skins/snapgram.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/marquee.css') }}">
 </head>
 <body>
     @include('web.layouts.loader')

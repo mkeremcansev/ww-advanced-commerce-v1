@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\panel\ActiveAndPassiveReviewController;
 use App\Http\Controllers\panel\AdminController;
+use App\Http\Controllers\panel\AnnouncementController;
 use App\Http\Controllers\panel\BannerController;
 use App\Http\Controllers\panel\BrandController;
 use App\Http\Controllers\panel\CampaignController;
@@ -53,6 +54,7 @@ Route::prefix('/admin')->name('panel.')->middleware(['auth', 'role:admin'])->gro
     Route::resource('/slider', SliderController::class);
     Route::resource('/showcase', ShowcaseController::class);
     Route::resource('/story', StoryController::class);
+    Route::resource('/announcement', AnnouncementController::class);
     Route::get('/log', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('log.index');
     Route::get('/product/image/delete/{id}', [ProductImageController::class, 'destroy'])->name('product.image.destroy');
     Route::view('/setting', 'panel.general.setting.index')->name('setting.index');

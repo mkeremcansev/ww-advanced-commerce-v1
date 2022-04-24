@@ -68,6 +68,7 @@
    <script src="<?php echo e(asset('web/js/venobox.js')); ?>"></script>
    <script src="<?php echo e(asset('web/js/slick.js')); ?>"></script>
    <script src="<?php echo e(asset('web/js/main.js')); ?>"></script>
+   <script src="<?php echo e(asset('web/js/marquee.js')); ?>"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="<?php echo e(asset('web/story/dist/zuck.min.js')); ?>"></script>
    <script src="<?php echo e(asset('web/story/demo/script.js')); ?>"></script>

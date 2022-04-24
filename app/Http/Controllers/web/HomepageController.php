@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Announcement;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\Product;
@@ -51,6 +52,9 @@ class HomepageController extends Controller
         });
         Cache::remember('stories', 60 * 60, function(){
             return Story::with('getAllStoryAttributes')->get();
+        });
+        Cache::remember('announcements', 60 * 60, function(){
+            return Announcement::get();
         });
         return view('web.homepage.index');
     }

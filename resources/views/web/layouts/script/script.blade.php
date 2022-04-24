@@ -1,4 +1,5 @@
    <script>
+    $('.simple-marquee-container').SimpleMarquee();
     $('#shopping_modal_button').on('click', function(){
         localStorage.setItem('shopping_modal', true)
     })
