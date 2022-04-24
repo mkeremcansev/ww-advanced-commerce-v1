@@ -7292,13 +7292,13 @@ border-color: var(--primary);
 }
 .right_banner {
     position: fixed;
-    z-index: 4;
+    z-index: 3;
     right: 80px !important;
     margin-top: 5%;
 }
 .left_banner {
     position: fixed;
-    z-index: 4;
+    z-index: 3;
     margin-top: 5%;
     left: 80px !important;
 }
