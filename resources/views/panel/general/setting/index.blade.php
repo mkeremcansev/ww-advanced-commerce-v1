@@ -104,7 +104,7 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <div class="custom-control custom-control-primary custom-switch">
-                                                    <p class="mb-50">@lang('words.facebook_and_twitter_login')</p>
+                                                    <p class="mb-50">@lang('words.facebook_and_google_login')</p>
                                                     <input type="checkbox" name="oauth" @if(setting('oauth')) checked @endif class="custom-control-input" id="oauth">
                                                     <label class="custom-control-label" for="oauth"></label>
                                                 </div>

@@ -304,7 +304,7 @@ return [
     'tab'=>'Tab (Yeni ürünler, Popüler ürünler, İndirimli ürünler)',
     'homepage_design'=>'Anasayfa Düzeni',
     'homepage_design_edit'=>'Anasayfa Düzeni Düzenle',
-    'facebook_and_twitter_login'=>'Facebook & Twitter Giriş İşlemi',
+    'facebook_and_google_login'=>'Facebook & Google Giriş İşlemi',
     'email_verification_status_change'=>'E-Posta Doğrulama işlemi',
     'smtp'=>'SMTP',
     'smtp_host'=>'SMTP Host',
@@ -372,4 +372,7 @@ return [
     'announcement_edit'=>'Duyuru Düzenle',
     'announcement_create'=>'Duyuru Ekle',
     'announcement_list'=>'Duyuru Listesi',
+    'usd'=>'Dolar :price :currency_unit',
+    'eur'=>'Euro :price :currency_unit',
+    'not_have_data'=>'Veri bulunmuyor.',
 ];

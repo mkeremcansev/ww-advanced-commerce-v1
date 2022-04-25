@@ -1,4 +1,15 @@
-   <script>
+<script>
+    $(document).ready(function(){
+        fetch('https://finans.truncgil.com/v3/today.json').then(function(response){
+            response.json().then((data)=>{
+                $('.usd').text('@lang("words.usd", ["price"=>"'+data.USD.Selling+'", "currency_unit"=>__("words.currency_unit")])')
+                $('.eur').text('@lang("words.eur", ["price"=>"'+data.EUR.Selling+'", "currency_unit"=>__("words.currency_unit")])')
+            })
+        }).catch(function(){
+            $('.usd').text('@lang("words.not_have_data")')
+            $('.eur').text('@lang("words.not_have_data")')
+        })
+    })
     $('.simple-marquee-container').SimpleMarquee();
     $('#shopping_modal_button').on('click', function(){
         localStorage.setItem('shopping_modal', true)
@@ -72,4 +83,4 @@
         loopDeleting();
         };
         typingEffect();
-   </script>
+</script>

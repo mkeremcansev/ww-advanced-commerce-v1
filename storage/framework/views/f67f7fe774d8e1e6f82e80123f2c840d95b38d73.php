@@ -2,33 +2,7 @@
 <?php $__env->startSection('title'); ?>
     <?php echo app('translator')->get('words.homepage_design_edit'); ?>
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('script'); ?>
-    <script src="<?php echo e(asset('panel/app-assets/js/scripts/extensions/ext-component-drag-drop.js')); ?>"></script>
-    <script src="<?php echo e(asset('panel')); ?>/app-assets/vendors/js/extensions/dragula.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            let array = []
-            const list = $('#handle-list-2')
-            $('#design_btn').on('click', function(){
-                for (let i = 0; i < list[0].children.length; i++) {
-                    array.push({number:list[0].children[i].attributes[2].value, title:list[0].children[i].attributes[1].value})
-                } 
-                $.ajax({
-                    method: 'POST',
-                    url: '<?php echo e(route("panel.design.update")); ?>',
-                    data: {design:array},
-                    dataType: 'json',
-                    success:function(response){
-                        location.reload()
-                    },
-                    error:function(response){
-                        console.log(response)
-                    }
-                })
-            })
-        })
-    </script>
-<?php $__env->stopSection(); ?>
+<?php echo $__env->make('panel.general.design.script.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->startSection('style'); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel/app-assets/css/plugins/extensions/ext-component-drag-drop.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('panel')); ?>/app-assets/vendors/css/extensions/dragula.min.css">

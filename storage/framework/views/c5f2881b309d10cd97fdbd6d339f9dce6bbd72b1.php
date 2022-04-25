@@ -42,6 +42,18 @@
     </div>
     <div class="backdrop"></div>
     <a class="backtop fas fa-arrow-up" href="#"></a>
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-white text-center">
+                        <span class="usd"></span>
+                        <span class="eur"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header-part">
         <div class="container">
             <div class="header-content">

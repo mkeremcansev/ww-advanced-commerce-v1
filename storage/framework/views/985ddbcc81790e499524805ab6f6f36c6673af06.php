@@ -105,7 +105,7 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <div class="custom-control custom-control-primary custom-switch">
-                                                    <p class="mb-50"><?php echo app('translator')->get('words.facebook_and_twitter_login'); ?></p>
+                                                    <p class="mb-50"><?php echo app('translator')->get('words.facebook_and_google_login'); ?></p>
                                                     <input type="checkbox" name="oauth" <?php if(setting('oauth')): ?> checked <?php endif; ?> class="custom-control-input" id="oauth">
                                                     <label class="custom-control-label" for="oauth"></label>
                                                 </div>

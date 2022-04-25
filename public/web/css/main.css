@@ -3831,7 +3831,17 @@ tbody tr td:last-child {
     -ms-flex-pack: center;
     justify-content: center
 }
-
+.header-top-select p{
+    font-size: 14px;
+    color: var(--white);
+    letter-spacing: 0.3px;
+}
+.usd {
+    margin-right: 0.5rem !important;
+}
+.eur {
+    margin-left: 0.5rem !important;
+}
 .header-select {
     width: 100%;
     display: -webkit-box;
@@ -3843,7 +3853,6 @@ tbody tr td:last-child {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    border-right: 1px solid var(--green)
 }
 
 .header-select:last-child {
