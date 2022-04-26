@@ -10,7 +10,7 @@
     <title><?php echo e(setting('title')); ?> - <?php echo $__env->yieldContent('title'); ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
     <link rel="icon" href="<?php echo e(asset(setting('favicon'))); ?>">
-    <?php echo $__env->make('web.layouts.style.style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
     <link rel="stylesheet" href="<?php echo e(asset('web/fonts/flaticon/flaticon.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/fonts/icofont/icofont.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/fonts/fontawesome/fontawesome.min.css')); ?>">
@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/zuck.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/story/dist/skins/snapgram.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('web/css/marquee.css')); ?>">
+    <?php echo $__env->make('web.layouts.style.style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </head>
 <body>
     <?php echo $__env->make('web.layouts.loader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -45,11 +46,18 @@
     <div class="header-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <p class="text-white text-center">
+                <div class="col-lg-6 mobile-currency">
+                    <p class="text-white">
                         <span class="usd"></span>
                         <span class="eur"></span>
                     </p>
+                </div>
+                <div class="col-lg-6 mobile-social custom-text-align-right">
+                    <a class="text-white custom-margin-right-0-5" href="<?php echo e(setting('facebook')); ?>"><i class="icofont-facebook"></i></a>
+                    <a class="text-white custom-margin-right-0-5" href="<?php echo e(setting('twitter')); ?>"><i class="icofont-twitter"></i></a>
+                    <a class="text-white custom-margin-right-0-5" href="<?php echo e(setting('instagram')); ?>"><i class="icofont-instagram"></i></a>
+                    <a class="text-white custom-margin-right-0-5" href="mailto:<?php echo e(setting('mail')); ?>"><i class="fas fa-envelope"></i></a>
+                    <a class="text-white" href="tel:<?php echo e(setting('phone')); ?>"><i class="icofont-phone"></i></a>
                 </div>
             </div>
         </div>

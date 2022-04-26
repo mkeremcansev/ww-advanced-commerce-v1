@@ -125,5 +125,5 @@ function getStockControl($variants){
             $value += $a->stock;
         }
     }
-    return $value == 0 ? true : false;
+    return $value == 0 ? 'product-disable' : false;
 }

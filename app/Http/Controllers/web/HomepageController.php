@@ -18,7 +18,7 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $with = ['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews'];
+        $with = ['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews', 'getAllProductVariants.getAllVariantAttributes'];
         Cache::remember('r_categories', 60 * 60, function () {
             return  Category::with('getAllCategoryProducts')->inRandomOrder()->get();
         });

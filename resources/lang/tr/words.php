@@ -375,4 +375,5 @@ return [
     'usd'=>'Dolar :price :currency_unit',
     'eur'=>'Euro :price :currency_unit',
     'not_have_data'=>'Veri bulunmuyor.',
+    'sold_out'=>'Tükendi',
 ];

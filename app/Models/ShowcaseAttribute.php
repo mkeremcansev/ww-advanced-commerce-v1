@@ -9,6 +9,7 @@ class ShowcaseAttribute extends Model
 {
     use HasFactory;
     protected $fillable = ['image', 'showcase_id', 'category_id', 'url'];
+    
     public function getOneShowcaseAttributeCategory(){
         return $this->hasOne(Category::class, 'id', 'category_id');
     }

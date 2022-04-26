@@ -10,7 +10,7 @@
                     @foreach ($products as $p)
                     @php($product = $p->getOneProductAttributes)
                         <div class="col">
-                            <div class="product-card">
+                            <div class="product-card {{ getStockControl($p->getAllProductVariants) }}">
                                 <div class="product-media">
                                     <div class="product-label p-2">
                                         @foreach (getProductLabel($product->discount, $product->price, $p->created_at, $p->getAllProductReviews->avg('rating')) as $l)

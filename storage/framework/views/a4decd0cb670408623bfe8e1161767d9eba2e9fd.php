@@ -1,9 +1,9 @@
 
-<?php $__env->startSection('title', __('words.category')); ?>
+<?php $__env->startSection('title', __('words.campaign')); ?>
 <?php $__env->startSection('description', setting('description')); ?>
 <?php $__env->startSection('keywords', setting('keywords')); ?>
 <?php $__env->startSection('content'); ?>
-    <section class="inner-section shop-part">
+        <section class="inner-section shop-part">
         <div class="container">
             <?php if($products->count()): ?>
                 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">
@@ -52,8 +52,8 @@
             <?php else: ?>
             <div class="row row-cols-12 row-cols-md-12 row-cols-lg-12 row-cols-xl-12">
                 <div class="product-card pb-5 pt-5 mt-5">
-                        <h5 class="text-center"><?php echo app('translator')->get('words.category_not_have_product'); ?></h5>
-                    </div>
+                    <h5 class="text-center"><?php echo app('translator')->get('words.campaign_not_have_product'); ?></h5>
+                </div>
             </div>
             <?php endif; ?>
              <?php echo e($products->links('vendor.pagination.pagination')); ?>
@@ -61,4 +61,4 @@
         </div>
     </section>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('web.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/products/category/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('web.layouts.extends', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\eticaretim\resources\views/web/products/campaign/index.blade.php ENDPATH**/ ?>

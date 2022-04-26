@@ -10,7 +10,7 @@ class CampaignController extends Controller
 {
     public function show($slug)
     {
-        $products = Product::whereStatus(1)->with(['getOneProductAttributes', 'getAllProductReviews', 'getOneProductImages'])
+        $products = Product::whereStatus(1)->with(['getOneProductAttributes', 'getAllProductReviews', 'getOneProductImages', 'getAllProductVariants.getAllVariantAttributes'])
             ->whereHas('getAllCampaignProducts.getAllCampaignAttributeCampaigns', function ($query) use ($slug) {
                 $query->whereSlug($slug);
             })->paginate(15);

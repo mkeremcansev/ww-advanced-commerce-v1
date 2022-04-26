@@ -15,7 +15,8 @@ class SearchController extends Controller
             ->with([
                 'getOneProductAttributes',
                 'getAllProductReviews',
-                'getOneProductImages'
+                'getOneProductImages',
+                'getAllProductVariants.getAllVariantAttributes'
             ])->where(function ($query) use ($request) {
                 $query
                     ->whereHas('getOneProductAttributes', function ($query) use ($request) {

@@ -286,8 +286,6 @@ button:focus {
     display: none;
     border-radius: 50%;
     background: var(--primary);
-    -webkit-animation: mahmud 2s infinite;
-    animation: mahmud 2s infinite;
     transition: all linear .3s;
     -webkit-transition: all linear .3s;
     -moz-transition: all linear .3s;
@@ -299,23 +297,6 @@ button:focus {
     color: var(--white)
 }
 
-@-webkit-keyframes mahmud {
-    0% {
-        margin-bottom: 0px
-    }
-    50% {
-        margin-bottom: 15px
-    }
-}
-
-@keyframes mahmud {
-    0% {
-        margin-bottom: 0px
-    }
-    50% {
-        margin-bottom: 15px
-    }
-}
 
 @media (max-width: 575px) {
     .backtop {
@@ -1921,54 +1902,6 @@ tbody tr td:last-child {
 
 .product-price span small {
     font-weight: 400
-}
-
-.product-disable {
-    position: relative
-}
-
-.product-disable:hover {
-    border-color: var(--border);
-    -webkit-box-shadow: none;
-    box-shadow: none
-}
-
-.product-disable:hover .product-add {
-    color: var(--heading);
-    background: var(--border)
-}
-
-.product-disable .product-widget {
-    visibility: hidden
-}
-
-.product-disable::before {
-    position: absolute;
-    content: "Tükendi";
-    top: 40%;
-    left: 50%;
-    z-index: 2;
-    width: 100%;
-    font-size: 15px;
-    font-weight: 400;
-    padding: 15px 0px;
-    text-align: center;
-    text-shadow: var(--primary-tshadow);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: var(--white);
-    background: var(--primary)
-}
-.product-disable::after {
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.6)
 }
 
 @media (max-width: 575px) {
@@ -4218,6 +4151,15 @@ tbody tr td:last-child {
 }
 
 @media (max-width: 991px) {
+    .mobile-social {
+        display: none !important;
+    }
+    .mobile-email {
+        display: none !important;
+    }
+    .mobile-currency {
+        text-align: center !important;
+    }
     .header-content {
         padding: 10px 0px;
         -webkit-box-orient: vertical;
@@ -7355,4 +7297,13 @@ border-color: var(--primary);
 }
 .typeahead li a{
     border-radius: 5px !important;
+}
+.custom-text-align-right {
+    text-align: right !important;
+}
+.custom-margin-right-0-5{
+    margin-right: 0.7rem !important;
+}
+.custom-margin-right-0-2 {
+    margin-right: 0.2rem !important;
 }

@@ -10,7 +10,7 @@
     <title>{{ setting('title') }} - @yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"> 
     <link rel="icon" href="{{ asset(setting('favicon')) }}">
-    @include('web.layouts.style.style')
+    
     <link rel="stylesheet" href="{{ asset('web/fonts/flaticon/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/icofont/icofont.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web/fonts/fontawesome/fontawesome.min.css') }}">
@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('web/story/dist/zuck.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web/story/dist/skins/snapgram.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/marquee.css') }}">
+    @include('web.layouts.style.style')
 </head>
 <body>
     @include('web.layouts.loader')
@@ -45,11 +46,18 @@
     <div class="header-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <p class="text-white text-center">
+                <div class="col-lg-6 mobile-currency">
+                    <p class="text-white">
                         <span class="usd"></span>
                         <span class="eur"></span>
                     </p>
+                </div>
+                <div class="col-lg-6 mobile-social custom-text-align-right">
+                    <a class="text-white custom-margin-right-0-5" href="{{ setting('facebook') }}"><i class="icofont-facebook"></i></a>
+                    <a class="text-white custom-margin-right-0-5" href="{{ setting('twitter') }}"><i class="icofont-twitter"></i></a>
+                    <a class="text-white custom-margin-right-0-5" href="{{ setting('instagram') }}"><i class="icofont-instagram"></i></a>
+                    <a class="text-white custom-margin-right-0-5" href="mailto:{{ setting('mail') }}"><i class="fas fa-envelope"></i></a>
+                    <a class="text-white" href="tel:{{ setting('phone') }}"><i class="icofont-phone"></i></a>
                 </div>
             </div>
         </div>

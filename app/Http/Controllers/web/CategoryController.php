@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function show($slug)
     {
         $category = Category::whereSlug($slug)->firstOrFail();
-        $products = Product::with(['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews'])
+        $products = Product::with(['getOneProductAttributes', 'getOneProductImages', 'getAllProductReviews', 'getAllProductVariants.getAllVariantAttributes'])
         ->whereStatus(1)
         ->where('category_id', $category->id)
         ->paginate(15);

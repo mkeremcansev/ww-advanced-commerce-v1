@@ -4,7 +4,7 @@
             @foreach (Cache::get('r_products') as $r)
             @php($product = $r->getOneProductAttributes)
                 <div class="col">
-                    <div class="product-card">
+                    <div class="product-card {{ getStockControl($r->getAllProductVariants) }}">
                         <div class="product-media">
                             <div class="product-label p-2">
                                 @foreach (getProductLabel($product->discount, $product->price, $r->created_at, $r->getAllProductReviews->avg('rating')) as $l)

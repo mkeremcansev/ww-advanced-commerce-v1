@@ -47,4 +47,52 @@
     --primary-tshadow: 2px 3px 8px rgba(0, 0, 0, 0.1)
 }
 {{ setting('css') }}
+
+.product-disable {
+    position: relative
+}
+
+.product-disable:hover {
+    border-color: var(--border);
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+.product-disable:hover .product-add {
+    color: var(--heading);
+    background: var(--border)
+}
+
+.product-disable .product-widget {
+    visibility: hidden
+}
+
+.product-disable::before {
+    position: absolute;
+    content: "@lang('words.sold_out')";
+    top: 40%;
+    left: 50%;
+    z-index: 2;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 15px 0px;
+    text-align: center;
+    text-shadow: var(--primary-tshadow);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    background: var(--primary)
+}
+.product-disable::after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6)
+}
 </style>
