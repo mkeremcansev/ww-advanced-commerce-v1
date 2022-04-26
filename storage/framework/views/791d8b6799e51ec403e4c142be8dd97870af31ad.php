@@ -4,7 +4,7 @@
         <?php $__currentLoopData = Cache::get('p_products'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php ($product = $p->getOneProductAttributes); ?>
                 <div class="col">
-                    <div class="product-card">
+                    <div class="product-card <?php echo e(getStockControl($p->getAllProductVariants)); ?>">
                         <div class="product-media">
                             <div class="product-label p-2">
                                 <?php $__currentLoopData = getProductLabel($product->discount, $product->price, $p->created_at, $p->getAllProductReviews->avg('rating')); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

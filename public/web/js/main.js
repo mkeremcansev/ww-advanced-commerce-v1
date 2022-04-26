@@ -9,23 +9,23 @@ $(window).on("scroll", (function() {
 })), $(".nav-link").on("click", (function() {
     $(".nav-list li a").removeClass("active"), $(this).addClass("active")
 })), $(".header-cate, .cate-btn").on("click", (function() {
-    $("body").css("overflow", "hidden"), $(".category-sidebar").addClass("active"), $(".category-close").on("click", (function() {
-        $("body").css("overflow", "inherit"), $(".category-sidebar").removeClass("active"), $(".backdrop").fadeOut()
+    $(".category-sidebar").addClass("active"), $(".category-close").on("click", (function() {
+        $(".category-sidebar").removeClass("active"), $(".backdrop").fadeOut()
     }))
 })),
 $(".header-cart, .cart-btn").on("click", (function() {
-    $("body").css("overflow", "hidden"), $(".cart-sidebar").addClass("active"), $(".cart-close").on("click", (function() {
-        $("body").css("overflow", "inherit"), $(".cart-sidebar").removeClass("active"), $(".backdrop").fadeOut()
+     $(".cart-sidebar").addClass("active"), $(".cart-close").on("click", (function() {
+    $(".cart-sidebar").removeClass("active"), $(".backdrop").fadeOut()
     }))
 })),
 $(".header-wish, .wishlist-btn").on("click", (function() {
-    $("body").css("overflow", "hidden"), $(".wishlist-sidebar").addClass("active"), $(".wishlist-close").on("click", (function() {
-        $("body").css("overflow", "inherit"), $(".wishlist-sidebar").removeClass("active"), $(".backdrop").fadeOut()
+    $(".wishlist-sidebar").addClass("active"), $(".wishlist-close").on("click", (function() {
+        $(".wishlist-sidebar").removeClass("active"), $(".backdrop").fadeOut()
     }))
 })),
 $(".header-cart, .header-cate, .cart-btn, .cate-btn, .header-wish, .wishlist-btn").on("click", (function() {
     $(".backdrop").fadeIn(), $(".backdrop").on("click", (function() {
-        $(this).fadeOut(), $("body").css("overflow", "inherit"), $(".nav-sidebar").removeClass("active"), $(".cart-sidebar").removeClass("active"), $(".wishlist-sidebar").removeClass("active"), $(".category-sidebar").removeClass("active")
+        $(this).fadeOut(), $(".nav-sidebar").removeClass("active"), $(".cart-sidebar").removeClass("active"), $(".wishlist-sidebar").removeClass("active"), $(".category-sidebar").removeClass("active")
     }))
 })),
 $(".coupon-btn").on("click", (function() {
