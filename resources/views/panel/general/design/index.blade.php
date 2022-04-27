@@ -5,7 +5,7 @@
 @include('panel.general.design.script.script')
 @section('style')
     <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/css/plugins/extensions/ext-component-drag-drop.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('panel') }}/app-assets/vendors/css/extensions/dragula.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('panel/app-assets/vendors/css/extensions/dragula.min.css') }}">
 @endsection
 @section('content')
     <div class="app-content content">
