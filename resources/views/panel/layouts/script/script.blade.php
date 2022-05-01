@@ -3,6 +3,7 @@
         selector: 'textarea#tiny',
         language: 'tr_TR',
         height: 600,
+        object_resizing : 'img',
         image_class_list: [
         {title: 'Responsive Image', value: 'cw-img-responsive'},
         ],

@@ -974,8 +974,7 @@ button:focus {
 }
 
 .star-rating label::before {
-    content: "\ec7c";
-    font-family: 'Icofont';
+    content: "\f005";
     font-weight: 900;
     font-size: 35px;
     display: block;
@@ -983,8 +982,7 @@ button:focus {
 }
 
 .star-rating label::after {
-    content: "\ec7c";
-    font-family: 'Icofont';
+    content: "\f005";
     font-weight: 900;
     font-size: 35px;
     position: absolute;

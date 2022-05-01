@@ -61,7 +61,7 @@
                         </h3>
                         <p class="details-desc">
                             <div class="mb-4">
-                                {!! getShowMore($p->description).'...' !!}
+                                {{ str_replace('&nbsp;',' ',strip_tags(getShowMore($p->description).'...')) }}
                                 <a class="main-text-color" href="#informations">@lang('words.show_more')</a>
                             </div>
                         </p>
@@ -180,15 +180,15 @@
                                         <div class="col-lg-12">
                                             <div class="star-rating">
                                                 <input type="radio" class="rating-input" name="rating" id="star-1" value="5">
-                                                <label for="star-1"></label>
+                                                <label for="star-1" class="ecicon eci-star"></label>
                                                 <input type="radio" class="rating-input" name="rating" id="star-2" value="4">
-                                                <label for="star-2"></label>
+                                                <label for="star-2" class="ecicon eci-star"></label>
                                                 <input type="radio" class="rating-input" name="rating" id="star-3" value="3">
-                                                <label for="star-3"></label>
+                                                <label for="star-3" class="ecicon eci-star"></label>
                                                 <input type="radio" class="rating-input" name="rating" id="star-4" value="2">
-                                                <label for="star-4"></label>
+                                                <label for="star-4" class="ecicon eci-star"></label>
                                                 <input type="radio" class="rating-input" name="rating" id="star-5" value="1">
-                                                <label for="star-5"></label>
+                                                <label for="star-5" class="ecicon eci-star"></label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
