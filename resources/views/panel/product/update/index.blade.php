@@ -264,7 +264,7 @@
                                                                 <div class="col-md-3 col-6">
                                                                     <img width="220px" src="{{ asset($image->image) }}" class="img-fluid rounded mb-1"/>
                                                                         <div>
-                                                                            <button href="{{ route('panel.product.image.destroy', $image->id) }}" class="btn btn-danger waves-effect waves-float waves-light mb-1">@lang('words.delete')</button>
+                                                                            <a href="{{ route('panel.product.image.destroy', $image->id) }}" class="btn btn-danger waves-effect waves-float waves-light mb-1">@lang('words.delete')</a>
                                                                         </div>
                                                                 </div>
                                                             @endforeach
