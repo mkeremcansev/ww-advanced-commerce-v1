@@ -176,6 +176,6 @@ class CheckoutController extends Controller
     }
 
     public function update(CheckoutUpdateRequest $request){
-        Paytr::update($request);
+       Paytr::update($request);
     }
 }
